@@ -1,0 +1,65 @@
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class*="_icon-"] {
+	&:before {
+		@extend %ic;
+		display: block;
+	}
+}
+
+._icon-arrow:before {
+	content: "\e900";
+}
+
+._icon-callback:before {
+	content: "\e901";
+}
+
+._icon-care:before {
+	content: "\e902";
+}
+
+._icon-checked:before {
+	content: "\e903";
+}
+
+._icon-communications:before {
+	content: "\e904";
+}
+
+._icon-development:before {
+	content: "\e905";
+}
+
+._icon-estimate:before {
+	content: "\e906";
+}
+
+._icon-management:before {
+	content: "\e907";
+}
+
+._icon-play_btn:before {
+	content: "\e908";
+}
+
+._icon-select_arrow:before {
+	content: "\e909";
+}
+
+._icon-selection:before {
+	content: "\e90a";
+}
+
+._icon-small_arrow:before {
+	content: "\e90b";
+}
