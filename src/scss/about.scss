@@ -604,6 +604,9 @@
 	// .main-team__picture-ibg
 	&__picture-ibg {
 		padding-bottom: percent(560, 450);
+		@media (min-width:$mobile){
+			height: 100%; 
+		}
 		@media (max-width: $mobile) {
 			margin-bottom: rem(15);
 		}
@@ -1015,7 +1018,6 @@
 			margin: 0 auto 0 0;
 		}
 		@media (min-width: $mobile) {
-			max-width: rem($maxWidthContainer / 2) !important;
 			@include adaptiveValue("padding-left", 170, 100, 1200, 992, 1);
 		}
 	}
