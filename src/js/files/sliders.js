@@ -29,7 +29,7 @@ function initSliders() {
 	// Проверяем, есть ли слайдер на стронице
 	if (document.querySelector('.main-slides__slider')) { // Указываем скласс нужного слайдера
 		// Создаем слайдер
-		new Swiper('.main-slides__slider', { // Указываем скласс нужного слайдера
+		let mainSilder = new Swiper('.main-slides__slider', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
 			modules: [Navigation, Autoplay, Lazy],
