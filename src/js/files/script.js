@@ -27,24 +27,27 @@ const mobileFormSummon = document.querySelector('.callback');
 const mobileMenuForm = document.querySelector('.mobile-menu__form');
 const formButton = document.querySelector('.form__button');
 
-
-menuBtn.addEventListener("click", function (e) {
-	if (e) {
-		headerContainer.classList.add('_active-menu');
-		headerMenu.classList.add('_active-menu');
-		headerButtons.classList.add('_active-menu');
-		mobileMenu.classList.add('_active-menu');
-	}
-});
-
-menuClose.addEventListener("click", function (e) {
-	if (e) {
-		headerContainer.classList.remove('_active-menu');
-		headerMenu.classList.remove('_active-menu');
-		headerButtons.classList.remove('_active-menu');
-		mobileMenu.classList.remove('_active-menu');
+if (menuBtn) {
+	menuBtn.addEventListener("click", function (e) {
+		if (e) {
+			headerContainer.classList.add('_active-menu')
+			headerMenu.classList.add('_active-menu')
+			headerButtons.classList.add('_active-menu')
+			mobileMenu.classList.add('_active-menu')
+		}
+	});
 }
-});
+
+if (menuClose) {
+	menuClose.addEventListener("click", function (e) {
+		if (e) {
+			headerContainer.classList.remove('_active-menu')
+			headerMenu.classList.remove('_active-menu')
+			headerButtons.classList.remove('_active-menu')
+			mobileMenu.classList.remove('_active-menu')
+		}
+	});
+}
 
 mobileMenuCallback.addEventListener('click', function (e) {
 	if (e) {

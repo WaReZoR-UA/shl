@@ -94,6 +94,12 @@ body {
 			max-width: rem($maxWidthContainer);
 			box-sizing: content-box;
 			margin: 0 auto;
+			@media (min-width:$pc){
+				.page_border-box & {
+					box-sizing: border-box;
+					max-width: rem($maxWidthContainer + $containerPadding);
+				} 
+			}
 		}
 		@if ($containerPadding>0) {
 			padding: 0 rem(math.div($containerPadding, 2));
@@ -139,3 +145,4 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+@import "about";
