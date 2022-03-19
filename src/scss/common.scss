@@ -78,7 +78,7 @@
 }
 .nav-block {
 	display: flex;
-	@include adaptiveValue("column-gap", 65, 30, 1240, 991.98, 1);
+	@include adaptiveValue("column-gap", 55, 30, 1240, 991.98, 1);
 	justify-content: space-between;
 	overflow-x: auto;
 	white-space: nowrap;
