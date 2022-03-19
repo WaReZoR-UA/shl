@@ -4,20 +4,17 @@
 	background-color: $Orange;
 	font-weight: 700;
 	font-size: rem(12);
-	line-height: math.div(16 , 12);
+	line-height: math.div(16, 12);
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: $White;
 	text-align: center;
-	transition: color 0.3s ease 0s,
-				background-color 0.3s ease 0s,
-				box-shadow 0.3s ease 0s;
-	@media (any-hover: hover){
-		&:hover{
+	transition: color 0.3s ease 0s, background-color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
 			color: $Orange;
 			background-color: $White;
-			box-shadow: inset 2px 2px 0 $Orange,
-						inset -2px -2px 0 $Orange;
+			box-shadow: inset 2px 2px 0 $Orange, inset -2px -2px 0 $Orange;
 		}
 	}
 }
@@ -81,7 +78,7 @@
 }
 .nav-block {
 	display: flex;
-	@include adaptiveValue("column-gap", 65, 30);
+	@include adaptiveValue("column-gap", 55, 30, 1240, 991.98, 1);
 	justify-content: space-between;
 	overflow-x: auto;
 	white-space: nowrap;
@@ -90,7 +87,7 @@
 	&__list {
 		display: flex;
 		row-gap: rem(15);
-		@include adaptiveValue("column-gap", 65, 30);
+		@include adaptiveValue("column-gap", 55, 30, 1240, 767.98, 1);
 		li a {
 			outline: none;
 			font-family: $secondFont;
@@ -211,4 +208,3 @@
 .text-5 {
 	font-size: rem(12);
 }
-
