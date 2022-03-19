@@ -202,16 +202,16 @@ function initSliders() {
 
 			}
 		});
-		reviewsSliderAbout.on('slideChange', function () {
-			setNumberPagination()
+		reviewsSliderAbout.on('slideChange', () => {
+			setNumberPagination();
 		});
 		function setNumberPagination() {
-			let paginationCurrent = document.querySelector('.reviews-about__pagination .swiper-pagination-current');
-			let paginationTotal = document.querySelector('.reviews-about__pagination .swiper-pagination-total');
-			+paginationCurrent.innerHTML < 10 ? paginationCurrent.innerHTML = "0" + paginationCurrent.innerHTML : '';
-			+paginationTotal.innerHTML < 10 ? paginationTotal.innerHTML = "0" + paginationTotal.innerHTML : '';
+			const paginationCurrent = document.querySelector('.reviews-about__pagination .swiper-pagination-current');
+			const paginationTotal = document.querySelector('.reviews-about__pagination .swiper-pagination-total');
+			+paginationCurrent.innerText < 10 ? paginationCurrent.innerText = "0" + paginationCurrent.innerText : '';
+			+paginationTotal.innerText < 10 ? paginationTotal.innerText = "0" + paginationTotal.innerText : '';
 		}
-		setNumberPagination()
+		setNumberPagination();
 	}
 }
 
