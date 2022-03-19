@@ -1,1 +1,23 @@
 // Заголовки, общие БЄМ блоки и проче...
+.button {
+	padding: 14px 24.9px;
+	background-color: $Orange;
+	font-weight: 700;
+	font-size: rem(12);
+	line-height: math.div(16 , 12);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: $White;
+	text-align: center;
+	transition: color 0.3s ease 0s,
+				background-color 0.3s ease 0s,
+				box-shadow 0.3s ease 0s;
+	@media (any-hover: hover){
+		&:hover{
+			color: $Orange;
+			background-color: $White;
+			box-shadow: inset 2px 2px 0 $Orange,
+						inset -2px -2px 0 $Orange;
+		}
+	}
+}

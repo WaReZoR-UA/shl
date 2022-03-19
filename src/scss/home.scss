@@ -1,3 +1,137 @@
-//====================================================================================================
+//=========================================Main Slider===========================================================
+
+.main-slides {
+	position: relative;
+	height: 100vh;
+	// .main-slides__slider
+	&__slider {
+			width: 100%;
+			height: 100%;
+		}
+		// .main-slides__wrapper
+		&__wrapper {
+		}
+		// .main-slides__slide
+		&__slide {
+			height: 100%;
+		}
+		// .main-slides__body
+		&__body {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		// .main-slides__image
+		&__image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(.6);
+		}
+		// .main-slides__container
+		&__container {
+			// width: 100%;
+		}
+		// .main-slides__content
+		&__content {
+			position: fixed;
+			top: percent(407,701);
+			width: 100%;
+		}
+		// .main-slides__title
+		&__title {
+			color: $White;
+			font-family: $secondFont;
+			@include adaptiveValue("font-size", 45, 40);
+			line-height: math.div(53 , 45);
+			letter-spacing: -.01em;
+			@include adaptiveValue("margin-bottom", 14, 19);
+		}
+		// .main-slides__project-link
+		&__project-link {
+			position: relative;
+			color: $White;
+			@include adaptiveValue("font-size", 14, 16);
+			font-weight: 600;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			&::before{
+				content:'';
+				position: absolute;
+				bottom: -5.5px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: $White;
+			}
+		}
+}
+
+.controll {
+	// .controll__body
+	&__body {
+			display: block;
+			position: fixed;
+			top: percent(535,701);
+			width: 100%;
+		}
+		// .controll__fractions
+		&__fractions {
+			display: flex;
+			justify-content: space-between;
+			max-width: 45px;
+			color: $White;
+			font-size: rem(12);
+			line-height: math.div(18 , 12);
+			text-transform: uppercase;
+			opacity: 0.5;
+			margin: 0px 0px 9px 7.5px;
+		}
+		// .controll__fraction-curent
+		&__fraction-curent {
+		}
+		// .controll__fraction-all
+		&__fraction-all {
+		}
+		// .controll__buttons
+		&__buttons {
+			display: flex;
+			column-gap: 20px;
+			color: $White;
+			font-size: rem(14);
+		}
+		// .controll__prev
+		// .controll__next
+		&__prev,
+		&__next {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 60px;
+			height: 60px;
+			border-radius: 50px;
+			border: 1px solid rgba($color: $Gray, $alpha: .5);
+			cursor: pointer;
+			transition: background-color 0.3s ease 0s,
+			border-color 0.3s ease 0s;
+			@media (any-hover: hover){
+				&:hover{
+					background-color: rgba($color: $Gray, $alpha: .3);
+					border-color: transparent;
+				}
+			}
+		}
+		// .controll__prev
+		&__prev {
+		}
+		// .controll__next
+		&__next {
+			transform: rotate(180deg);
+		}
+}
+
+
+
 
 //====================================================================================================
