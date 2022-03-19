@@ -21,3 +21,194 @@
 		}
 	}
 }
+.page {
+	// .page__about
+	&__about {
+	}
+}
+.heading-block {
+	display: flex;
+	align-items: flex-end;
+	min-height: rem(280);
+	position: relative;
+	padding: rem(72) 0 rem(60);
+	// .heading-block__picture-ibg
+	&__picture-ibg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 1;
+		}
+	}
+	// .heading-block__container"
+	&__container {
+		position: relative;
+		z-index: 2;
+		flex: 1 1 auto;
+		@media (min-width: $tablet) {
+			padding-right: 20px;
+		}
+		@include adaptiveValue("padding-left", 170, 20, 1200, 992, 1);
+	}
+	// .heading-block__heading
+	&__heading {
+		font-size: rem(30);
+		text-transform: uppercase;
+		letter-spacing: -0.04em;
+		color: #fff;
+		span {
+			display: block;
+			font-size: rem(60);
+			font-weight: 700;
+			letter-spacing: -0.01em;
+			margin-top: -6px;
+		}
+	}
+	@media (max-width: $mobile) {
+		min-height: rem(320);
+		padding: rem(72) 0 rem(70);
+	}
+}
+.nav-block {
+	display: flex;
+	@include adaptiveValue("column-gap", 65, 30);
+	justify-content: space-between;
+	overflow-x: auto;
+	white-space: nowrap;
+	padding-bottom: rem(6);
+	// .nav-block__list
+	&__list {
+		display: flex;
+		row-gap: rem(15);
+		@include adaptiveValue("column-gap", 65, 30);
+		li a {
+			outline: none;
+			font-family: $secondFont;
+			color: rgba(0, 0, 0, 0.4);
+			letter-spacing: 0.01em;
+			transition: color 0.3s ease 0s;
+			&:hover {
+				color: #f9601f;
+			}
+		}
+	}
+	// .nav-block__item
+	&__item {
+	}
+	// .nav-block__link
+	&__link {
+	}
+	// .nav-block__open-form
+	&__open-form {
+		outline: none;
+		position: relative;
+		font-size: rem(12);
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		text-transform: uppercase;
+		color: $HardBlack;
+		padding-bottom: rem(6);
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 0px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: $HardBlack;
+			transition: width 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:focus,
+			&:hover {
+				&::before {
+					width: 0;
+				}
+			}
+		}
+	}
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+	color: #000;
+}
+.h1 {
+	font-size: rem(110);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	text-transform: uppercase;
+}
+.h2 {
+	font-size: rem(80);
+	font-weight: 300;
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+}
+.h3 {
+	@include adaptiveValue("font-size", 80, 40);
+	@include adaptiveValue("line-height", 80, 60);
+	font-weight: 500;
+	letter-spacing: -0.01em;
+}
+.h4 {
+	&_color-opacity {
+		color: rgba(0, 0, 0, 0.4);
+	}
+	font-size: rem(40);
+	line-height: math.div(53, 40);
+	font-weight: 500;
+	letter-spacing: -0.01em;
+}
+.h5 {
+	&_color-semiblack {
+		color: $SemiBlack;
+	}
+	font-size: rem(18);
+	font-weight: 500;
+	letter-spacing: -0.01em;
+}
+.text-1,
+.text-2,
+.text-3,
+.text-4,
+.text-5 {
+	font-family: $secondFont;
+	color: $HardBlack;
+	&_color-semiblack {
+		color: $SemiBlack;
+	}
+}
+.text-1 {
+	@include adaptiveValue("font-size", 40, 18);
+	@include adaptiveValue("line-height", 40, 25);
+	letter-spacing: -0.01em;
+}
+.text-2 {
+	@include adaptiveValue("font-size", 30, 18);
+	line-height: 1.5;
+}
+.text-3 {
+	font-size: rem(18);
+	line-height: 1.4;
+}
+.text-4 {
+	line-height: 1.5;
+}
+.text-5 {
+	font-size: rem(12);
+}
+
