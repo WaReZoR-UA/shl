@@ -1,25 +1,30 @@
 .header {
 	position: fixed;
 	display: flex;
+	align-items: center;
 	width: 100%;
 	justify-content: center;
 	z-index: 99;
-
+	min-height: 72px;
+	transition: background-color 0.3s ease 0s;
+	
+	&._header-scroll {
+		background-color: $SemiBlack;
+	}
 	// .header__container
 	&__container {
-		position: fixed;
-		width: calc(100% - 40px);
-		min-height: 72px;
+		position: relative;
 		display: flex;
 		align-items: center;
-
+		justify-content: center;
+		width: 100%;
+		height: 100%;
 		line-height: math.div(17, 14);
-
 		&::before {
 			position: absolute;
 			content: "";
-			width: 97%;
-			bottom: 0;
+			width: 96.5%;
+			bottom: -16px;
 			border-bottom: 0.5px solid rgba($color: $Gray, $alpha: .5);
 			opacity: 1;
 			@media (max-width: em(768)) {
@@ -45,6 +50,7 @@
 
 	// .header__menu
 	&__menu {
+		height: 100%;
 	}
 
 	// .header__buttons
@@ -63,10 +69,12 @@
 			content: "";
 			position: absolute;
 			left: 0;
-			top: -21px;
-			border-left: 0.5px solid rgba($color: $Gray, $alpha: .5);;
-			height: 72px;
+			border-left: 0.5px solid rgba($color: $Gray, $alpha: .5);
+			height: 70px;
 			opacity: 1;
+			@media (max-width: em(991)){
+				height: 105px;
+			}
 			@media (max-width: em(768)) {
 				border: none;
 			}
@@ -134,10 +142,24 @@
 
 	// .menu__link
 	&__link {
+		transition: color 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $Orange;
+			}
+		}
 	}
 
 	// .menu__mail
 	&__mail {
+		transition: color 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $Orange;
+			}
+		}
 		@media (max-width: em(768)){
 			display: none;
 		}
@@ -145,6 +167,13 @@
 
 	// .menu__call
 	&__call {
+		transition: color 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $Orange;
+			}
+		}
 		@media (max-width: em(768)) {
 			display: none;
 		}
@@ -229,7 +258,7 @@
 .mobile-menu {
 	position: absolute;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	transform: translateX(100%);
 	transition: transform 0.3s ease 0s;
 	&._active-menu {
@@ -355,7 +384,13 @@
 	}
 
 	// .mobile-menu__link
-	&__link {
+	&__link{
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				color: $SemiBlack;
+			}
+		}
 	}
 
 	// .mobile-menu__info
@@ -374,11 +409,15 @@
 	}
 
 	// .mobile-menu__mail
-	&__mail {
-	}
+	&__mail,
 
 	// .mobile-menu__call
 	&__call {
+		@media (any-hover: hover){
+			&:hover{
+				text-decoration: underline;
+			}
+		}
 	}
 
 	// .mobile-menu__schedule
@@ -489,6 +528,13 @@
 		position: relative;
 		opacity: 0.7;
 
+		@media (any-hover: hover) {
+			&:hover {
+				&::before{
+					width: 0;
+				}
+			}
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -497,7 +543,8 @@
 			width: 100%;
 			height: 1px;
 			background-color: $White;
-			opacity: 0.22;
+			opacity: 0.82;
+			transition: width 0.3s ease 0s;
 		}
 	}
 
@@ -666,9 +713,15 @@
 			&:focus {
 				outline: none;
 				border-bottom: 2px solid $HardBlack;
+				&::placeholder {
+					transform: scale(0);
+				}
 			}
 			&::placeholder {
 				color: rgba(128, 128, 128, 1);
+				transition: transform 0.3s ease 0s;
+				transform: scale(1);
+
 			}
 		}
 		// .form__checkbox
