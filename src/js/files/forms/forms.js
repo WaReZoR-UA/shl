@@ -5,7 +5,11 @@ import { flsModules } from "../modules.js";
 import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "../scroll/gotoblock.js";
+// Значение количства символов телефонного номерав
+import { phoneSimbolsNumber } from "../script.js";
+
 //================================================================================================================================================================================================================================================================================================================================
+
 
 /*
 Документация: https://template.fls.guru/template-docs/rabota-s-formami.html
@@ -15,6 +19,7 @@ import { gotoBlock } from "../scroll/gotoblock.js";
 export function formFieldsInit(options = { viewPass: false }) {
 	// Если включено, добавляем функционал "скрыть плейсходлер при фокусе"
 	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
+	
 	if (formFields.length) {
 		formFields.forEach(formField => {
 			if (!formField.hasAttribute('data-placeholder-nohide')) {
@@ -69,6 +74,7 @@ export let formValidate = {
 	getErrors(form) {
 		let error = 0;
 		let formRequiredItems = form.querySelectorAll('*[data-required]');
+		
 		if (formRequiredItems.length) {
 			formRequiredItems.forEach(formRequiredItem => {
 				if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
@@ -91,6 +97,12 @@ export let formValidate = {
 		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
 			this.addError(formRequiredItem);
 			error++;
+		} else if (formRequiredItem.type === "tel") {
+			const telInputs = document.querySelector('[data-tel]');
+			if (telInputs.value.length !== 17) {
+				this.addError(formRequiredItem);
+				error++;
+			}
 		} else {
 			if (!formRequiredItem.value.trim()) {
 				this.addError(formRequiredItem);
@@ -110,6 +122,7 @@ export let formValidate = {
 			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
 		}
 	},
+	
 	removeError(formRequiredItem) {
 		formRequiredItem.classList.remove('_form-error');
 		formRequiredItem.parentElement.classList.remove('_form-error');
@@ -128,6 +141,7 @@ export let formValidate = {
 				formValidate.removeError(el);
 			}
 			let checkboxes = form.querySelectorAll('.checkbox__input');
+			
 			if (checkboxes.length > 0) {
 				for (let index = 0; index < checkboxes.length; index++) {
 					const checkbox = checkboxes[index];

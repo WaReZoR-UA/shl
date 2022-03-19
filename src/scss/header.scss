@@ -1,7 +1,9 @@
 .header {
+	position: fixed;
 	display: flex;
 	width: 100%;
 	justify-content: center;
+	z-index: 99;
 
 	// .header__container
 	&__container {
@@ -18,7 +20,7 @@
 			content: "";
 			width: 97%;
 			bottom: 0;
-			border-bottom: 0.5px solid #d3d3d3;
+			border-bottom: 0.5px solid rgba($color: $Gray, $alpha: .5);
 			opacity: 1;
 			@media (max-width: em(768)) {
 				border: none;
@@ -33,7 +35,7 @@
 		flex: 0 0 150px;
 		height: 36px;
 		margin: 0px 15px 0px 0px;
-		z-index: 2;
+		z-index: 1;
 
 		img {
 			width: 100%;
@@ -62,7 +64,7 @@
 			position: absolute;
 			left: 0;
 			top: -21px;
-			border-left: 0.5px solid #d3d3d3;
+			border-left: 0.5px solid rgba($color: $Gray, $alpha: .5);;
 			height: 72px;
 			opacity: 1;
 			@media (max-width: em(768)) {
@@ -73,17 +75,22 @@
 
 	// .header__contacts
 	&__contacts {
+		color: $White;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		@include adaptiveValue("gap", 42, 15, 1200, 768, 1);
 		flex: 0 1 283px;
+
 		@media (max-width: em(768)) {
-			display: none;
+			justify-content: flex-end;
 		}
 
 		.callback {
-			@media (min-width: em(768)) {
+			position: relative;
+			top: 0;
+			right: 5px;
+			@media (min-width:em(768.02)) {
 				display: none;
 			}
 		}
@@ -101,9 +108,10 @@
 	@media (max-width: em(768)) {
 		display: none;
 	}
-
+	
 	// .menu__body
 	&__body {
+		color: $White;
 		display: inline-block;
 	}
 
@@ -130,10 +138,16 @@
 
 	// .menu__mail
 	&__mail {
+		@media (max-width: em(768)){
+			display: none;
+		}
 	}
 
 	// .menu__call
 	&__call {
+		@media (max-width: em(768)) {
+			display: none;
+		}
 	}
 }
 
@@ -213,18 +227,19 @@
 
 //=====================================================================Mobile Menu===================================================================================
 .mobile-menu {
+	position: absolute;
 	width: 100%;
+	height: 100vh;
 	transform: translateX(100%);
 	transition: transform 0.3s ease 0s;
 	&._active-menu {
-		transition: transform 0.3s ease 0s;
 		transform: translateX(0%);
 	}
 
 	// .mobile-menu__wrapper
 	&__wrapper {
 		background-color: $SemiBlack;
-		opacity: 0;
+
 	}
 	// .mobile-menu__box
 	&__logo-box {
@@ -232,8 +247,9 @@
 		box-sizing: content-box;
 		margin: 0 auto;
 		padding: 0 rem(math.div($containerPadding, 2));
-		@media (max-width: em(786)) {
-			margin: 0;
+		@media (max-width: em(786)){
+			position: relative;
+			z-index: 1;
 		}
 	}
 
@@ -410,7 +426,7 @@
 	// .callback__text
 	&__text {
 		position: absolute;
-		left: 21px;
+		left: 11px;
 		font-family: $secondFont;
 		color: $White;
 		letter-spacing: 0.02em;
@@ -557,4 +573,183 @@
 		}
 	}
 }
-//========================================================================================================================================================
+//=======================================================================Header menu form=================================================================================
+
+
+.form {
+	position: absolute;
+	background-color: $White;
+	width: 100%;
+	height: 100%;
+	transform: translateX(100%);
+	transition: transform 0.3s ease 0s;
+	&._form-active {
+		transform: translateX(0%);
+	}
+		// .form__wrapper
+		&__wrapper {
+			height: 100%;
+			@include adaptiveValue("padding-left", 100, 20, 1200, 360, 1);
+			padding-top: 20px;
+			padding-right: 20px;
+		}
+		// .form__button
+		&__button {
+			position: absolute;
+			right: percent(168,820);
+			width: 30px;
+			height: 30px;
+			background-color: $HardBlack;
+			border-radius: 50px;
+			transition: background-color 0.3s ease 0s,
+			transform .3s ease;
+			@media (any-hover: hover){
+				&:hover{
+					background-color: $Orange;
+					transform: rotate(-90deg);
+				}
+			}
+			&::before{
+				content:'';
+				position: absolute;
+				top: 7px;
+				left: 14px;
+				width: 1px;
+				height: 16px;
+				background-color: $White;
+				transform: rotate(45deg);
+			}
+			&::after{
+				content:'';
+				position: absolute;
+				top: 7px;
+				left: 14px;
+				width: 1px;
+				height: 16px;
+				background-color: $White;
+				transform: rotate(-45deg);
+			}
+			@media (max-width: em(768)) {
+				right: 15%;
+			}
+		}
+		// .form__body
+		&__body {
+			display: flex;
+			height: 100%;
+			flex-direction: column;
+			justify-content: center;
+		}
+		
+		// .form__input
+		&__input {
+			position: relative;
+			&:first-child {
+				margin: 0px 0px 64px 0px;
+			}
+		}
+
+		// .form__name
+		// .form__phone
+		&__name,
+		&__phone {
+			height: 42px;
+			max-width: 518px;
+			font-weight: 600;
+			font-size: rem(23);
+			line-height: math.div(30, 23);
+			letter-spacing: -0.01em;
+			border: none;
+			border-bottom: 2px solid rgba(128, 128, 128, 1);
+			border-radius: 0;
+			transition: all 0.3s ease 0s;
+			&:focus {
+				outline: none;
+				border-bottom: 2px solid $HardBlack;
+			}
+			&::placeholder {
+				color: rgba(128, 128, 128, 1);
+			}
+		}
+		// .form__checkbox
+		&__checkbox {
+			margin: 40px 0px 52px 0px;
+			&._form-error {
+				.form__checkbox-text {
+					color: #F41E1E;
+				}
+			}
+		}
+		// .form__checkbox-input
+		&__checkbox-input {
+			position: absolute;
+			visibility: hidden;
+			opacity: 0;
+			width: 0;
+			height: 0;
+			top: 0;
+			left: 0;
+			&:checked {
+				+ .form__checkbox-label {
+					&::before {
+						transform: scale(1);
+					}
+				}
+			}
+		}
+		// .form__checkbox-label
+		&__checkbox-label {
+			position: relative;
+			padding: 0px 0px 0px 24px;
+			cursor: pointer;
+			&::after{
+				position: absolute;
+				content:'';
+				top: 2px;
+				left: 0;
+				width: 14px;
+				height: 14px;
+				border: 0.5px solid $HardBlack;
+			}
+			&::before {
+				position: absolute;
+				@extend %ic;
+				@extend ._icon-checked;
+				top: 4px;
+				left: 1.5px;
+				color: $HardBlack;
+				font-size: rem(11);
+				transform: scale(0);
+				transition: transform 0.3s ease 0s;
+			}
+		}
+		// .form__checkbox-text
+		&__checkbox-text {
+			font-family: $secondFont;
+			font-size: rem(12);
+			line-height: math.div(20, 12);
+			color: $HardBlack;
+		}
+		// .form__link
+		&__link {
+			position: relative;
+			&::before{
+				content:'';
+				position: absolute;
+				bottom: -2px;
+				left: 0;
+				height: 1px;
+				width: 100%;
+				background-color: $HardBlack;
+			}
+		}
+		// .form__error
+		&__error {
+			position: absolute;
+			bottom: -16px;
+			left: 0;
+			color: #F41E1E;
+			font-size: rem(8);
+			line-height: math.div(8 , 8);
+		}
+}

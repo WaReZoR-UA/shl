@@ -16,7 +16,7 @@
 		</div>
 		<div class="header__buttons">
 			<div class="header__contacts">
-				<a href="tel:+2129200185" class="menu__call">Call Us</a>
+				<a href="tel:+12129200185" class="menu__call">Call Us</a>
 				<a href="mailto:info@shlbuilders.com" class="menu__mail">Email Us</a>
 				<button type="button" class="callback">
 					<span class="callback__text">Request a Callback</span>
@@ -31,7 +31,7 @@
 	</div>
 	<div class="header__menu-mobile mobile-menu">
 		<div data-fullscreen class="mobile-menu__wrapper">
-			<div data-da=".mobile-menu__bg, 768, first" class="mobile-menu__logo-box">
+			<div class="mobile-menu__logo-box">
 				<a href="" class="mobile-menu__logo">
 					<img data-src="@img/logo.svg" alt="">
 				</a>
@@ -58,7 +58,7 @@
 						</ul>
 						<div class="mobile-menu__info">
 							<a href="mailto:info@shlbuilders.com" class="mobile-menu__mail">info@shlbuilders.com</a>
-							<a href="tel:+2129200185" class="mobile-menu__call">+2 129 200 185</a>
+							<a href="tel:+12129200185" class="mobile-menu__call">+1 (212) 920-0185</a>
 							<span class="mobile-menu__schedule">Mon - Fr: 9am-5pm</span>
 						</div>
 						<div class="mobile-menu__socials social">
@@ -69,6 +69,26 @@
 								<li class="social__item"><a href="" class="social__link">Facebook</a></li>
 							</ul>
 						</div>
+					</div>
+				</div>
+				<div class="mobile-menu__form form">
+					<div class="form__wrapper">
+						<button type="button" class="form__button"></button>
+						<form data-dev class="form__body" action="#">
+							<div class="form__input">
+								<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error="Should not be empty" placeholder="Your Name" class="form__name">
+							</div>
+							<div class="form__input">
+								<input autocomplete="off" type="tel" name="form[]" data-tel data-required data-validate data-error="Opps! Something goes wrong, please check the symbols. Allowed only numbers" placeholder="Phone Number" maxlength="17" class="form__phone">
+							</div>
+							<div class="form__checkbox">
+								<input id="c_1" data-required data-error class="form__checkbox-input" type="checkbox" value="1" name="form[]"> 
+								<label for="c_1" class="form__checkbox-label"><span class="form__checkbox-text">I acknowledge that by submitting this form, I agree to <a href="" class="form__link">Privacy Policy</a> and to be contacted by SHL Builders .*</span></label>
+							</div>
+							<div class="form__btn-box">
+								<button type="submit" class="form__btn button">Send</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
