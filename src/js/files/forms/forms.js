@@ -30,9 +30,9 @@ export function formFieldsInit(options = { viewPass: false }) {
 	document.body.addEventListener("focusin", function (e) {
 		const targetElement = e.target;
 		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
-			if (targetElement.dataset.placeholder) {
-				targetElement.placeholder = '';
-			}
+			// if (targetElement.dataset.placeholder) {
+			// 	targetElement.placeholder = '';
+			// }
 			if (!targetElement.hasAttribute('data-no-focus-classes')) {
 				targetElement.classList.add('_form-focus');
 				targetElement.parentElement.classList.add('_form-focus');
