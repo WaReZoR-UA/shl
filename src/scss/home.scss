@@ -1,4 +1,4 @@
-//=========================================Main Slider===========================================================
+//=======================================================================Main Slider===========================================================
 
 .main-slides {
 	position: relative;
@@ -149,7 +149,270 @@
 		}
 }
 
+//=======================================================================Introduction section=================================================================================
+.introduction {
+		// .introduction__container
+		&__container {
+		}
+		// .introduction__wrapper
+		&__wrapper {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			width: 100%;
+			height: 100vh;
+		}
+		// .introduction__title
+		&__title {
+			font-family: $secondFont;
+			font-weight: 700;
+			@include adaptiveValue("font-size", 38, 29);
+			line-height: math.div(38 , 38);
+			letter-spacing: em(.3);
+			text-transform: uppercase;
+			@include adaptiveValue("margin-bottom", 40, 30);
+		}
+		// .introduction__description
+		&__description {
+			color: $SemiBlack;
+			font-family: $secondFont;
+			line-height: math.div(21 , 14);
+			max-width: 450px;
+			@include adaptiveValue("margin-bottom", 60, 50);
+		}
+		// .introduction__btn-box
+		&__btn-box {
+		}
+		// .introduction__button
+		&__button {
+		}
+		// .introduction__video
+		&__video {}
+	}
 
+	//===================================================================Promo Video=====================================================================================
+.video {
 
+		// .video__wrapper
+		&__wrapper {
+			width: 100%;
+			height: 100vh;
+		}
 
-//====================================================================================================
+		// .video__first
+		&__first,
+		&__second,
+		&__third {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+//========================================================================Promice Section================================================================================
+.promise {
+		// .promise__wrapper
+		&__wrapper {
+			background-color: #0D0D0D;
+			width: 100%;
+			height: 100vh;
+		}
+		// .promise__container
+		&__container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			height: 100%;
+		}
+		// .promise__fist-box
+		&__first-box {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			flex: 0 1 50%;
+			padding: 0px 20px 0px 0px;
+		}
+		// .promise__title
+		&__title {
+			color: $White;
+			font-family: $secondFont;
+			font-weight: 700;
+			@include adaptiveValue("font-size", 100, 67);
+			letter-spacing: em(-0.02);
+			text-transform: uppercase;
+			@include adaptiveValue("margin-bottom", 104.5, 60, 1200, 768, 1);
+		}
+		// .promise__button
+		&__button {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			flex-direction: row-reverse;
+			font-family: $secondFont;
+			color: $White;
+			font-weight: 700;
+			line-height: math.div(16 , 14);
+			text-transform: uppercase;
+			&._icon-arrow {
+				&::after{
+					content:'';
+					position: absolute;
+					right: -10px;
+					width: 60px;
+					height: 60px;
+					background-color: $Orange;
+					border-radius: 50px;
+					opacity: 0;
+					transition: opacity 0.5s ease 0s;
+				}
+				&::before{
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: $White;
+					width: 40px;
+					height: 40px;
+					background-color: $Orange;
+					border-radius: 50px;
+					margin: 0px 0px 0px 50px;
+					transform: rotate(180deg);
+					z-index: 1;
+				}
+			}
+			@media (any-hover: hover){
+				&:hover{
+					&._icon-arrow {
+						&::after {
+							opacity: .3;
+						}
+					}
+				}
+			}
+		}
+		// .promise__second-box
+		&__second-box {
+			flex: 0 1 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			color: $White;
+			font-family: $secondFont;
+			@include adaptiveValue("font-size", 30, 25);
+			@media (max-width: em(857)){
+				flex: none;
+				margin: 0px 0px 60px 0px;
+			}
+		}
+		// .promise__pragraph
+		&__pragraph {
+			position: relative;
+			max-width: 440px;
+			padding: 0px 0px 0px 16px;
+			&:not(:last-child) {
+				margin: 0px 0px 53.5px 0px;
+			}
+			@media (max-width: em(857)){
+				padding: 0;
+			}
+		}
+		// .promise__sequence
+		&__sequence {
+			position: absolute;
+			top: -6px;
+			left: 0;
+			font-size: rem(12);
+			opacity: 0.6;
+			@media (max-width: em(857)){
+				top: -12px;
+			}
+		}
+}
+//========================================================================Advantages================================================================================
+.advantages {
+		// .advantages__wrapper
+		&__wrapper {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+		}
+		// .advantages__bg
+		&__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(.6);
+		}
+		// .advantages__container
+		&__container {
+			position: relative;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			@media (max-width:$mobile){
+				justify-content: space-evenly;
+			}
+		}
+		// .advantages__box
+		&__box {
+			position: relative;
+			width: percent(584,1200);
+			margin: 0px 0px 0px auto;
+			&:not(:last-child) {
+				margin-bottom: 60px;
+			}
+			@media (max-width:$mobile){
+				margin-left: 0;
+				width: 61%;
+			}
+			&:nth-child(2){
+				margin-left: percent(139,320);
+			}
+		}
+		&__description {
+			color: $White;
+			font-family: $secondFont;
+			@include adaptiveValue("font-size", 38, 23);
+			line-height: math.div(48 , 40);
+			letter-spacing: em(-0.01);
+			opacity: 0.8;
+		}
+		// .advantages__picture
+		&__picture {
+			position: absolute;
+			@include adaptiveValue("top", 20, 17, 1200, 768, 1);
+			left: -170px;
+			top: 0px;
+			// .advantages__picture_small
+			&_small {
+				@media (max-width:$mobile){
+					left: 2px;
+					top: 55px;
+				}
+			}
+			// .advantages__picture_medium
+			&_medium {
+				left: -235px;
+				@media (max-width:$mobile){
+					left: percent(35,320);
+					transform: scaleX(-1);
+				}
+			}
+			// .advantages__picture_large
+			&_large {
+				left: -322px;
+			}
+		}
+
+		// .advantages__picture-desktop
+		&__picture-desktop {}
+
+		// .advantages__picture-mobile
+		&__picture-mobile {}
+		// .advantages__description
+}
+//========================================================================================================================================================
+
