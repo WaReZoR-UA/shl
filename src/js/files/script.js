@@ -26,6 +26,106 @@ const mobileMenuCallback = document.querySelector('.mobile-menu__button');
 const mobileFormSummon = document.querySelector('.callback');
 const mobileMenuForm = document.querySelector('.mobile-menu__form');
 const formButton = document.querySelector('.form__button');
+//========================================================================================================================================================
+window.addEventListener("load", function (e) {
+
+
+	function filterCards() {
+		const cards = document.querySelectorAll('[data-filter-card]');
+		console.log(cards.length);
+		function filter(category, items) {
+			items.forEach(item => {
+				const isItemFiltered = item.dataset.filterCard;
+				const isShowAll = category.toLowerCase() === 'all';
+
+				if (isItemFiltered !== category && !isShowAll) {
+					item.classList.add('anime-filter')
+				} else {
+					item.classList.remove('anime-filter', 'hide-filter');
+				}
+			});
+		}
+
+		document.querySelector('[data-filter-nav]').addEventListener('click', (e) => {
+			if (e.target.tagName !== 'A') return false;
+
+			const buttons = document.querySelectorAll('[data-filter-nav] a');
+
+			buttons.forEach(button => {
+				button.classList.remove('active');
+				e.target.classList.add('active');
+				const currentCategory = e.target.dataset.filter;
+				filter(currentCategory, cards);
+
+				if (button.classList.contains(`active`)) {
+					cards.forEach(card => {
+						if (button.dataset.filter === 'commercial') {
+							if (cards.length % 2 == 0) {
+								card.closest('.block-main-projects__row').classList.remove('under-construction');
+								card.closest('.block-main-projects__row').classList.remove('all-filter');
+								card.closest('.block-main-projects__row').classList.remove('residential-filter');
+								card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
+								card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
+								card.closest('.block-main-projects__row').classList.add('commercial-filter');
+							} else {
+								card.closest('.block-main-projects__row').classList.remove('under-construction');
+								card.closest('.block-main-projects__row').classList.remove('all-filter');
+								card.closest('.block-main-projects__row').classList.remove('residential-filter');
+								card.closest('.block-main-projects__row').classList.remove('commercial-filter');
+								card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
+								card.closest('.block-main-projects__row').classList.add('commercial-filter-odd');
+							}
+						} else if (button.dataset.filter === 'residential') {
+							card.closest('.block-main-projects__row').classList.remove('commercial-filter');
+							card.closest('.block-main-projects__row').classList.remove('all-filter');
+							card.closest('.block-main-projects__row').classList.remove('under-construction');
+							card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
+							card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
+							card.closest('.block-main-projects__row').classList.add('residential-filter');
+						} else if (button.dataset.filter === 'under-construction') {
+							if (cards.length % 2 == 0) {
+								card.closest('.block-main-projects__row').classList.remove('residential-filter');
+								card.closest('.block-main-projects__row').classList.remove('all-filter');
+								card.closest('.block-main-projects__row').classList.remove('commercial-filter');
+								card.closest('.block-main-projects__row').classList.remove('under-construction');
+								card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
+								card.closest('.block-main-projects__row').classList.add('under-construction-odd');
+							} else {
+								card.closest('.block-main-projects__row').classList.remove('residential-filter');
+								card.closest('.block-main-projects__row').classList.remove('all-filter');
+								card.closest('.block-main-projects__row').classList.remove('commercial-filter');
+								card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
+								card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
+								card.closest('.block-main-projects__row').classList.add('under-construction');
+							}
+						} else {
+							card.closest('.block-main-projects__row').classList.remove('residential-filter');
+							card.closest('.block-main-projects__row').classList.remove('commercial-filter');
+							card.closest('.block-main-projects__row').classList.remove('under-construction');
+							card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
+							card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
+							card.closest('.block-main-projects__row').classList.add('all-filter');
+						}
+					});
+				}
+			});
+			setClassesFilter();
+		});
+
+		function setClassesFilter() {
+			cards.forEach((card, index) => {
+				if (card.classList.contains('anime-filter')) {
+					card.classList.add('hide-filter');
+				}
+			});
+		}
+		setClassesFilter();
+
+
+
+	}
+	filterCards();
+});
 
 if (menuBtn) {
 	menuBtn.addEventListener("click", function (e) {
@@ -51,7 +151,7 @@ if (menuClose) {
 
 mobileMenuCallback.addEventListener('click', function (e) {
 	if (e) {
-		function summonMobileMenuForm() { 
+		function summonMobileMenuForm() {
 			mobileMenuForm.classList.add('_form-active');
 		}
 		summonMobileMenuForm();
@@ -72,23 +172,23 @@ mobileFormSummon.addEventListener("click", function (e) {
 		mobileMenu.classList.add('_active-menu');
 		mobileMenuForm.classList.add('_form-active');
 	}
-});	
+});
 
 //====================================================Phone mask====================================================================================================
 let phoneInputs = document.querySelectorAll('input[data-tel]');
 
 if (phoneInputs.length) {
-	
+
 	let getInputNumberOnly = function (input) {
 		return input.value.replace(/\D/g, '');
 	}
-	
+
 	let onPhoneIntup = function (e) {
 		let input = e.target;
 		let inputNumberValue = getInputNumberOnly(input);
 		let formattedInpuValue = '';
 		let selectionStart = input.selectionStart;
-		
+
 
 		if (!inputNumberValue) {
 			return input.value = '';
@@ -124,8 +224,8 @@ if (phoneInputs.length) {
 		if (e.keyCode == 8 && getInputNumberOnly(input).length == 1) {
 			input.value = '';
 		}
-	} 
-	
+	}
+
 
 	let onPhonePaste = function (e) {
 		let pasted = e.clipboardData || window.clipboardData;
