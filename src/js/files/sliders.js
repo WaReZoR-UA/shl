@@ -67,7 +67,7 @@ function initSliders() {
 					const totlaNumberOfSlides = document.querySelector('.controll__fraction-all');
 					const totalNumberOfRealSlides = document.querySelectorAll('.main-slides__slide:not(.swiper-slide-duplicate)')
 					totlaNumberOfSlides.innerText = totalNumberOfRealSlides.length < 10 ? `0${totalNumberOfRealSlides.length}` : totalNumberOfRealSlides.length;
-					
+
 				}
 			}
 		});
@@ -78,7 +78,7 @@ function initSliders() {
 		let historySlider = new Swiper('.history__slider', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Pagination],
+			modules: [Pagination, Lazy],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -90,7 +90,10 @@ function initSliders() {
 			//touchRatio: 0,
 			//loop: true,
 			//preloadImages: false,
-			//lazy: true,
+			lazy: {
+				loadPrevNext: true,
+			},
+
 
 			/*
 			// Эффекты

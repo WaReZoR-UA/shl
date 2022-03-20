@@ -43,7 +43,7 @@
 			height: 100%;
 			top: 0;
 			left: 0;
-			background-color: rgba(0, 0, 0, 0.5);
+			background-color: rgba(0, 0, 0, 0.6);
 			z-index: 1;
 		}
 	}
@@ -82,7 +82,7 @@
 	justify-content: space-between;
 	overflow-x: auto;
 	white-space: nowrap;
-	padding-bottom: rem(6);
+	padding: rem(40) 0 rem(6);
 	// .nav-block__list
 	&__list {
 		display: flex;
@@ -94,6 +94,28 @@
 			color: rgba(0, 0, 0, 0.4);
 			letter-spacing: 0.01em;
 			transition: color 0.3s ease 0s;
+			.page_projects & {
+				position: relative;
+				padding-bottom: rem(3);
+				&::before {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 0;
+					height: 1px;
+					background-color: $Orange;
+					transition: width 0.3s ease 0s;
+				}
+			}
+			.page_projects & {
+				&.active {
+					color: $Orange;
+					&::before {
+						width: 100%;
+					}
+				}
+			}
 			&:hover {
 				color: #f9601f;
 			}
@@ -115,25 +137,47 @@
 		text-transform: uppercase;
 		color: $HardBlack;
 		padding-bottom: rem(6);
-		&::before {
+		transition: color 0.3s ease 0s;
+		&::before,
+		&::after {
 			content: "";
 			position: absolute;
 			bottom: 0px;
 			left: 0;
-			width: 100%;
 			height: 1px;
+		}
+		&::before {
+			width: 100%;
 			background-color: $HardBlack;
+		}
+		&::after {
 			transition: width 0.3s ease 0s;
+			width: 0;
+			background-color: $Orange;
 		}
 		@media (any-hover: hover) {
 			&:focus,
 			&:hover {
-				&::before {
-					width: 0;
+				color: $Orange;
+				&::after {
+					width: 100%;
 				}
 			}
 		}
 	}
+}
+.anime-filter {
+	// opacity: 0;
+}
+.hide-filter {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	max-width: 0;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
 }
 
 .h1,
