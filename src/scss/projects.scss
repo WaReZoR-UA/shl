@@ -39,9 +39,7 @@
 			align-items: flex-end;
 			flex: 0 1 50%;
 			&:nth-child(4n + 1) {
-				&:not(:nth-last-child(-n + 2)) {
-					@include adaptiveValue("margin-bottom", 120, 40, 1200, 768.98, 1);
-				}
+				@include adaptiveValue("margin-bottom", 120, 40, 1200, 768.98, 1);
 			}
 			&:nth-child(4n + 2) {
 				@include adaptiveValue("padding-left", 120, 40, 1200, 768.98, 1);
