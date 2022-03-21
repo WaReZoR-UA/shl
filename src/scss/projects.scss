@@ -2,6 +2,9 @@
 	// .projects__main-block
 	&__main-block {
 	}
+	// .projects__renovate
+	&__renovate {
+	}
 }
 //========================================================================================================================================================
 .builders-projects {
@@ -17,57 +20,96 @@
 }
 //========================================================================================================================================================
 .block-main-projects {
-	padding: rem(77) 0 rem(150);
+	@include adaptiveValue("padding-top", 77, 47);
+	@include adaptiveValue("padding-bottom", 150, 80);
 	// .block-main-projects__container
 	&__container {
 	}
 	// .block-main-projects__row
 	&__row {
-		display: flex;
-		flex-wrap: wrap;
+		@media (min-width: $mobile) {
+			display: flex;
+			flex-wrap: wrap;
+		}
 	}
 	// .block-main-projects__column
 	&__column {
-		flex: 0 1 50%;
-		// transition: opacity 0.6s ease 0s;
-		.residential-filter &,
-		.all-filter &,
-		.commercial-filter-odd &,
-		.under-construction-odd & {
-			&:nth-child(4n + 3) {
-				padding-right: rem(120);
+		@media (min-width: $mobile) {
+			display: flex;
+			align-items: flex-end;
+			flex: 0 1 50%;
+			&:nth-child(4n + 1) {
+				&:not(:nth-last-child(-n + 2)) {
+					@include adaptiveValue("margin-bottom", 120, 40, 1200, 768.98, 1);
+				}
+			}
+			&:nth-child(4n + 2) {
+				@include adaptiveValue("padding-left", 120, 40, 1200, 768.98, 1);
 				.block-main-projects__picture-ibg {
 					padding-bottom: percent(600, 480);
 				}
 			}
-			&:nth-child(4n + 2) {
-				padding-left: rem(120);
+			&:nth-child(4n + 3) {
+				@include adaptiveValue("padding-right", 120, 40, 1200, 768.98, 1);
 				.block-main-projects__picture-ibg {
 					padding-bottom: percent(600, 480);
+				}
+				&:not(:nth-last-child(-n + 2)) {
+					@include adaptiveValue("margin-bottom", 120, 40, 1200, 768.98, 1);
+				}
+			}
+			&:nth-child(4n + 4) {
+				&:not(:last-child) {
+					@include adaptiveValue("margin-bottom", 120, 40, 1200, 768.98, 1);
 				}
 			}
 		}
-		
-		.commercial-filter &,
-		.under-construction & {
-			&:nth-child(4n + 2) {
-				padding-right: rem(120);
-				.block-main-projects__picture-ibg {
-					padding-bottom: percent(600, 480);
-				}
-			}
-			&:nth-child(4n + 1) {
-				padding-left: rem(120);
-				.block-main-projects__picture-ibg {
-					padding-bottom: percent(600, 480);
-				}
+		@media (max-width: $mobile) {
+			&:not(:last-child) {
+				margin-bottom: rem(40);
 			}
 		}
 	}
 	// .block-main-projects__item
 	&__item {
-		border-bottom: 1px solid #aaa8a5;
-		padding-bottom: rem(48);
+		display: block;
+		@media (min-width: $mobile) {
+			flex: 1 1 auto;
+			padding-bottom: rem(48);
+			border-bottom: 1px solid #aaa8a5;
+		}
+		@media (max-width: $mobile) {
+			position: relative;
+		}
+		@media (min-width: $mobile) {
+			img {
+				opacity: 0.5;
+			}
+			&:hover {
+				img {
+					opacity: 1;
+					transform: scale(1.1);
+				}
+				p {
+					color: $Orange;
+				}
+			}
+		}
+		@media (max-width: $mobile) {
+			img {
+				opacity: 1;
+			}
+			&:hover {
+				img {
+					opacity: 0.5;
+					transform: scale(1.1);
+				}
+				p {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
 	}
 	// .block-main-projects__picture-ibg
 	&__picture-ibg {
@@ -75,25 +117,18 @@
 		padding-bottom: percent(480, 600);
 		overflow: hidden;
 		background-color: #000;
-		&:not(:last-child) {
-			margin-bottom: rem(30);
+		@media (min-width: $mobile) {
+			&:not(:last-child) {
+				margin-bottom: rem(30);
+			}
 		}
 		img {
 			transition: transform 1s ease 0s, opacity 0.8s ease 0s;
-			opacity: 0.5;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				img {
-					opacity: 1;
-					transform: scale(1.1);
-				}
-			}
 		}
 	}
 	// .block-main-projects__content
 	&__content {
-		a {
+		p {
 			font-size: rem(23);
 			line-height: 1.4;
 			color: $HardBlack;
@@ -106,30 +141,59 @@
 			&::before {
 				transform: rotate(-180deg);
 			}
-			@media (any-hover: hover) {
-				&:hover {
-					color: $Orange;
+		}
+		@media (min-width: $mobile) {
+			p {
+				span {
+					display: none;
+				}
+			}
+		}
+		@media (max-width: $mobile) {
+			position: absolute;
+			bottom: rem(20);
+			left: rem(30);
+			p {
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.8s ease 0s, visibility 0.8s ease 0s;
+				color: #fff;
+				flex-direction: column-reverse;
+				align-items: flex-start;
+				row-gap: rem(10);
+				&::before {
+					margin-top: rem(30);
+				}
+				span {
+					font-family: $secondFont;
+					line-height: 1.5;
+					font-size: rem(14);
 				}
 			}
 		}
 	}
 	// .block-main-projects__top-info
 	&__top-info {
-		font-family: $secondFont;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: rem(15) rem(20);
-		&:not(:last-child) {
-			margin-bottom: rem(15);
+		@media (min-width: $mobile) {
+			font-family: $secondFont;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			gap: rem(15) rem(20);
+			&:not(:last-child) {
+				margin-bottom: rem(15);
+			}
+			span {
+				font-size: rem(12);
+				line-height: 1.5;
+				letter-spacing: 0.02em;
+				text-transform: uppercase;
+				color: #aaa8a5;
+			}
 		}
-		span {
-			font-size: rem(12);
-			line-height: 1.5;
-			letter-spacing: 0.02em;
-			text-transform: uppercase;
-			color: #aaa8a5;
+		@media (max-width: $mobile) {
+			display: none;
 		}
 	}
 	// .block-main-projects__name
@@ -140,5 +204,154 @@
 	}
 	// .block-main-projects__link
 	&__link {
+	}
+}
+//========================================================================================================================================================
+.renovate-projects {
+	background-color: $LightGray;
+	@include adaptiveValue("padding-top", 115, 55);
+	@include adaptiveValue("padding-bottom", 142, 92);
+	// .renovate-projects__container
+	&__container {
+	}
+	// .renovate-projects__form-block
+	&__form-block {
+		@media (min-width: $mobile) {
+			display: flex;
+			@include adaptiveValue("column-gap", 150, 35, 1200, 992, 1);
+		}
+		@media (min-width: $tablet) {
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				width: 1px;
+				height: rem(190);
+				background-color: #000;
+			}
+		}
+	}
+	// .renovate-projects__col
+	&__col {
+		flex: 0 1 50%;
+		&_flex {
+			display: flex;
+			@media (min-width: $mobile) {
+				align-items: flex-end;
+			}
+			@media (max-width: $mobile) {
+				flex-direction: column;
+				row-gap: rem(40);
+			}
+		}
+	}
+	// .renovate-projects__title
+	&__title {
+		@include adaptiveValue("font-size", 40, 30);
+		line-height: math.div(53, 40);
+		letter-spacing: -0.01em;
+		color: #3d3d3d;
+		@media (min-width: $mobile) {
+			margin-bottom: rem(35);
+			font-weight: 500;
+		}
+		@media (max-width: $mobile) {
+			margin-bottom: rem(20);
+		}
+	}
+	// .renovate-projects__text
+	&__text {
+		font-family: $secondFont;
+		@include adaptiveValue("font-size", 30, 18);
+		color: #3d3d3d;
+		margin-bottom: rem(50);
+		@media (min-width: $mobile) {
+			line-height: 1.5;
+		}
+		@media (max-width: $mobile) {
+			line-height: 1.4;
+		}
+	}
+	// .renovate-projects__contact
+	&__contact {
+		font-family: $secondFont;
+		line-height: math.div(21, 14);
+		color: #3d3d3d;
+	}
+	// .renovate-projects__contact-phone
+	&__contact-phone {
+		display: inline-block;
+		position: relative;
+		padding-bottom: rem(1);
+		transition: color 0.3s ease 0s;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1px;
+		}
+		&::before {
+			background-color: #3d3d3d;
+			width: 100%;
+		}
+		&::after {
+			transition: width 0.3s ease 0s;
+			width: 0;
+			background-color: $Orange;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $Orange;
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+	// .renovate-projects__form
+	&__form {
+		flex: 1 1 auto;
+	}
+}
+.form {
+	// .form__wrapper
+	&__wrapper {
+	}
+	// .form__body
+	&__body {
+	}
+	// .form__input
+	&__input {
+	}
+	// .form__name
+	&__name {
+	}
+	// .form__phone
+	&__phone {
+	}
+	// .form__checkbox
+	&__checkbox {
+	}
+	// .form__checkbox-input
+	&__checkbox-input {
+	}
+	// .form__checkbox-label
+	&__checkbox-label {
+	}
+	// .form__checkbox-text
+	&__checkbox-text {
+	}
+	// .form__link
+	&__link {
+	}
+	// .form__btn-box
+	&__btn-box {
+	}
+	// .form__btn
+	&__btn {
 	}
 }
