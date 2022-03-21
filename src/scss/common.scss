@@ -10,11 +10,26 @@
 	color: $White;
 	text-align: center;
 	transition: color 0.3s ease 0s, background-color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+	&_form-black {
+		min-width: rem(152);
+		min-height: rem(40);
+		background-color: $HardBlack;
+		color: #fff;
+		border: 2px solid $HardBlack;
+	}
 	@media (any-hover: hover) {
 		&:hover {
 			color: $Orange;
 			background-color: $White;
-			box-shadow: inset 2px 2px 0 $Orange, inset -2px -2px 0 $Orange;
+			.header & {
+				box-shadow: inset 2px 2px 0 $Orange, inset -2px -2px 0 $Orange;
+			}
+		}
+		&_form-black {
+			&:hover {
+				background-color: transparent;
+				color: $HardBlack;
+			}
 		}
 	}
 }
@@ -23,6 +38,7 @@
 	&__about {
 	}
 }
+
 .heading-block {
 	display: flex;
 	align-items: flex-end;
@@ -166,9 +182,7 @@
 		}
 	}
 }
-.anime-filter {
-	// opacity: 0;
-}
+
 .hide-filter {
 	visibility: hidden;
 	width: 0;
@@ -179,7 +193,6 @@
 	padding: 0;
 	position: absolute;
 }
-
 .h1,
 .h2,
 .h3,
