@@ -20,10 +20,27 @@
 }
 //========================================================================================================================================================
 .block-main-projects {
-	@include adaptiveValue("padding-top", 77, 47);
-	@include adaptiveValue("padding-bottom", 150, 80);
+	.projects & {
+		@include adaptiveValue("padding-top", 77, 47);
+		@include adaptiveValue("padding-bottom", 150, 80);
+	}
 	// .block-main-projects__container
 	&__container {
+	}
+	// .block-main-projects__title
+	&__title {
+		@include adaptiveValue("font-size", 40, 30);
+		font-weight: 600;
+		color: #3a3a3a;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 70, 34);
+		}
+		@media (min-width: $tablet) {
+			@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
+		}
+		@media (max-width: $mobile) {
+			font-weight: 400;
+		}
 	}
 	// .block-main-projects__row
 	&__row {
@@ -82,12 +99,8 @@
 			position: relative;
 		}
 		@media (min-width: $mobile) {
-			img {
-				opacity: 0.5;
-			}
 			&:hover {
 				img {
-					opacity: 1;
 					transform: scale(1.1);
 				}
 				p {
@@ -315,43 +328,5 @@
 	// .renovate-projects__form
 	&__form {
 		flex: 1 1 auto;
-	}
-}
-.form {
-	// .form__wrapper
-	&__wrapper {
-	}
-	// .form__body
-	&__body {
-	}
-	// .form__input
-	&__input {
-	}
-	// .form__name
-	&__name {
-	}
-	// .form__phone
-	&__phone {
-	}
-	// .form__checkbox
-	&__checkbox {
-	}
-	// .form__checkbox-input
-	&__checkbox-input {
-	}
-	// .form__checkbox-label
-	&__checkbox-label {
-	}
-	// .form__checkbox-text
-	&__checkbox-text {
-	}
-	// .form__link
-	&__link {
-	}
-	// .form__btn-box
-	&__btn-box {
-	}
-	// .form__btn
-	&__btn {
 	}
 }

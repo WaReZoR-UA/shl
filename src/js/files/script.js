@@ -36,7 +36,7 @@ window.addEventListener("load", function (e) {
 			items.forEach(item => {
 				const isItemFiltered = item.dataset.filterCard;
 				const isShowAll = category.toLowerCase() === 'all';
-
+				
 				if (isItemFiltered !== category && !isShowAll) {
 					item.classList.add('anime-filter')
 				} else {
@@ -44,37 +44,39 @@ window.addEventListener("load", function (e) {
 				}
 			});
 		}
+		
+		let navFilter = document.querySelector('[data-filter-nav]');
+		if (navFilter) {
+			navFilter.addEventListener('click', (e) => {
+				if (e.target.tagName !== 'A') return false;
 
-		document.querySelector('[data-filter-nav]').addEventListener('click', (e) => {
-			if (e.target.tagName !== 'A') return false;
+				e.preventDefault();
+				const buttons = document.querySelectorAll('[data-filter-nav] a');
+				if (buttons.length) {
+					buttons.forEach(button => {
+						button.classList.remove('active');
+						e.target.classList.add('active');
+						const currentCategory = e.target.dataset.filter;
+						filter(currentCategory, cards);
 
-			e.preventDefault();
-			const buttons = document.querySelectorAll('[data-filter-nav] a');
-			if (buttons.length) {
-				buttons.forEach(button => {
-					button.classList.remove('active');
-					e.target.classList.add('active');
-					const currentCategory = e.target.dataset.filter;
-					filter(currentCategory, cards);
-
-					if (button.classList.contains(`active`)) {
-						cards.forEach((card, i) => {
-							if (button.dataset.filter === 'commercial') {
-								card.dataset.filterCard == 'commercial' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-							} else if (button.dataset.filter === 'residential') {
-								card.dataset.filterCard == 'residential' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-							} else if (button.dataset.filter === 'under-construction') {
-								card.dataset.filterCard == 'under-construction' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-							} else {
-								card.setAttribute('data-sort-filter', i);
-							}
-						});
-					}
-				});
-			}
-			setClassesFilter();
-		});
-
+						if (button.classList.contains(`active`)) {
+							cards.forEach((card, i) => {
+								if (button.dataset.filter === 'commercial') {
+									card.dataset.filterCard == 'commercial' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else if (button.dataset.filter === 'residential') {
+									card.dataset.filterCard == 'residential' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else if (button.dataset.filter === 'under-construction') {
+									card.dataset.filterCard == 'under-construction' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else {
+									card.setAttribute('data-sort-filter', i);
+								}
+							});
+						}
+					});
+				}
+				setClassesFilter();
+			});
+		}
 		function setClassesFilter() {
 			cards.forEach(card => {
 				card.classList.contains('anime-filter') ? card.classList.add('hide-filter') : '';

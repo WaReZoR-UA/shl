@@ -10,6 +10,9 @@
 	color: $White;
 	text-align: center;
 	transition: color 0.3s ease 0s, background-color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 	&_form-black {
 		min-width: rem(152);
 		min-height: rem(40);
@@ -33,18 +36,16 @@
 		}
 	}
 }
-.page {
-	// .page__about
-	&__about {
-	}
-}
-
 .heading-block {
 	display: flex;
 	align-items: flex-end;
 	min-height: rem(280);
 	position: relative;
 	padding: rem(72) 0 rem(60);
+	.project-single & {
+		@include adaptiveValue("min-height", 700, 560);
+		@include adaptiveValue("padding-bottom", 110, 45);
+	}
 	// .heading-block__picture-ibg
 	&__picture-ibg {
 		position: absolute;
@@ -61,6 +62,9 @@
 			left: 0;
 			background-color: rgba(0, 0, 0, 0.6);
 			z-index: 1;
+			.project-single & {
+				background-color: rgba(0, 0, 0, 0.4);
+			}
 		}
 	}
 	// .heading-block__container"
@@ -85,6 +89,27 @@
 			font-weight: 700;
 			letter-spacing: -0.01em;
 			margin-top: -6px;
+			.project-single & {
+				@include adaptiveValue("font-size", 80, 40);
+				text-transform: none;
+				@media (max-width: $mobile) {
+					line-height: math.div(53, 40);
+				}
+			}
+		}
+		p {
+			font-family: $secondFont;
+			font-size: rem(18);
+			line-height: math.div(25, 18);
+			text-transform: none;
+			&:not(:first-child) {
+				@include adaptiveValue("margin-top", 20, 10);
+			}
+			@media (max-width: $mobile) {
+				&:not(:last-child) {
+					margin-top: rem(10);
+				}
+			}
 		}
 	}
 	@media (max-width: $mobile) {

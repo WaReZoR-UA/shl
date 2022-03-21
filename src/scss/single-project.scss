@@ -1,0 +1,211 @@
+.project-single {
+	// .project-single__heading
+	&__heading {
+		margin-bottom: rem(80);
+	}
+	// .project-single__about-project
+	&__about-project {
+		@include adaptiveValue("margin-bottom", 140, 80);
+	}
+	// .project-single__discuss-project
+	&__discuss-project {
+		@include adaptiveValue("margin-bottom", 160, 80);
+	}
+	// .project-single__similar-projects
+	&__similar-projects {
+		@include adaptiveValue("margin-bottom", 120, 100);
+	}
+}
+.project-about {
+	// .project-about__container
+	&__container {
+	}
+	// .project-about__main
+	&__main {
+		@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
+		@include adaptiveValue("padding-right", 150, 0, 1200, 992, 1);
+		@include adaptiveValue("margin-bottom", 150, 80);
+	}
+	// .project-about__title
+	&__title {
+		@include adaptiveValue("font-size", 40, 30);
+		@include adaptiveValue("margin-bottom", 60, 35);
+	}
+	// .project-about__row
+	&__row {
+		@media (min-width: $mobile) {
+			display: flex;
+		}
+	}
+	// .project-about__column
+	&__column {
+		@media (min-width: $mobile) {
+			flex: 0 1 50%;
+		}
+		@media (max-width: $mobile) {
+			&:not(:last-child) {
+				margin-bottom: rem(60);
+			}
+		}
+	}
+	// .project-about__text
+	&__text {
+		@include adaptiveValue("font-size", 29, 25);
+		line-height: 1.5;
+	}
+	// .project-about__info
+	&__info {
+		@media (min-width: $mobile) {
+			@include adaptiveValue("padding-left", 150, 40, 991.98, 767.98, 1);
+		}
+		@media (max-width: $mobile) {
+			max-width: 300px;
+			margin: 0px auto;
+		}
+	}
+	// .project-about__gallery
+	&__gallery {
+	}
+}
+.info-project-about {
+	// .info-project-about__row
+	&__row {
+		display: flex;
+		column-gap: rem(20);
+		justify-content: space-between;
+		font-family: $secondFont;
+		line-height: math.div(21, 14);
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+	}
+	// .info-project-about__label
+	&__label {
+		opacity: 0.6;
+	}
+	// .info-project-about__value
+	&__value {
+	}
+}
+.gallery-project {
+	@media (min-width: $mobile) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(20);
+	}
+	// .gallery-project__image-ibg
+	&__image-ibg {
+		@media (min-width: $mobile) {
+			padding-bottom: percent(600, 1200);
+			grid-column: span 2;
+			&:nth-child(4n + 3),
+			&:nth-child(4n + 4) {
+				grid-column: span 1;
+				padding-bottom: percent(750, 590);
+			}
+		}
+		@media (max-width: $mobile) {
+			padding-bottom: percent(380, 320);
+			&:not(:last-child) {
+				margin-bottom: rem(30);
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+.project-discuss {
+	@media (min-width: $mobile) {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: calc(100% - rem(80));
+			background-color: $LightGray;
+		}
+	}
+	@media (max-width: $mobile) {
+		background-color: $LightGray;
+		padding: rem(70) 0 rem(80);
+	}
+	// .project-discuss__container
+	&__container {
+		position: relative;
+		@media (min-width: $tablet) {
+			padding-right: rem(20);
+		}
+		@include adaptiveValue("padding-left", 170, 20, 1200, 992, 1);
+	}
+	// .project-discuss__row
+	&__row {
+		@media (min-width: $mobile) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			@include adaptiveValue("column-gap", 150, 40, 1200, 991.98, 1);
+		}
+		@media (max-width: $mobile) {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+	}
+	// .project-discuss__column
+	&__column {
+		// .project-discuss__column_flex
+		&_flex {
+			@media (min-width: $mobile) {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				padding: rem(50) 0 rem(130);
+			}
+		}
+		p {
+			font-family: $secondFont;
+			font-size: rem(28);
+			line-height: math.div(42, 28);
+			color: $HardBlack;
+			@media (min-width: $tablet) {
+				&:not(:last-child) {
+					margin-bottom: rem(60);
+				}
+			}
+			@media (max-width: $tablet) {
+				&:not(:last-child) {
+					margin-bottom: rem(40);
+				}
+			}
+		}
+		a {
+			font-size: rem(18);
+			font-weight: 400;
+			line-height: 1.5;
+			min-height: rem(60);
+			min-width: rem(270);
+			text-transform: none;
+		}
+		@media (max-width: $mobile) {
+			&:not(.project-discuss__column_flex) {
+				margin-bottom: rem(40);
+			}
+		}
+		@media (max-width: $mobileSmall){
+			a {
+				width: 100%;
+			}
+		}
+	}
+	// .project-discuss__text
+	&__text {
+	}
+	// .project-discuss__button
+	&__button {
+	}
+	// .project-discuss__image-ibg
+	&__image-ibg {
+		padding-bottom: percent(580, 450);
+	}
+}
+//========================================================================================================================================================
