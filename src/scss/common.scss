@@ -1,5 +1,6 @@
 // Заголовки, общие БЄМ блоки и проче...
 .button {
+	display: inline-block;
 	padding: 14px 24.9px;
 	background-color: $Orange;
 	font-weight: 700;
@@ -33,6 +34,28 @@
 				background-color: transparent;
 				color: $HardBlack;
 			}
+		}
+	}
+	&_black {
+		color: $White;
+		background-color: $HardBlack;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $HardBlack;
+				background-color: $White;
+				box-shadow: inset 2px 2px 0 $HardBlack, inset -2px -2px 0 $HardBlack;
+			}
+		}
+	}
+}
+.page {
+	// .page__about
+	&__about {
+	}
+	// .page__control
+	&__controll {
+		&.builders-about {
+			padding: 0;
 		}
 	}
 }

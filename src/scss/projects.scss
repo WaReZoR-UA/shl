@@ -299,6 +299,7 @@
 		position: relative;
 		padding-bottom: rem(1);
 		transition: color 0.3s ease 0s;
+		margin: 0px 0px 0px 10px;
 		&::before,
 		&::after {
 			content: "";

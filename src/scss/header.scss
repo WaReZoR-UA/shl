@@ -7,7 +7,13 @@
 	z-index: 99;
 	min-height: 72px;
 	transition: background-color 0.3s ease 0s;
-
+	@media (max-width:em(991)){
+		min-height: 105px;
+	}
+	@media (max-width: em(768)){
+		min-height: 72px;
+	}
+	
 	&._header-scroll {
 		background-color: $SemiBlack;
 	}
