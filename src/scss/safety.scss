@@ -1,0 +1,112 @@
+.safety {
+	// .safety__heading
+	&__heading {
+	}
+	// .safety__about
+	&__about {
+		@include adaptiveValue("margin-bottom", 140, 60);
+	}
+	// .safety__insurance
+	&__insurance {
+		@include adaptiveValue("margin-bottom", 140, 60);
+	}
+}
+.about-safety {
+	background-color: $Gray;
+	@include adaptiveValue("padding-top", 120, 60);
+	@include adaptiveValue("padding-bottom", 120, 45);
+	// .about-safety__container
+	&__container {
+	}
+	// .about-safety__info-text
+	&__info-text {
+		@media (min-width: em(899.98)) {
+			max-width: rem(900);
+			margin: 0px auto;
+		}
+		@include adaptiveValue("margin-bottom", 100, 48);
+	}
+	// .about-safety__row
+	&__row {
+		@media (min-width: $pc) {
+			gap: rem(60);
+		}
+		@media (min-width: $mobile) {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (max-width: $pc) and (min-width: $tablet) {
+			gap: rem(40);
+		}
+		@media (max-width: $tablet) and (min-width: $mobile) {
+			gap: rem(50) rem(30);
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	// .about-safety__column
+	&__column {
+		font-family: $secondFont;
+		color: $HardBlack;
+		line-height: 1.5;
+		@media (max-width: $mobile) {
+			&:not(:last-child) {
+				margin-bottom: rem(50);
+			}
+		}
+	}
+	// .about-safety__image-ibg
+	&__image-ibg {
+		padding-bottom: percent(240, 360);
+		margin-bottom: rem(30);
+	}
+	// .about-safety__title
+	&__title {
+		font-size: rem(18);
+		font-weight: 500;
+		&:not(:last-child) {
+			margin-bottom: rem(10);
+		}
+	}
+	// .about-safety__text
+	&__text {
+	}
+}
+//========================================================================================================================================================
+.insurance-safety {
+	// .insurance-safety__container
+	&__container {
+	}
+	// .insurance-safety__heading
+	&__heading {
+		@media (min-width: em(899.98)) {
+			max-width: rem(900);
+			margin: 0px auto;
+		}
+		@include adaptiveValue("margin-bottom", 140, 60);
+	}
+	// .insurance-safety__slider
+	&__slider {
+	}
+}
+.heading-block-titles {
+	// .heading-block__title
+	&__title {
+		@include adaptiveValue("margin-bottom", 40, 20);
+	}
+	// .heading-block__text
+	&__text {
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+	// .heading-block__small-text
+	&__small-text {
+	}
+}
+.slide-insurance {
+	width: 100%;
+	// .slide-insurance__image-ibg
+	&__image-ibg {
+		padding-bottom: percent(600, 1200);
+	}
+}

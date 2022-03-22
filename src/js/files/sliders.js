@@ -262,6 +262,96 @@ function initSliders() {
 		}
 		setNumberPagination();
 	}
+	// Проверяем, есть ли слайдер на стронице
+	if (document.querySelector('.insurance-safety__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		let reviewsSliderAbout = new Swiper('.insurance-safety__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 20,
+			autoHeight: true,
+			speed: 800,
+			// simulateTouch: false,
+
+			//touchRatio: 0,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			/*
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+
+			// Пагинация
+
+			// pagination: {
+			// 	el: '.reviews-about__pagination',
+			// 	type: 'fraction',
+			// 	clickable: true,
+			// },
+
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			// navigation: {
+			// 	prevEl: '.reviews-about__arrow_prev',
+			// 	nextEl: '.reviews-about__arrow_next',
+			// },
+
+			// Брейкпоинты
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// События
+			on: {
+
+			}
+		});
+		reviewsSliderAbout.on('slideChange', () => {
+			setNumberPagination();
+		});
+		function setNumberPagination() {
+			const paginationCurrent = document.querySelector('.reviews-about__pagination .swiper-pagination-current');
+			const paginationTotal = document.querySelector('.reviews-about__pagination .swiper-pagination-total');
+			+paginationCurrent.innerText < 10 ? paginationCurrent.innerText = "0" + paginationCurrent.innerText : '';
+			+paginationTotal.innerText < 10 ? paginationTotal.innerText = "0" + paginationTotal.innerText : '';
+		}
+		setNumberPagination();
+	}
 }
 
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
