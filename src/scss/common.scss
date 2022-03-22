@@ -1,4 +1,12 @@
 // Заголовки, общие БЄМ блоки и проче...
+
+.wrapper {
+	&_header-bg-black {
+		.header {
+			background-color: $SemiBlack;
+		}
+	}
+}
 .button {
 	display: inline-block;
 	padding: 14px 24.9px;
