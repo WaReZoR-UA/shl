@@ -7,7 +7,7 @@
 	}
 	// .about__nav
 	&__nav {
-		@include adaptiveValue("margin-bottom", 108, 60);
+		@include adaptiveValue("margin-bottom", 120, 60);
 	}
 	// .about__builders
 	&__builders {

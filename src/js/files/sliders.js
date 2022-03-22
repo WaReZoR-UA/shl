@@ -37,7 +37,7 @@ function initSliders() {
 			slidesPerView: 1,
 			spaceBetween: 0,
 			autoHeight: true,
-			speed: 1400,
+			speed: 800,
 			//touchRatio: 0,
 			//simulateTouch: false,
 			loop: true,
@@ -49,7 +49,7 @@ function initSliders() {
 			effect: 'fade',
 			*/
 			autoplay: {
-				delay: 4000,
+				delay: 6000,
 				disableOnInteraction: false,
 			},
 			// Кнопки "влево/вправо"
