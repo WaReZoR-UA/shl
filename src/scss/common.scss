@@ -238,7 +238,24 @@
 		}
 	}
 }
-
+.pagination-fraction {
+	font-family: $secondFont;
+	color: #0d0d0d;
+	font-size: rem(12);
+}
+.arrows-sliders {
+	cursor: pointer;
+	font-size: rem(30);
+	transition: opacity 0.3s ease 0s, font-size 0.2s ease 0s;
+	&.swiper-button-disabled {
+		opacity: 0.2;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			font-size: rem(34);
+		}
+	}
+}
 .hide-filter {
 	visibility: hidden;
 	width: 0;
@@ -254,7 +271,7 @@
 .h3,
 .h4,
 .h5 {
-	color: #000;
+	color: $HardBlack;
 }
 .h1 {
 	font-size: rem(110);

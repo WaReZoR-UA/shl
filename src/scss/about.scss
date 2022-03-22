@@ -739,19 +739,13 @@
 	}
 	// .reviews-about__arrow
 	&__arrow {
-		cursor: pointer;
 		position: absolute;
 		@media (min-width: $tablet) {
 			top: 50%;
 		}
 		transform: translate(0%, -50%);
-		font-size: rem(30);
-		transition: opacity 0.3s ease 0s, font-size 0.2s ease 0s;
 		@media (max-width: $tablet) {
 			bottom: rem(30);
-		}
-		&.swiper-button-disabled {
-			opacity: 0.2;
 		}
 		// .reviews-about__arrow_prev
 		&_prev {
@@ -762,20 +756,10 @@
 			right: rem(20);
 			transform: translate(0%, -50%) rotate(180deg);
 		}
-		@media (any-hover: hover) {
-			&:hover {
-				font-size: rem(34);
-			}
-		}
 	}
 	// .reviews-about__pagination
 	&__pagination {
-		font-family: $secondFont;
-		color: #0d0d0d;
-		font-size: rem(12);
 		margin-top: rem(40);
-		.swiper-pagination-bullet {
-		}
 	}
 }
 .slide-reviews-about {

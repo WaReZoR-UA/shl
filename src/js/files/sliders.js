@@ -24,6 +24,17 @@ import "../../scss/base/swiper.scss";
 // Полный набор стилей из node_modules
 // import 'swiper/css';
 
+function setNumberPagination() {
+	const paginationCurrent = document.querySelector('[data-pagination-fraction] .swiper-pagination-current');
+	const paginationTotal = document.querySelector('[data-pagination-fraction] .swiper-pagination-total');
+	if (paginationCurrent) {
+		+paginationCurrent.innerText.length < 2 ? paginationCurrent.innerText = "0" + paginationCurrent.innerText : '';
+	}
+	if (paginationTotal) {
+		+paginationTotal.innerText.length < 2 ? paginationTotal.innerText = "0" + paginationTotal.innerText : '';
+	}
+}
+
 // Инициализация слайдеров
 function initSliders() {
 	if (document.querySelector('.main-slides__slider')) { // Указываем скласс нужного слайдера
@@ -31,7 +42,7 @@ function initSliders() {
 		let mainSilder = new Swiper('.main-slides__slider', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation, Autoplay, Lazy],
+			modules: [Navigation, Autoplay, Lazy, Pagination],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -57,18 +68,19 @@ function initSliders() {
 				prevEl: '.controll__prev',
 				nextEl: '.controll__next',
 			},
+			// Пагинация
+			pagination: {
+				el: '.controll__fractions',
+				type: 'fraction',
+			},
 			// События
 			on: {
-				slideChange: function (swiper) {
-					const curentSlideNumber = document.querySelector('.controll__fraction-curent');
-					curentSlideNumber.innerText = swiper.realIndex + 1 < 10 ? `0${swiper.realIndex + 1}` : swiper.realIndex + 1;
+				slideChange: function () {
+					setNumberPagination();
 				},
-				init: function (swiper) {
-					const totlaNumberOfSlides = document.querySelector('.controll__fraction-all');
-					const totalNumberOfRealSlides = document.querySelectorAll('.main-slides__slide:not(.swiper-slide-duplicate)')
-					totlaNumberOfSlides.innerText = totalNumberOfRealSlides.length < 10 ? `0${totalNumberOfRealSlides.length}` : totalNumberOfRealSlides.length;
-
-				}
+				init: function () {
+					setNumberPagination();
+				},
 			}
 		});
 	}
@@ -248,19 +260,101 @@ function initSliders() {
 			*/
 			// События
 			on: {
-
+				slideChange: function () {
+					setNumberPagination();
+				},
+				init: function () {
+					setNumberPagination();
+				},
 			}
 		});
-		reviewsSliderAbout.on('slideChange', () => {
-			setNumberPagination();
+	}
+	// Проверяем, есть ли слайдер на стронице
+	if (document.querySelector('.insurance-safety__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		let insuranceSliderAbout = new Swiper('.insurance-safety__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination, Lazy],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 20,
+			autoHeight: true,
+			speed: 800,
+			// simulateTouch: false,
+
+			//touchRatio: 0,
+			loop: true,
+			//preloadImages: false,
+			lazy: {
+				loadPrevNext: true,
+			},
+
+			/*
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+
+			// Пагинация
+
+			pagination: {
+				el: '.insurance-safety__pagination',
+				type: 'fraction',
+				clickable: true,
+			},
+
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			navigation: {
+				prevEl: '.insurance-safety__arrow_prev',
+				nextEl: '.insurance-safety__arrow_next',
+			},
+
+			// Брейкпоинты
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// События
+			on: {
+				slideChange: function () {
+					setNumberPagination();
+				},
+				init: function () {
+					setNumberPagination();
+				},
+			}
 		});
-		function setNumberPagination() {
-			const paginationCurrent = document.querySelector('.reviews-about__pagination .swiper-pagination-current');
-			const paginationTotal = document.querySelector('.reviews-about__pagination .swiper-pagination-total');
-			+paginationCurrent.innerText < 10 ? paginationCurrent.innerText = "0" + paginationCurrent.innerText : '';
-			+paginationTotal.innerText < 10 ? paginationTotal.innerText = "0" + paginationTotal.innerText : '';
-		}
-		setNumberPagination();
 	}
 }
 
