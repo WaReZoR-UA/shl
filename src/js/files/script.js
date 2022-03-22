@@ -46,6 +46,15 @@ const formButton = document.querySelector('.form__button');
 //========================================================================================================================================================
 window.addEventListener("load", function (e) {
 
+	/* Инструкция как пользоваться фильтром
+	
+	data-filter-nav - добавлять к родителю списка с навигацией
+	data-filter-button="" - добавлять ссылкам списка с навигацией со значениями all, one, two, three
+	data-filter-body - добавлять к родителю блока с карточками для сортировки
+	data-filter-card="" - добавлять карточкам со значениями one, two, three
+
+	*/
+
 	// Filter projects cards
 	function filterCards() {
 		const cards = document.querySelectorAll('[data-filter-card]');
@@ -54,11 +63,7 @@ window.addEventListener("load", function (e) {
 				const isItemFiltered = item.dataset.filterCard;
 				const isShowAll = category.toLowerCase() === 'all';
 				
-				if (isItemFiltered !== category && !isShowAll) {
-					item.classList.add('anime-filter')
-				} else {
-					item.classList.remove('anime-filter', 'hide-filter');
-				}
+				isItemFiltered !== category && !isShowAll ? item.classList.add('hide-filter') : item.classList.remove('hide-filter');
 			});
 		}
 		
@@ -73,17 +78,17 @@ window.addEventListener("load", function (e) {
 					buttons.forEach(button => {
 						button.classList.remove('active');
 						e.target.classList.add('active');
-						const currentCategory = e.target.dataset.filter;
+						const currentCategory = e.target.dataset.filterButton;
 						filter(currentCategory, cards);
 
 						if (button.classList.contains(`active`)) {
 							cards.forEach((card, i) => {
-								if (button.dataset.filter === 'commercial') {
-									card.dataset.filterCard == 'commercial' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-								} else if (button.dataset.filter === 'residential') {
-									card.dataset.filterCard == 'residential' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-								} else if (button.dataset.filter === 'under-construction') {
-									card.dataset.filterCard == 'under-construction' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								if (button.dataset.filterButton === 'one') {
+									card.dataset.filterCard == 'one' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else if (button.dataset.filterButton === 'two') {
+									card.dataset.filterCard == 'two' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else if (button.dataset.filterButton === 'three') {
+									card.dataset.filterCard == 'three' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
 								} else {
 									card.setAttribute('data-sort-filter', i);
 								}
@@ -96,7 +101,7 @@ window.addEventListener("load", function (e) {
 		}
 		function setClassesFilter() {
 			cards.forEach(card => {
-				card.classList.contains('anime-filter') ? card.classList.add('hide-filter') : '';
+				card.classList.contains('hide-filter') ? card.classList.add('hide-filter') : '';
 				mySortMin('data-sort-filter');
 			});
 		}
@@ -104,7 +109,7 @@ window.addEventListener("load", function (e) {
 
 		// Сортировка
 		function mySortMin(sortType) {
-			let SortBlock = document.querySelector('.block-main-projects__row');
+			let SortBlock = document.querySelector('[data-filter-body]');
 			for (let i = 0; i < SortBlock.children.length; i++) {
 				for (let z = i; z < SortBlock.children.length; z++) {
 					if (+SortBlock.children[i].getAttribute(sortType) > +SortBlock.children[z].getAttribute(sortType)) {
