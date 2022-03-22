@@ -79,6 +79,7 @@
 	}
 	// .first-screen-press__text
 	&__text {
+		line-height: math.div(48 , 40);
 		@media (min-width: em(574.98)) {
 			&:not(:last-child) {
 				margin-bottom: rem(60);
