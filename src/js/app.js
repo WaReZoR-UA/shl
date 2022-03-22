@@ -42,6 +42,11 @@ flsFunctions.fullVHfix();
 flsFunctions.spollers();
 
 /*
+Модуль работы с фильтром товаров
+*/
+flsFunctions.filterCards();
+
+/*
 Модуль работы с табами
 Документация: https://template.fls.guru/template-docs/modul-taby.html
 Сниппет (HTML): tabs

@@ -275,6 +275,86 @@ export function spollers() {
 		}
 	}
 }
+
+/* Инструкция как пользоваться фильтром
+	
+	data-filter-nav - добавлять к родителю списка с навигацией
+	data-filter-button="" - добавлять ссылкам списка с навигацией со значениями all, one, two, three
+	data-filter-body - добавлять к родителю блока с карточками для сортировки
+	data-filter-card="" - добавлять карточкам со значениями one, two, three
+
+	*/
+
+// Модуь работы с фильтром товаров =======================================================================================================================================================================================================================
+
+export function filterCards() {
+	const cards = document.querySelectorAll('[data-filter-card]');
+	function filter(category, items) {
+		items.forEach(item => {
+			const isItemFiltered = item.dataset.filterCard;
+			const isShowAll = category.toLowerCase() === 'all';
+
+			isItemFiltered !== category && !isShowAll ? item.classList.add('hide-filter') : item.classList.remove('hide-filter');
+		});
+	}
+
+	let navFilter = document.querySelector('[data-filter-nav]');
+	if (navFilter) {
+		navFilter.addEventListener('click', (e) => {
+			if (e.target.tagName !== 'A') return false;
+
+			e.preventDefault();
+			const buttons = document.querySelectorAll('[data-filter-nav] a');
+			if (buttons.length) {
+				buttons.forEach(button => {
+					button.classList.remove('active');
+					e.target.classList.add('active');
+					const currentCategory = e.target.dataset.filterButton;
+					filter(currentCategory, cards);
+
+					if (button.classList.contains(`active`)) {
+						cards.forEach((card, i) => {
+							if (button.dataset.filterButton === 'one') {
+								card.dataset.filterCard == 'one' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+							} else if (button.dataset.filterButton === 'two') {
+								card.dataset.filterCard == 'two' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+							} else if (button.dataset.filterButton === 'three') {
+								card.dataset.filterCard == 'three' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+							} else {
+								card.setAttribute('data-sort-filter', i);
+							}
+						});
+					}
+				});
+			}
+			setClassesFilter();
+		});
+	}
+	function setClassesFilter() {
+		cards.forEach(card => {
+			card.classList.contains('hide-filter') ? card.classList.add('hide-filter') : '';
+			mySortMin('data-sort-filter');
+		});
+	}
+	setClassesFilter();
+
+	// Сортировка
+	function mySortMin(sortType) {
+		let SortBlock = document.querySelector('[data-filter-body]');
+		for (let i = 0; i < SortBlock.children.length; i++) {
+			for (let z = i; z < SortBlock.children.length; z++) {
+				if (+SortBlock.children[i].getAttribute(sortType) > +SortBlock.children[z].getAttribute(sortType)) {
+					let replacedNode = SortBlock.replaceChild(SortBlock.children[z], SortBlock.children[i]);
+					insertAfter(replacedNode, SortBlock.children[i]);
+				}
+			}
+		}
+	}
+	function insertAfter(elem, refElem) {
+		return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+	}
+}
+
 // Модуь работы с табами =======================================================================================================================================================================================================================
 /*
 Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-taby.html
