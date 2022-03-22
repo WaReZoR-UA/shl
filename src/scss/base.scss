@@ -129,31 +129,23 @@
 %psevdo {
 	transition: color 0.3s ease 0s;
 	position: relative;
-	&::before,
-	&::after {
+	&::before {
 		content: "";
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		height: 2px;
-	}
-	&::before {
+		height: 1px;
 		width: 100%;
 		background-color: $HardBlack;
+		transition: width 0.3s ease 0s;
 		&_color-semiblack {
 			color: $SemiBlack;
 		}
 	}
-	&::after {
-		transition: width 0.3s ease 0s;
-		width: 0;
-		background-color: $Orange;
-	}
 	@media (any-hover: hover) {
 		&:hover {
-			color: $Orange;
-			&::after {
-				width: 100%;
+			&::before {
+				width: 0;
 			}
 		}
 	}
