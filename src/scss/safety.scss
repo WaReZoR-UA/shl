@@ -159,6 +159,9 @@
 	// .heading-block__title
 	&__title {
 		@include adaptiveValue("margin-bottom", 40, 20);
+		.press & {
+			@include adaptiveValue("margin-bottom", 20, 10);
+		}
 	}
 	// .heading-block__text
 	&__text {
