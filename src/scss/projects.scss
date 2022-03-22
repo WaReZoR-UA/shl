@@ -103,7 +103,7 @@
 				img {
 					transform: scale(1.1);
 				}
-				p {
+				.block-main-projects__city {
 					color: $Orange;
 				}
 			}
@@ -117,7 +117,7 @@
 					opacity: 0.5;
 					transform: scale(1.1);
 				}
-				p {
+				.block-main-projects__city {
 					opacity: 1;
 					visibility: visible;
 				}
@@ -141,48 +141,10 @@
 	}
 	// .block-main-projects__content
 	&__content {
-		p {
-			font-size: rem(23);
-			line-height: 1.4;
-			color: $HardBlack;
-			display: inline-flex;
-			align-items: center;
-			flex-direction: row-reverse;
-			letter-spacing: -0.01em;
-			column-gap: rem(15);
-			transition: color 0.3s ease 0s;
-			&::before {
-				transform: rotate(-180deg);
-			}
-		}
-		@media (min-width: $mobile) {
-			p {
-				span {
-					display: none;
-				}
-			}
-		}
 		@media (max-width: $mobile) {
 			position: absolute;
 			bottom: rem(20);
 			left: rem(30);
-			p {
-				opacity: 0;
-				visibility: hidden;
-				transition: opacity 0.8s ease 0s, visibility 0.8s ease 0s;
-				color: #fff;
-				flex-direction: column-reverse;
-				align-items: flex-start;
-				row-gap: rem(10);
-				&::before {
-					margin-top: rem(30);
-				}
-				span {
-					font-family: $secondFont;
-					line-height: 1.5;
-					font-size: rem(14);
-				}
-			}
 		}
 	}
 	// .block-main-projects__top-info
@@ -215,8 +177,42 @@
 	// .block-main-projects__where
 	&__where {
 	}
-	// .block-main-projects__link
-	&__link {
+	// .block-main-projects__city
+	&__city {
+		font-size: rem(23);
+		line-height: 1.4;
+		color: $HardBlack;
+		display: inline-flex;
+		align-items: center;
+		flex-direction: row-reverse;
+		letter-spacing: -0.01em;
+		column-gap: rem(15);
+		transition: color 0.3s ease 0s;
+		&::before {
+			transform: rotate(-180deg);
+		}
+		@media (min-width:$mobile){
+			span {
+				display: none;
+			} 
+		}
+		@media (max-width:$mobile){
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.8s ease 0s, visibility 0.8s ease 0s;
+			color: #fff;
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			row-gap: rem(10);
+			&::before {
+				margin-top: rem(30);
+			}
+			span {
+				font-family: $secondFont;
+				line-height: 1.5;
+				font-size: rem(14);
+			} 
+		}
 	}
 }
 //========================================================================================================================================================
