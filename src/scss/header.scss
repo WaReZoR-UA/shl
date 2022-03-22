@@ -31,7 +31,7 @@
 			content: "";
 			width: 96.5%;
 			bottom: -16px;
-			border-bottom: 0.5px solid rgba($color: $Gray, $alpha: .5);
+			border-bottom: 0.5px solid rgba($color: $Gray, $alpha: 0.5);
 			opacity: 1;
 			@media (max-width: em(768)) {
 				border: none;
@@ -75,10 +75,10 @@
 			content: "";
 			position: absolute;
 			left: 0;
-			border-left: 0.5px solid rgba($color: $Gray, $alpha: .5);
+			border-left: 0.5px solid rgba($color: $Gray, $alpha: 0.5);
 			height: 70px;
 			opacity: 1;
-			@media (max-width: em(991)){
+			@media (max-width: em(991)) {
 				height: 105px;
 			}
 			@media (max-width: em(768)) {
@@ -104,7 +104,7 @@
 			position: relative;
 			top: 0;
 			right: 5px;
-			@media (min-width:em(768.02)) {
+			@media (min-width: em(768.02)) {
 				display: none;
 			}
 		}
@@ -122,7 +122,7 @@
 	@media (max-width: em(768)) {
 		display: none;
 	}
-	
+
 	// .menu__body
 	&__body {
 		color: $White;
@@ -166,7 +166,7 @@
 				color: $Orange;
 			}
 		}
-		@media (max-width: em(768)){
+		@media (max-width: em(768)) {
 			display: none;
 		}
 	}
@@ -274,7 +274,6 @@
 	// .mobile-menu__wrapper
 	&__wrapper {
 		background-color: $SemiBlack;
-
 	}
 	// .mobile-menu__box
 	&__logo-box {
@@ -282,7 +281,7 @@
 		box-sizing: content-box;
 		margin: 0 auto;
 		padding: 0 rem(math.div($containerPadding, 2));
-		@media (max-width: em(786)){
+		@media (max-width: em(786)) {
 			position: relative;
 			z-index: 1;
 		}
@@ -390,10 +389,10 @@
 	}
 
 	// .mobile-menu__link
-	&__link{
+	&__link {
 		transition: color 0.3s ease 0s;
-		@media (any-hover: hover){
-			&:hover{
+		@media (any-hover: hover) {
+			&:hover {
 				color: $SemiBlack;
 			}
 		}
@@ -419,8 +418,8 @@
 
 	// .mobile-menu__call
 	&__call {
-		@media (any-hover: hover){
-			&:hover{
+		@media (any-hover: hover) {
+			&:hover {
 				text-decoration: underline;
 			}
 		}
@@ -536,7 +535,7 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				&::before{
+				&::before {
 					width: 0;
 				}
 			}
@@ -628,187 +627,244 @@
 }
 //=======================================================================Header menu form=================================================================================
 
-
 .form {
-	position: absolute;
-	background-color: $White;
-	width: 100%;
-	height: 100%;
-	transform: translateX(100%);
-	transition: transform 0.3s ease 0s;
-	&._form-active {
-		transform: translateX(0%);
+	.header & {
+		position: absolute;
+		background-color: $White;
+		width: 100%;
+		height: 100%;
+		transform: translateX(100%);
+		transition: transform 0.3s ease 0s;
+		&._form-active {
+			transform: translateX(0%);
+		}
 	}
-		// .form__wrapper
-		&__wrapper {
+	// .form__wrapper
+	&__wrapper {
+		.header & {
 			height: 100%;
 			@include adaptiveValue("padding-left", 100, 20, 1200, 360, 1);
 			padding-top: 20px;
 			padding-right: 20px;
 		}
-		// .form__button
-		&__button {
+	}
+	// .form__button
+	&__button {
+		position: absolute;
+		right: percent(168, 820);
+		width: 30px;
+		height: 30px;
+		background-color: $HardBlack;
+		border-radius: 50px;
+		transition: background-color 0.3s ease 0s, transform 0.3s ease;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $Orange;
+				transform: rotate(-90deg);
+			}
+		}
+		&::before {
+			content: "";
 			position: absolute;
-			right: percent(168,820);
-			width: 30px;
-			height: 30px;
-			background-color: $HardBlack;
-			border-radius: 50px;
-			transition: background-color 0.3s ease 0s,
-			transform .3s ease;
-			@media (any-hover: hover){
-				&:hover{
-					background-color: $Orange;
-					transform: rotate(-90deg);
-				}
-			}
-			&::before{
-				content:'';
-				position: absolute;
-				top: 7px;
-				left: 14px;
-				width: 1px;
-				height: 16px;
-				background-color: $White;
-				transform: rotate(45deg);
-			}
-			&::after{
-				content:'';
-				position: absolute;
-				top: 7px;
-				left: 14px;
-				width: 1px;
-				height: 16px;
-				background-color: $White;
-				transform: rotate(-45deg);
-			}
-			@media (max-width: em(768)) {
-				right: 15%;
-			}
+			top: 7px;
+			left: 14px;
+			width: 1px;
+			height: 16px;
+			background-color: $White;
+			transform: rotate(45deg);
 		}
-		// .form__body
-		&__body {
-			display: flex;
-			height: 100%;
-			flex-direction: column;
-			justify-content: center;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 7px;
+			left: 14px;
+			width: 1px;
+			height: 16px;
+			background-color: $White;
+			transform: rotate(-45deg);
 		}
-		
-		// .form__input
-		&__input {
-			position: relative;
-			&:first-child {
-				margin: 0px 0px 64px 0px;
-			}
+		@media (max-width: em(768)) {
+			right: 15%;
 		}
+	}
+	// .form__body
+	&__body {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+	}
 
-		// .form__name
-		// .form__phone
-		&__name,
-		&__phone {
-			height: 42px;
+	// .form__input
+	&__input {
+		position: relative;
+		&:first-child {
+			margin: 0px 0px 64px 0px;
+		}
+		&_all {
+			&:not(:last-child) {
+				margin-bottom: rem(30);
+			}
+		}
+	}
+
+	// .form__name
+	// .form__phone
+	&__name,
+	&__phone {
+		&_all {
+			width: 100%;
+			background-color: transparent;
+			font-size: rem(16);
+			line-height: math.div(19, 16);
+			&::placeholder {
+				color: rgba(211, 211, 211, 0.6);
+			}
+		}
+		.header & {
 			max-width: 518px;
 			font-weight: 600;
-			font-size: rem(23);
-			line-height: math.div(30, 23);
-			letter-spacing: -0.01em;
-			border: none;
-			border-bottom: 2px solid rgba(128, 128, 128, 1);
-			border-radius: 0;
-			transition: all 0.3s ease 0s;
-			&:focus {
-				outline: none;
-				border-bottom: 2px solid $HardBlack;
-				&::placeholder {
-					transform: scale(0);
-				}
-			}
+		}
+		height: 42px;
+		font-size: rem(23);
+		line-height: math.div(30, 23);
+		letter-spacing: -0.01em;
+		border: none;
+		border-bottom: 2px solid rgba(128, 128, 128, 1);
+		border-radius: 0;
+		transition: all 0.3s ease 0s;
+		&:focus {
+			outline: none;
+			border-bottom: 2px solid $HardBlack;
 			&::placeholder {
-				color: rgba(128, 128, 128, 1);
-				transition: transform 0.3s ease 0s;
-				transform: scale(1);
-
+				transform: scale(0);
 			}
 		}
-		// .form__checkbox
-		&__checkbox {
-			margin: 40px 0px 52px 0px;
-			&._form-error {
-				.form__checkbox-text {
-					color: #F41E1E;
+		&::placeholder {
+			color: rgba(128, 128, 128, 1);
+			transition: transform 0.3s ease 0s;
+			transform: scale(1);
+		}
+	}
+	// .form__checkbox
+	&__checkbox {
+		margin: 40px 0px 52px 0px;
+		&_all {
+			&:not(:last-child) {
+				margin: 0 0 rem(21);
+			}
+		}
+		&._form-error {
+			.form__checkbox-text {
+				color: #f41e1e;
+			}
+		}
+	}
+	// .form__checkbox-input
+	&__checkbox-input {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		top: 0;
+		left: 0;
+		&:checked {
+			+ .form__checkbox-label {
+				&::before {
+					transform: scale(1);
 				}
 			}
 		}
-		// .form__checkbox-input
-		&__checkbox-input {
+	}
+	// .form__checkbox-label
+	&__checkbox-label {
+		position: relative;
+		padding: 0px 0px 0px 24px;
+		cursor: pointer;
+		&::after {
 			position: absolute;
-			visibility: hidden;
-			opacity: 0;
-			width: 0;
-			height: 0;
-			top: 0;
+			content: "";
+			top: 2px;
 			left: 0;
-			&:checked {
-				+ .form__checkbox-label {
-					&::before {
-						transform: scale(1);
+			width: 14px;
+			height: 14px;
+			border: 0.5px solid $HardBlack;
+		}
+		&::before {
+			position: absolute;
+			@extend %ic;
+			@extend ._icon-checked;
+			top: 4px;
+			left: 1.5px;
+			color: $HardBlack;
+			font-size: rem(11);
+			transform: scale(0);
+			transition: transform 0.3s ease 0s;
+		}
+		&_all {
+			padding: 0px 0px 0px 35px;
+			&::before{
+				top: 5px;
+				left: 4px;
+				font-size: rem(12);
+			}
+			&::after{
+				opacity: 0.4;
+				width: 20px;
+				height: 20px;
+				top: -1px;
+			}
+		}
+	}
+	// .form__checkbox-text
+	&__checkbox-text {
+		font-family: $secondFont;
+		font-size: rem(12);
+		line-height: math.div(20, 12);
+		color: $HardBlack;
+		&_all {
+			font-size: rem(10);
+			line-height: math.div(12 , 10);
+			color: rgba(0, 0, 0, 0.4);
+		}
+	}
+	// .form__link
+	&__link {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background-color: $HardBlack;
+		}
+		&_all {
+			transition: color 0.3s ease 0s;
+			color: rgba(0, 0, 0, 0.4);
+			&::before{
+				transition: background-color 0.3s ease 0s;
+				background-color: rgba(0, 0, 0, 0.4);
+			}
+			@media (any-hover: hover){
+				&:hover{
+					color: rgba(0, 0, 0, 1);
+					&::before{
+						background-color: rgba(0, 0, 0, 1);
 					}
 				}
 			}
 		}
-		// .form__checkbox-label
-		&__checkbox-label {
-			position: relative;
-			padding: 0px 0px 0px 24px;
-			cursor: pointer;
-			&::after{
-				position: absolute;
-				content:'';
-				top: 2px;
-				left: 0;
-				width: 14px;
-				height: 14px;
-				border: 0.5px solid $HardBlack;
-			}
-			&::before {
-				position: absolute;
-				@extend %ic;
-				@extend ._icon-checked;
-				top: 4px;
-				left: 1.5px;
-				color: $HardBlack;
-				font-size: rem(11);
-				transform: scale(0);
-				transition: transform 0.3s ease 0s;
-			}
-		}
-		// .form__checkbox-text
-		&__checkbox-text {
-			font-family: $secondFont;
-			font-size: rem(12);
-			line-height: math.div(20, 12);
-			color: $HardBlack;
-		}
-		// .form__link
-		&__link {
-			position: relative;
-			&::before{
-				content:'';
-				position: absolute;
-				bottom: -2px;
-				left: 0;
-				height: 1px;
-				width: 100%;
-				background-color: $HardBlack;
-			}
-		}
-		// .form__error
-		&__error {
-			position: absolute;
-			bottom: -16px;
-			left: 0;
-			color: #F41E1E;
-			font-size: rem(8);
-			line-height: math.div(8 , 8);
-		}
+	}
+	// .form__error
+	&__error {
+		position: absolute;
+		bottom: -16px;
+		left: 0;
+		color: #f41e1e;
+		font-size: rem(8);
+		line-height: math.div(8, 8);
+	}
 }

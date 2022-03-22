@@ -46,15 +46,14 @@ const formButton = document.querySelector('.form__button');
 //========================================================================================================================================================
 window.addEventListener("load", function (e) {
 
-
+	// Filter projects cards
 	function filterCards() {
 		const cards = document.querySelectorAll('[data-filter-card]');
-		console.log(cards.length);
 		function filter(category, items) {
 			items.forEach(item => {
 				const isItemFiltered = item.dataset.filterCard;
 				const isShowAll = category.toLowerCase() === 'all';
-
+				
 				if (isItemFiltered !== category && !isShowAll) {
 					item.classList.add('anime-filter')
 				} else {
@@ -62,86 +61,76 @@ window.addEventListener("load", function (e) {
 				}
 			});
 		}
+		
+		let navFilter = document.querySelector('[data-filter-nav]');
+		if (navFilter) {
+			navFilter.addEventListener('click', (e) => {
+				if (e.target.tagName !== 'A') return false;
 
-		document.querySelector('[data-filter-nav]').addEventListener('click', (e) => {
-			if (e.target.tagName !== 'A') return false;
+				e.preventDefault();
+				const buttons = document.querySelectorAll('[data-filter-nav] a');
+				if (buttons.length) {
+					buttons.forEach(button => {
+						button.classList.remove('active');
+						e.target.classList.add('active');
+						const currentCategory = e.target.dataset.filter;
+						filter(currentCategory, cards);
 
-			const buttons = document.querySelectorAll('[data-filter-nav] a');
-
-			buttons.forEach(button => {
-				button.classList.remove('active');
-				e.target.classList.add('active');
-				const currentCategory = e.target.dataset.filter;
-				filter(currentCategory, cards);
-
-				if (button.classList.contains(`active`)) {
-					cards.forEach(card => {
-						if (button.dataset.filter === 'commercial') {
-							if (cards.length % 2 == 0) {
-								card.closest('.block-main-projects__row').classList.remove('under-construction');
-								card.closest('.block-main-projects__row').classList.remove('all-filter');
-								card.closest('.block-main-projects__row').classList.remove('residential-filter');
-								card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
-								card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
-								card.closest('.block-main-projects__row').classList.add('commercial-filter');
-							} else {
-								card.closest('.block-main-projects__row').classList.remove('under-construction');
-								card.closest('.block-main-projects__row').classList.remove('all-filter');
-								card.closest('.block-main-projects__row').classList.remove('residential-filter');
-								card.closest('.block-main-projects__row').classList.remove('commercial-filter');
-								card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
-								card.closest('.block-main-projects__row').classList.add('commercial-filter-odd');
-							}
-						} else if (button.dataset.filter === 'residential') {
-							card.closest('.block-main-projects__row').classList.remove('commercial-filter');
-							card.closest('.block-main-projects__row').classList.remove('all-filter');
-							card.closest('.block-main-projects__row').classList.remove('under-construction');
-							card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
-							card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
-							card.closest('.block-main-projects__row').classList.add('residential-filter');
-						} else if (button.dataset.filter === 'under-construction') {
-							if (cards.length % 2 == 0) {
-								card.closest('.block-main-projects__row').classList.remove('residential-filter');
-								card.closest('.block-main-projects__row').classList.remove('all-filter');
-								card.closest('.block-main-projects__row').classList.remove('commercial-filter');
-								card.closest('.block-main-projects__row').classList.remove('under-construction');
-								card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
-								card.closest('.block-main-projects__row').classList.add('under-construction-odd');
-							} else {
-								card.closest('.block-main-projects__row').classList.remove('residential-filter');
-								card.closest('.block-main-projects__row').classList.remove('all-filter');
-								card.closest('.block-main-projects__row').classList.remove('commercial-filter');
-								card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
-								card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
-								card.closest('.block-main-projects__row').classList.add('under-construction');
-							}
-						} else {
-							card.closest('.block-main-projects__row').classList.remove('residential-filter');
-							card.closest('.block-main-projects__row').classList.remove('commercial-filter');
-							card.closest('.block-main-projects__row').classList.remove('under-construction');
-							card.closest('.block-main-projects__row').classList.remove('under-construction-odd');
-							card.closest('.block-main-projects__row').classList.remove('commercial-filter-odd');
-							card.closest('.block-main-projects__row').classList.add('all-filter');
+						if (button.classList.contains(`active`)) {
+							cards.forEach((card, i) => {
+								if (button.dataset.filter === 'commercial') {
+									card.dataset.filterCard == 'commercial' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else if (button.dataset.filter === 'residential') {
+									card.dataset.filterCard == 'residential' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else if (button.dataset.filter === 'under-construction') {
+									card.dataset.filterCard == 'under-construction' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+								} else {
+									card.setAttribute('data-sort-filter', i);
+								}
+							});
 						}
 					});
 				}
+				setClassesFilter();
 			});
-			setClassesFilter();
-		});
-
+		}
 		function setClassesFilter() {
-			cards.forEach((card, index) => {
-				if (card.classList.contains('anime-filter')) {
-					card.classList.add('hide-filter');
-				}
+			cards.forEach(card => {
+				card.classList.contains('anime-filter') ? card.classList.add('hide-filter') : '';
+				mySortMin('data-sort-filter');
 			});
 		}
 		setClassesFilter();
 
-
-
+		// Сортировка
+		function mySortMin(sortType) {
+			let SortBlock = document.querySelector('.block-main-projects__row');
+			for (let i = 0; i < SortBlock.children.length; i++) {
+				for (let z = i; z < SortBlock.children.length; z++) {
+					if (+SortBlock.children[i].getAttribute(sortType) > +SortBlock.children[z].getAttribute(sortType)) {
+						let replacedNode = SortBlock.replaceChild(SortBlock.children[z], SortBlock.children[i]);
+						insertAfter(replacedNode, SortBlock.children[i]);
+					}
+				}
+			}
+		}
+		function insertAfter(elem, refElem) {
+			return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+		}
 	}
 	filterCards();
+
+	//Copy text media inquiry
+	let innerWidth = window.innerWidth;
+	if (innerWidth <= 767.98) {
+		const projectsCardCity = document.querySelectorAll('.block-main-projects__city');
+		if (projectsCardCity) {
+			projectsCardCity.forEach(el => {
+				el.innerHTML = '<span>' + el.closest('.block-main-projects__row').querySelector('.block-main-projects__where').innerText + '</span>' + el.innerHTML;
+			});
+		}
+	}
+
 });
 
 if (menuBtn) {
