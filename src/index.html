@@ -9,7 +9,7 @@
 			<main class="page">
 				<section class="main-slides">
 					<div class="main-slides__slider swiper">
-						<div class="main-slides__wrapper swiper-wrapper">
+						<div data-fullscreen class="main-slides__wrapper swiper-wrapper">
 							<div class="main-slides__slide swiper-slide">
 								<div class="main-slides__body">
 									<img class="main-slides__image swiper-lazy" data-src="@img/main_slider/1.jpg" alt="image">
@@ -137,7 +137,7 @@
 					</div>
 				</section>
 				<section class="introduction">
-					<div class="introduction__container">
+					<div data-fullscreen class="introduction__container">
 						<div class="introduction__wrapper">
 							<h1 class="introduction__title">enjoy the introduction of our company</h1>
 							<p class="introduction__description">SHL Builders are the people you want to take care of your renovation. We established a reputation for ourselves as a high-end company that collaborates with various architects and interior designers across NYC.</p>
@@ -146,7 +146,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="introduction__video video">
+					<div data-fullscreen class="introduction__video video">
 						<div class="video__wrapper">
 							<video data-src="files/video/video_1.mp4" autoplay muted playsinline loop class="video__first"></video>
 						</div>
@@ -155,7 +155,7 @@
 				<section class="promise">
 					<div class="promise__wrapper">
 						<div class="promise__container">
-							<div class="promise__first-box">
+							<div data-fullscreen class="promise__first-box">
 								<h2 class="promise__title">We Promise</h2>
 								<div class="promise__cover-btn"><a href="" class="promise__button _icon-arrow">Find out more about us</a></div>
 							</div>
@@ -167,45 +167,62 @@
 							</div>
 						</div>
 					</div>
-					<div class="promise__video video">
+					<div data-fullscreen class="promise__video video">
 						<div class="video__wrapper">
 							<video data-src="files/video/video_2.mp4" autoplay muted playsinline loop class="video__second"></video>
 						</div>
 					</div>
 				</section>
 				<section class="advantages">
-					<div class="advantages__wrapper">
+					<div data-fullscreen class="advantages__wrapper">
 						<img class="advantages__bg" data-src="@img/main_slider/1.jpg" alt="main image">
-						<div class="advantages__container">
-							<div class="advantages__box">
-								<picture class="advantages__picture advantages__picture_small">
-									<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_1.svg" type="image/svg+xml">
-									<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_1-2.svg" type="image/svg+xml">
-									<img src="@img/icons/line_1.svg" alt="line">
-								</picture>
-								<p class="advantages__description">Precise attention to details</p>
-							</div>
-							<div class="advantages__box">
-								<picture class="advantages__picture advantages__picture_medium">
-									<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_2.svg" type="image/svg+xml">
-									<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_1-2.svg" type="image/svg+xml">
-									<img src="@img/icons/line_2.svg" alt="line">
-								</picture>
-								<p class="advantages__description">Reliable team of specialists</p>
-							</div>
-							<div class="advantages__box">
-								<picture class="advantages__picture advantages__picture_large">
-									<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_3.svg" type="image/svg+xml">
-									<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_3-2.svg" type="image/svg+xml">
-									<img src="@img/icons/line_3.svg" alt="line">
-								</picture>
-								<p class="advantages__description">Reasonable project time frame</p>
+						<div class="advantages__body">
+							<div class="advantages__container">
+								<div class="advantages__box">
+									<picture class="advantages__picture advantages__picture_small">
+										<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_1.svg" type="image/svg+xml">
+										<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_1-2.svg" type="image/svg+xml">
+										<img src="@img/icons/line_1.svg" alt="line">
+									</picture>
+									<p class="advantages__description">Precise attention to details</p>
+								</div>
+								<div class="advantages__box">
+									<picture class="advantages__picture advantages__picture_medium">
+										<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_2.svg" type="image/svg+xml">
+										<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_1-2.svg" type="image/svg+xml">
+										<img src="@img/icons/line_2.svg" alt="line">
+									</picture>
+									<p class="advantages__description">Reliable team of specialists</p>
+								</div>
+								<div class="advantages__box">
+									<picture class="advantages__picture advantages__picture_large">
+										<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_3.svg" type="image/svg+xml">
+										<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_3-2.svg" type="image/svg+xml">
+										<img src="@img/icons/line_3.svg" alt="line">
+									</picture>
+									<p class="advantages__description">Reasonable project time frame</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="advantages__video video">
+					<div data-fullscreen class="advantages__video video">
 						<div class="video__wrapper">
-							<video data-src="files/video/video_3.mp4" autoplay muted playsinline loop class="video__second"></video>
+							<video data-src="files/video/video_3.mp4" autoplay muted playsinline loop class="video__third"></video>
+						</div>
+					</div>
+				</section>
+				<section class="team">
+					<div data-fullscreen class="team__wrapper">
+						<img class="team__bg" data-src="@img/team_main.jpg" alt="team">
+						<div class="team__container">
+							<div class="team__body">
+								<h2 class="team__content">SHL Builders consists of individuals with complementary skills, who always work together and achieve unanimous goal of the company - satisfying the client's needs.</h2>
+							</div>
+						</div>
+					</div>
+					<div data-fullscreen class="team__video video">
+						<div class="video__wrapper">
+							<video data-src="files/video/video_4.mp4" autoplay muted playsinline loop class="video__fourth"></video>
 						</div>
 					</div>
 				</section>

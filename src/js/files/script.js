@@ -7,6 +7,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { TextPlugin } from "gsap/TextPlugin.js";
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
+//======================================================Video Play Pouse Function==================================================================================================
+const player = document.querySelector('.video-service__wrapper');
+if (player) {
+	const video = player.querySelector('.video-service__video');
+	const videoButton = player.querySelector('.video-service__button');
+	videoButton.addEventListener('click', (e) => {
+		if (video.paused) {
+			video.play();
+			e.target.classList.add('video-service__button_played');
+		} else if (!video.paused){
+			video.pause();
+			e.target.classList.remove('video-service__button_played');
+		} else if (video.onended) {
+			e.target.classList.remove('video-service__button_played');
+		}
+	});
+}
 
 //=====================================================margin on last child menu item big on mobile===================================================================================================
 if (document.querySelector('.mobile-menu__item_big')) {

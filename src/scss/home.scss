@@ -202,7 +202,9 @@
 		// .video__first
 		&__first,
 		&__second,
-		&__third {
+		&__third,
+		&__fourth {
+			display: block;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
@@ -214,14 +216,14 @@
 		&__wrapper {
 			background-color: #0D0D0D;
 			width: 100%;
-			height: 100vh;
 		}
 		// .promise__container
 		&__container {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			height: 100%;
+			padding-top: 30px;
+			padding-bottom: 30px;
 		}
 		// .promise__fist-box
 		&__first-box {
@@ -332,8 +334,6 @@
 		// .advantages__wrapper
 		&__wrapper {
 			position: relative;
-			width: 100%;
-			height: 100vh;
 		}
 		// .advantages__bg
 		&__bg {
@@ -348,13 +348,19 @@
 		// .advantages__container
 		&__container {
 			position: relative;
-			height: 100%;
+			min-height: 100vh;
+			max-width: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			@media (max-width:$mobile){
 				justify-content: space-evenly;
 			}
+		}
+		// .advantages__body
+		&__body {
+			padding: 30px 0px;
+
 		}
 		// .advantages__box
 		&__box {
@@ -369,7 +375,15 @@
 				width: 61%;
 			}
 			&:nth-child(2){
-				margin-left: percent(139,320);
+				@media (max-width:$mobile){
+					align-self: flex-end;
+				}
+			}
+			&:last-child{
+				@media (max-width:$mobile){
+					align-self: flex-end;
+					width: 65%;
+				}
 			}
 		}
 		&__description {
@@ -397,13 +411,18 @@
 			&_medium {
 				left: -235px;
 				@media (max-width:$mobile){
-					left: percent(35,320);
+					top: 30px;
+					left: -2%;
 					transform: scaleX(-1);
 				}
 			}
 			// .advantages__picture_large
 			&_large {
 				left: -322px;
+				@media (max-width:$mobile){
+					left: -100px;
+					top: -70px;
+				}
 			}
 		}
 
@@ -414,5 +433,48 @@
 		&__picture-mobile {}
 		// .advantages__description
 }
-//========================================================================================================================================================
+//========================================================================Team Section================================================================================
+.team {
+		// .team_bg
+		&__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(.5);
+		}
+		// .team__wrapper
+		&__wrapper {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		// .team__container
+		&__container {
+			width: 100%;
+			height: 100%;
+		}
+		// .team__body
+		&__body {
+			position: relative;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 30px 0px;
+		}
+		// .team__content
+		&__content {
+			color: $White;
+			max-width: 600px;
+			@include adaptiveValue("font-size", 46, 21);
+			line-height: math.div(51 , 46);
+			letter-spacing: em(-0.01);
+			opacity: 0.8;
+			margin: 200px 0px 0px 0px;
+		}
+}
 
