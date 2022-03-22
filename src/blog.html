@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Blog"
+})
+
+<body>
+	<div class="wrapper wrapper_header-bg-black">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="posts">
+				<div class="posts__wrapper">
+					<div class="posts__container">
+						<h1 class="posts__title">Blog</h1>
+						<div class="posts__subtitle">Helpful information for your project</div>
+						<div class="posts__filter builders-about">
+							<div class="builders-about__container">
+								<nav class="about__nav nav-block">
+									<ul data-filter-nav class="nav-block__list">
+										<li class="nav-block__item">
+											<a data-filter-button="All" href=" #" class="nav-block__link">All</a>
+										</li>
+										<li class="nav-block__item">
+											<a data-filter-button="construction" href=" #" class="nav-block__link">Construction</a>
+										</li>
+										<li class="nav-block__item">
+											<a data-filter-button="interior" href="#" class="nav-block__link">Interior</a>
+										</li>
+										<li class="nav-block__item">
+											<a data-filter-button="articles" href="#" class="nav-block__link">Articles</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div data-filter-body class="posts__items post">
+							<a data-filter-card="construction" href="" class="post__body">
+								<div class="post__picture-box">
+									<img class="post__image" data-src="@img/blog/1.jpg" alt="1">
+								</div>
+								<div class="post__info">
+									<span class="post__category">Сonstruction</span>
+									<span class="post__date">Jan 29, 2019</span>
+								</div>
+								<h2 class="post__title">Tips on how to pick out the contractors for your project</h2>
+							</a>
+							<a data-filter-card="interior" href="" class="post__body">
+								<div class="post__picture-box">
+									<img class="post__image" data-src="@img/blog/2.jpg" alt="2">
+								</div>
+								<div class="post__info">
+									<span class="post__category">Interior</span>
+									<span class="post__date">Jun 27, 2019</span>
+								</div>
+								<h2 class="post__title">Product Discovery Workshop: top 4 benefits for clients</h2>
+							</a>
+							<a data-filter-card="construction" href="" class="post__body">
+								<div class="post__picture-box">
+									<img class="post__image" data-src="@img/blog/1.jpg" alt="1">
+								</div>
+								<div class="post__info">
+									<span class="post__category">Сonstruction</span>
+									<span class="post__date">Jan 29, 2019</span>
+								</div>
+								<h2 class="post__title">Tips on how to pick out the contractors for your project</h2>
+							</a>
+							<a data-filter-card="interior" href="" class="post__body">
+								<div class="post__picture-box">
+									<img class="post__image" data-src="@img/blog/2.jpg" alt="2">
+								</div>
+								<div class="post__info">
+									<span class="post__category">Interior</span>
+									<span class="post__date">Jun 27, 2019</span>
+								</div>
+								<h2 class="post__title">Product Discovery Workshop: top 4 benefits for clients</h2>
+							</a>
+							<a data-filter-card="construction" href="" class="post__body">
+								<div class="post__picture-box">
+									<img class="post__image" data-src="@img/blog/1.jpg" alt="1">
+								</div>
+								<div class="post__info">
+									<span class="post__category">Сonstruction</span>
+									<span class="post__date">Jan 29, 2019</span>
+								</div>
+								<h2 class="post__title">Tips on how to pick out the contractors for your project</h2>
+							</a>
+							<a data-filter-card="interior" href="" class="post__body">
+								<div class="post__picture-box">
+									<img class="post__image" data-src="@img/blog/2.jpg" alt="2">
+								</div>
+								<div class="post__info">
+									<span class="post__category">Interior</span>
+									<span class="post__date">Jun 27, 2019</span>
+								</div>
+								<h2 class="post__title">Product Discovery Workshop: top 4 benefits for clients</h2>
+							</a>
+						</div>
+						<div class="post__pagination pagination">
+							<ul class="pagination__body">
+								<li class="pagination__item">
+									<a href="" class="pagination__link _active">1</a>
+								</li>
+								<li class="pagination__item">
+									<a href="" class="pagination__link">2</a>
+								</li>
+								<li class="pagination__item">
+									<a href="" class="pagination__link">3</a>
+								</li>
+							</ul>
+						<a href="" class="pagination__arrow _icon-arrow"></a>	
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="questions">
+				<div class="questions__wrapper">
+					<div class="questions__container">
+						<div class="questions__body faq">
+							<h2 class="faq__title">faq</h2>
+							<div class="faq__body">
+								<div data-spollers data-spollers-one class="faq__spollers spollers">
+									<div class="spollers__item">
+										<button type="button" data-spoller class="spollers__title">1. How do SHL Builders ensure the highest quality?</button>
+										<div class="spollers__body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae esse, eveniet doloribus sequi quidem. Officiis corporis reprehenderit dolorum repellat!</div>
+									</div>
+									<div class="spollers__item">
+										<button type="button" data-spoller class="spollers__title">2. Why are we making the detailed proposals?</button>
+										<div class="spollers__body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae esse, eveniet doloribus sequi quidem. Officiis corporis reprehenderit dolorum repellat!</div>
+									</div>
+									<div class="spollers__item">
+										<button type="button" data-spoller class="spollers__title">3. When would you charge additionally?</button>
+										<div class="spollers__body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae esse, eveniet doloribus sequi quidem. Officiis corporis reprehenderit dolorum repellat!</div>
+									</div>
+									<div class="spollers__item">
+										<button type="button" data-spoller class="spollers__title">4. What measures are you taking from COVID-19?</button>
+										<div class="spollers__body">We are closely following the guidelines of safety at the worksite that are stated in the NYS plan. One thing that we do is providing all our professionals with proper personal protection equipment, which includes masks, gloves, etc. We also set up cleaning and disinfecting stations on each site to secure the ability of our workers to clean up the surfaces they are working on twice a day. We also put responsibility on our professionals to keep track of cleaning of those surfaces.</div>
+									</div>
+									<div class="spollers__item">
+										<button type="button" data-spoller class="spollers__title">5. Do you work with your own architects?</button>
+										<div class="spollers__body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae esse, eveniet doloribus sequi quidem. Officiis corporis reprehenderit dolorum repellat!</div>
+									</div>
+								</div>
+							</div>
+							<div class="faq__more-questions">Didn't find your answer? Ask our representative! <a href="" class="faq__link">Ask a Question</a></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="about__projects-block block-projects">
+				<div class="block-projects__projects">
+					<a href="#" class="block-projects__picture-ibg">
+						<img data-data-src="@img/about/projects/projects_01.jpg" alt="projects image">
+					</a>
+					<div class="block-projects__container">
+						<div class="block-projects__body">
+							<h4 class="block-projects__title h4">Projects</h4>
+							<p class="block-projects__text text-4">Take a look at what we’ve created and get inspired</p>
+							<a href="#" class="block-projects__link">View Projects</a>
+						</div>
+					</div>
+				</div>
+				<div class="block-projects__projects block-projects__projects_display-media">
+					<a href="#" class="block-projects__picture-ibg">
+						<img data-data-src="@img/about/projects/projects_01.jpg" alt="projects image">
+					</a>
+					<div class="block-projects__container block-projects__container_margin-right">
+						<div class="block-projects__body">
+							<h4 class="block-projects__title h4">Services</h4>
+							<p class="block-projects__text text-4">See what we do and learn more about working together</p>
+							<a href="#" class="block-projects__link">View Services</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
