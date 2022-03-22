@@ -28,6 +28,14 @@
 		background-color: $HardBlack;
 		color: #fff;
 		border: 2px solid $HardBlack;
+		.safety & {
+			padding: 12px 24.9px;
+			min-height: rem(37);
+			min-width: rem(160);
+			@media (max-width: $mobileSmall) {
+				width: 100%;
+			}
+		}
 	}
 	@media (any-hover: hover) {
 		&:hover {
@@ -327,6 +335,9 @@
 .text-2 {
 	@include adaptiveValue("font-size", 30, 18);
 	line-height: 1.5;
+	a {
+		@extend %psevdo;
+	}
 }
 .text-3 {
 	font-size: rem(18);
