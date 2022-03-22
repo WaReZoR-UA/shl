@@ -80,7 +80,7 @@
 	align-items: flex-end;
 	min-height: rem(280);
 	position: relative;
-	padding: rem(72) 0 rem(60);
+	padding: rem(92) 0 rem(60);
 	.project-single & {
 		@include adaptiveValue("min-height", 700, 560);
 		@include adaptiveValue("padding-bottom", 110, 45);
@@ -282,7 +282,7 @@
 	color: $HardBlack;
 }
 .h1 {
-	font-size: rem(110);
+	@include adaptiveValue("font-size", 110, 32);
 	font-weight: 700;
 	letter-spacing: -0.01em;
 	text-transform: uppercase;

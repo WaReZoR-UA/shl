@@ -1,0 +1,21 @@
+.not-found {
+	padding: rem(200) 0;
+	height: 100vh;
+	// .not-found__container
+	&__container {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	// .not-found__title
+	&__title {
+		@include adaptiveValue("margin-bottom", 80, 25);
+	}
+	// .not-found__button
+	&__button {
+		border: 2px solid $Orange;
+		padding: rem(12) rem(26);
+	}
+}
