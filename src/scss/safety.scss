@@ -75,6 +75,9 @@
 .insurance-safety {
 	// .insurance-safety__container
 	&__container {
+		section.insurance-safety & {
+			max-width: rem(1320);
+		}
 	}
 	// .insurance-safety__heading
 	&__heading {
@@ -84,8 +87,43 @@
 		}
 		@include adaptiveValue("margin-bottom", 140, 60);
 	}
+	// .insurance-safety__block-slider
+	&__block-slider {
+		position: relative;
+		padding: 0 rem(60);
+	}
 	// .insurance-safety__slider
 	&__slider {
+	}
+	// .insurance-safety__pagination
+	&__pagination {
+		font-size: rem(30);
+		line-height: 1.2;
+		font-weight: 500;
+		text-align: right;
+		letter-spacing: -0.02em;
+		color: rgba(0, 0, 0, 0.4);
+		.swiper-pagination-current {
+			color: rgba(0, 0, 0, 1);
+		}
+		.swiper-pagination-total {
+			font-size: rem(14);
+		}
+	}
+	// .insurance-safety__arrow
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		// .insurance-safety__arrow_prev
+		&_prev {
+			left: 0;
+			transform: translate(0%, -50%);
+		}
+		// .insurance-safety__arrow_next
+		&_next {
+			right: 0;
+			transform: translate(0%, -50%) rotate(-180deg);
+		}
 	}
 }
 .heading-block-titles {
