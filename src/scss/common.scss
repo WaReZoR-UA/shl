@@ -36,6 +36,18 @@
 				width: 100%;
 			}
 		}
+		.contacts & {
+			padding: 11px 21px;
+		}
+		.contacts__form & {
+			font-size: rem(10);
+			min-width: rem(180);
+			margin-top: rem(40);
+			@media (max-width: $mobileSmall) {
+				font-size: rem(14);
+				width: 100%;
+			}
+		}
 	}
 	@media (any-hover: hover) {
 		&:hover {
@@ -81,6 +93,10 @@
 	min-height: rem(280);
 	position: relative;
 	padding: rem(92) 0 rem(60);
+	.contacts & {
+		@include adaptiveValue("min-height", 350, 235);
+		padding: rem(92) 0 rem(20);
+	}
 	.project-single & {
 		@include adaptiveValue("min-height", 700, 560);
 		@include adaptiveValue("padding-bottom", 110, 45);
@@ -122,18 +138,25 @@
 		text-transform: uppercase;
 		letter-spacing: -0.04em;
 		color: #fff;
+		.contacts & {
+			color: $HardBlack;
+		}
 		span {
 			display: block;
 			font-size: rem(60);
 			font-weight: 700;
 			letter-spacing: -0.01em;
-			margin-top: -6px;
+			margin-top: rem(-6);
 			.project-single & {
 				@include adaptiveValue("font-size", 80, 40);
 				text-transform: none;
 				@media (max-width: $mobile) {
 					line-height: math.div(53, 40);
 				}
+			}
+			.contacts & {
+				margin-top: rem(10);
+				@include adaptiveValue("font-size", 60, 40);
 			}
 		}
 		p {
@@ -149,6 +172,19 @@
 					margin-top: rem(10);
 				}
 			}
+		}
+	}
+	// .heading-block__time
+	&__time {
+		position: absolute;
+		top: rem(70);
+		right: 0;
+		@include adaptiveValue("font-size", 200, 50);
+		font-weight: 800;
+		letter-spacing: -0.06em;
+		color: rgba(0, 0, 0, 0.05);
+		@media (max-width: $tablet) and (min-width: $mobile) {
+			top: rem(103);
 		}
 	}
 	@media (max-width: $mobile) {
@@ -333,7 +369,10 @@
 	letter-spacing: -0.01em;
 }
 .text-2 {
-	@include adaptiveValue("font-size", 30, 18);
+	@include adaptiveValue("font-size", 27, 16);
+	.contacts & {
+		@include adaptiveValue("font-size", 27, 25);
+	}
 	line-height: 1.5;
 	a {
 		@extend %psevdo;

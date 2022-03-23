@@ -19,7 +19,7 @@ import { phoneSimbolsNumber } from "../script.js";
 export function formFieldsInit(options = { viewPass: false }) {
 	// Если включено, добавляем функционал "скрыть плейсходлер при фокусе"
 	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
-	
+
 	if (formFields.length) {
 		formFields.forEach(formField => {
 			if (!formField.hasAttribute('data-placeholder-nohide')) {
@@ -74,7 +74,7 @@ export let formValidate = {
 	getErrors(form) {
 		let error = 0;
 		let formRequiredItems = form.querySelectorAll('*[data-required]');
-		
+
 		if (formRequiredItems.length) {
 			formRequiredItems.forEach(formRequiredItem => {
 				if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
@@ -122,7 +122,7 @@ export let formValidate = {
 			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
 		}
 	},
-	
+
 	removeError(formRequiredItem) {
 		formRequiredItem.classList.remove('_form-error');
 		formRequiredItem.parentElement.classList.remove('_form-error');
@@ -141,7 +141,7 @@ export let formValidate = {
 				formValidate.removeError(el);
 			}
 			let checkboxes = form.querySelectorAll('.checkbox__input');
-			
+
 			if (checkboxes.length > 0) {
 				for (let index = 0; index < checkboxes.length; index++) {
 					const checkbox = checkboxes[index];

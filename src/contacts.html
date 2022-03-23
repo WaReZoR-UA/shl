@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Contacts"
+})
+
+<body>
+	<div class="wrapper wrapper_header-bg-black">
+		@@include('html/_header.htm',{})
+		<main class="page page_contacts page_border-box">
+			<div class="page__contacts contacts">
+				<section class="contacts__heading heading-block">
+					<div class="heading-block__container">
+						<h2 class="heading-block__heading">
+							Contact us with<span>any questions</span>
+						</h2>
+					</div>
+					<span id="time" class="heading-block__time">8:23 pm</span>
+				</section>
+				<div class="contacts__main">
+					<div class="contacts__container">
+						<div class="contacts__row">
+							<div class="contacts__column">
+								<ul class="contacts__list">
+									<li class="contacts__item">
+										<p class="contacts__label">email</p>
+										<a class="contacts__link text-3" href="mailto:info@shlbuilders.com">info@shlbuilders.com</a>
+									</li>
+									<li class="contacts__item">
+										<p class="contacts__label">Phone</p>
+										<a class="contacts__link text-3" href="tel:+12129200185">+1 212 - 920 - 0185</a>
+									</li>
+									<li class="contacts__item">
+										<p class="contacts__label">office hours</p>
+										<span class="contacts__value text-3">Mon - Fri: 9am to 5pm</span>
+									</li>
+									<li class="contacts__item">
+										<p class="contacts__label">address</p>
+										<a class="contacts__link text-3" href="https://goo.gl/maps/EBnxNttJgbgfuvWH7" target="_blank">
+											<span>1212 McDonald Avenue,</span>
+											<span>Brooklyn, NY, 11230</span></a>
+									</li>
+								</ul>
+								<ul class="contacts__social-list">
+									<li class="contacts__social-item">
+										<a href="#" class="contacts__social__link">Instagram</a>
+									</li>
+									<li class="contacts__social-item">
+										<a href="#" class="contacts__social__link">Facebook</a>
+									</li>
+									<li class="contacts__social-item">
+										<a href="#" class="contacts__social__link">Google+</a>
+									</li>
+									<li class="contacts__social-item">
+										<a href="#" class="contacts__social__link">Houzz</a>
+									</li>
+								</ul>
+							</div>
+							<div class="contacts__column contacts__column_form">
+								<div id="start-form" class="contacts__main-block block-main-contacts active">
+									<div class="block-main-contacts__title text-2">Want to start a project or become a partner?
+									</div>
+									<p class="block-main-contacts__text">Choose the option below to get started on your request.
+									</p>
+									<div class="block-main-contacts__for-block">
+										<div class="block-main-contacts__item">
+											<p class="block-main-contacts__for-text">For clients</p>
+											<button id="clients" type="button" class="block-main-contacts__button button button_form-black">Tell
+												us about your project</button>
+										</div>
+										<div class="block-main-contacts__item">
+											<p class="block-main-contacts__for-text">For Vendors</p>
+											<button id="vendors" type="button" class="block-main-contacts__button block-main-contacts__button_psevdo">become our
+												trusted vendor</button>
+										</div>
+									</div>
+								</div>
+								<div id="form-clients" class="contacts__form form">
+									<div class="form__wrapper">
+										<form data-dev class="form__body" action="#">
+											<div class="form__title-block">
+												<h3 class="form__title">How can we contact you?</h3>
+												<span class="form__close">Close</span>
+											</div>
+											<div class="form__block form__block_inputs">
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error="Should not be empty" placeholder="Name"
+														class="form__name form__name_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error="Should not be empty" placeholder="Last Name"
+														class="form__name form__name_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="tel" name="form[]" data-tel data-required data-validate
+														data-error="Opps! Something goes wrong, please check the symbols. Allowed only numbers" placeholder="Phone" maxlength="17"
+														class="form__phone form__phone_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="email" name="form[]" data-required="email" data-validate data-error="Should not be empty" placeholder="Email"
+														class="form__name form__name_all">
+												</div>
+											</div>
+											<div class="form__title-block">
+												<h3 class="form__title">What services are you interested in?</h3>
+												<span class="form__select-all">Select All</span>
+											</div>
+											<div class="form__block form__block_checkbox">
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_3" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Kitchen renovation" name="form[]">
+													<label for="c_3" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Kitchen renovation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_4" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Bathroom renovation" name="form[]">
+													<label for="c_4" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Bathroom renovation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_5" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Hall renovation" name="form[]">
+													<label for="c_5" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Hall renovation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_6" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Living room renovation" name="form[]">
+													<label for="c_6" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Living room renovation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_7" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Bedroom renovation" name="form[]">
+													<label for="c_7" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Bedroom renovation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_8" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Nursery renovation" name="form[]">
+													<label for="c_8" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Nursery renovation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_9" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Two or more rooms renovation" name="form[]">
+													<label for="c_9" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Two or more rooms renovation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all form__checkbox_last">
+													<input id="c_10" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Entire Home renovation" name="form[]">
+													<label for="c_10" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Entire Home renovation</span></label>
+												</div>
+											</div>
+											<div class="form__title-block">
+												<h3 class="form__title">Please share your budget and timeline</h3>
+											</div>
+											<div data-spollers id="radio-select" class="form__block form__block_inputs">
+												<div class="form__input form__input_all">
+													<input readonly autocomplete="off" type="text" name="form[]" data-required data-error="Should not be empty" data-spoller type="button" placeholder="Your budget" class="form__name form__name_all form__name_placeholder">
+													<div class="form__radio-box">
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">$ 5,000 - 10,000</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">$ 10,000 - 50,000</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">$ 50,000 - 100,000</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">$ 100,000 - 200,000</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">$ 200,000 - 500,000</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">> $ 1,000,000</span>
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="form__input form__input_all">
+													<input readonly autocomplete="off" type="text" name="form[]" data-required data-error="Should not be empty" data-spoller type="button"
+														placeholder="Your timeline" class="form__name form__name_all form__name_placeholder">
+													<div class="form__radio-box">
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">1-2 months</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">2-4 months</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">4-6 months</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">6-12 months</span>
+															</label>
+														</div>
+														<div class="form__checkbox form__checkbox_all">
+															<label class="form__checkbox-label form__checkbox-label_select form__checkbox-label_all form__checkbox-label_top">
+																<span class="form__checkbox-text form__checkbox-text_font-size form__checkbox-text_pe-none">> 1 year</span>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form__title-block">
+												<h3 class="form__title">How can we help you?</h3>
+											</div>
+											<div class="form__block form__block_textarea">
+												<div class="form__input form__input_all">
+													<textarea maxlength="1000" data-required autocomplete="off" name="form[]" placeholder="Describe your project"
+														data-error="Should not be empty" class="form__textarea form__textarea_all"></textarea>
+													<span class="form__char-max">1000 char max</span>
+												</div>
+											</div>
+
+											<div class="form__checkbox form__checkbox_all">
+												<input id="c_22" data-required data-error class="form__checkbox-input" type="checkbox" value="1" name="form[]">
+												<label for="c_22" class="form__checkbox-label form__checkbox-label_all form__checkbox-label_top"><span
+														class="form__checkbox-text form__checkbox-text_all">I agree to the <a href="" class="form__link form__link_all">Terms of Service</a> and
+														<a href="" class="form__link form__link_all">Privacy Policy</a></span></label>
+											</div>
+											<div class="form__btn-box">
+												<button type="submit" class="form__btn button button_form-black">submit form</button>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div id="form-vendors" class="contacts__form form">
+									<div class="form__wrapper">
+										<form data-dev class="form__body" action="#">
+											<div class="form__title-block">
+												<h3 class="form__title">How can we contact you?</h3>
+												<span class="form__close">Close</span>
+											</div>
+											<div class="form__block form__block_inputs">
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error="Should not be empty" placeholder="Name"
+														class="form__name form__name_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error="Should not be empty" placeholder="Last Name"
+														class="form__name form__name_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="tel" name="form[]" data-tel data-required data-validate
+														data-error="Opps! Something goes wrong, please check the symbols. Allowed only numbers" placeholder="Phone" maxlength="17"
+														class="form__phone form__phone_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="email" name="form[]" data-required="email" data-validate data-error="Should not be empty" placeholder="Email"
+														class="form__name form__name_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error="Should not be empty" placeholder="Position"
+														class="form__name form__name_all">
+												</div>
+												<div class="form__input form__input_all">
+													<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error="Should not be empty" placeholder="Company website"
+														class="form__name form__name_all">
+												</div>
+											</div>
+											<div class="form__title-block">
+												<h3 class="form__title">What services do you provide?</h3>
+												<span class="form__select-all">Select All</span>
+											</div>
+											<div class="form__block form__block_checkbox form__block_margin">
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_23" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Estimators" name="form[]">
+													<label for="c_23" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Estimators</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_24" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Roofing" name="form[]">
+													<label for="c_24" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Roofing</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_25" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Landscaping" name="form[]">
+													<label for="c_25" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Landscaping</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_26" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Masonry" name="form[]">
+													<label for="c_26" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Masonry</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_27" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Painting" name="form[]">
+													<label for="c_27" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Painting</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_28" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="HVAC" name="form[]">
+													<label for="c_28" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">HVAC</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_29" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Electricity" name="form[]">
+													<label for="c_29" class="form__checkbox-label form__checkbox-label_all"><span class="form__checkbox-text form__checkbox-text_font-size">Electricity</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_30" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Tiles" name="form[]">
+													<label for="c_30" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Tiles</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_31" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Glass and Mirrors" name="form[]">
+													<label for="c_31" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Glass and Mirrors</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_32" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Carpentry" name="form[]">
+													<label for="c_32" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Carpentry</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_33" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Flooring" name="form[]">
+													<label for="c_33" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Flooring</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_34" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Concrete" name="form[]">
+													<label for="c_34" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Concrete</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_35" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Foam insulation" name="form[]">
+													<label for="c_35" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Foam insulation</span></label>
+												</div>
+												<div class="form__checkbox form__checkbox_all">
+													<input id="c_36" class="form__checkbox-input form__checkbox-input_checkbox" type="checkbox" value="Other" name="form[]">
+													<label for="c_36" class="form__checkbox-label form__checkbox-label_all"><span
+															class="form__checkbox-text form__checkbox-text_font-size">Other</span></label>
+												</div>
+											</div>
+											<div class="form__title-block">
+												<h3 class="form__title">How can we help you?</h3>
+											</div>
+											<div class="form__block form__block_textarea">
+												<div class="form__input form__input_all">
+													<textarea maxlength="1000" data-required autocomplete="off" name="form[]" placeholder="Describe your project"
+														data-error="Should not be empty" class="form__textarea form__textarea_all"></textarea>
+													<span class="form__char-max">1000 char max</span>
+												</div>
+											</div>
+
+											<div class="form__checkbox form__checkbox_all">
+												<input id="c_37" data-required data-error class="form__checkbox-input" type="checkbox" value="1" name="form[]">
+												<label for="c_37" class="form__checkbox-label form__checkbox-label_all form__checkbox-label_top"><span
+														class="form__checkbox-text form__checkbox-text_all">I agree to the <a href="" class="form__link form__link_all">Terms of Service</a> and
+														<a href="" class="form__link form__link_all">Privacy Policy</a></span></label>
+											</div>
+											<div class="form__btn-box">
+												<button type="submit" class="form__btn button button_form-black">submit form</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

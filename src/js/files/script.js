@@ -5,6 +5,7 @@ import { flsModules } from "./modules.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { TextPlugin } from "gsap/TextPlugin.js";
+import { _slideUp, _slideDown } from "./functions.js";
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 //======================================================Video Play Pouse Function==================================================================================================
@@ -16,7 +17,7 @@ if (player) {
 		if (video.paused) {
 			video.play();
 			e.target.classList.add('video-service__button_played');
-		} else if (!video.paused){
+		} else if (!video.paused) {
 			video.pause();
 			e.target.classList.remove('video-service__button_played');
 		} else if (video.onended) {
@@ -57,6 +58,87 @@ window.addEventListener("load", function (e) {
 		}
 	}
 
+	//========================================================================================================================================================
+
+	// counter textarea value
+	const charMaxCol = document.querySelectorAll('.form__char-max');
+	if (charMaxCol.length) {
+		charMaxCol.forEach(charMax => {
+			let maxValue = charMax.parentElement.querySelector('textarea').getAttribute('maxlength');
+			let textarea = charMax.parentElement.querySelector('textarea');
+			textarea.oninput = () => {
+				textarea.value ? charMax.innerHTML = textarea.value.length + '/' + maxValue : charMax.innerHTML = '1000 char max';
+			};
+		});
+	}
+
+	//========================================================================================================================================================
+
+	// Real time in New-York
+	const blockCurrentDate = document.querySelector("#time");
+	if (blockCurrentDate) {
+		setInterval(() => {
+			date();
+		}, 1000);
+		date();
+		function date() {
+			const date = new Date;
+			let currentHourse, currentMinutes, prepand;
+			currentHourse = date.getUTCHours() - 4;
+			currentMinutes = date.getMinutes();
+			prepand = (currentHourse >= 12) ? " pm " : " am ";
+
+			currentHourse > 12 ? currentHourse = currentHourse - 12 : '';
+			currentHourse < 10 ? currentHourse = "0" + currentHourse : '';
+			currentMinutes < 10 ? currentMinutes = "0" + currentMinutes : '';
+
+			blockCurrentDate.innerText = currentHourse + ':' + currentMinutes + prepand;
+		}
+	}
+
+	//========================================================================================================================================================
+
+	// contacts Click and animation form
+	const startForm = document.querySelector('#start-form');
+	const formClients = document.querySelector('#form-clients');
+	const formVendors = document.querySelector('#form-vendors');
+	_slideUp(formClients, 0);
+	_slideUp(formVendors, 0);
+	window.addEventListener("click", function (e) {
+		const target = e.target;
+
+		const buttons = document.querySelectorAll('#radio-select .form__checkbox-label_select');
+		if (buttons.length) {
+			buttons.forEach(button => {
+				if (target.closest('.form__checkbox-label_select')) {
+					button.classList.remove('active');
+					target.classList.add('active');
+					const input = target.closest('.form__input').querySelector('input');
+					input.value = target.querySelector('.form__checkbox-text').innerText;
+					input.value !== '' ? input.classList.add('active') : input.classList.remove('active');
+				}
+			});
+		}
+		if (target.closest('.form__close')) {
+			_slideUp(target.closest('.form'));
+			_slideDown(startForm);
+		}
+
+		if (target.closest('.form__select-all')) {
+			const checkboxAll = target.closest('.form').querySelectorAll('.form__checkbox-input_checkbox');
+			checkboxAll.forEach(checkbox => {
+				checkbox.setAttribute('checked', '');
+			});
+		}
+		if (target.closest('#clients')) {
+			_slideUp(startForm);
+			_slideDown(formClients);
+		}
+		if (target.closest('#vendors')) {
+			_slideUp(startForm);
+			_slideDown(formVendors);
+		}
+	});
 });
 
 if (menuBtn) {
@@ -189,4 +271,3 @@ document.addEventListener("formSent", function (e) {
 		formButton.innerText = 'Request has been Sent'
 	}
 });
-
