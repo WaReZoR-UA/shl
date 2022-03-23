@@ -819,6 +819,9 @@
 				&::placeholder {
 					transform: scale(0);
 				}
+			&::placeholder {
+				transform: scale(0);
+				transform-origin: left;
 			}
 		}
 		&::placeholder {
@@ -869,11 +872,6 @@
 		&_last {
 			@media (min-width: $tablet) {
 				grid-column-start: 1;
-			}
-		}
-		&._form-error {
-			.form__checkbox-text {
-				color: #f41e1e;
 			}
 		}
 	}
@@ -993,6 +991,7 @@
 		font-size: rem(12);
 		line-height: math.div(20, 12);
 		color: $HardBlack;
+		transition: color 0.5s ease 0s;
 		&_all {
 			font-size: rem(10);
 			line-height: math.div(12, 10);
@@ -1008,6 +1007,8 @@
 		}
 		.form__block_checkbox & {
 			display: inline-block;
+		._form-error & {
+			color: red;
 		}
 	}
 	// .form__link
