@@ -98,10 +98,22 @@ export let formValidate = {
 			this.addError(formRequiredItem);
 			error++;
 		} else if (formRequiredItem.type === "tel") {
-			const telInputs = document.querySelector('[data-tel]');
-			if (telInputs.value.length !== 17) {
+			const telInputs = document.querySelectorAll('[data-tel]');
+			for (let i = 0; i < telInputs.length; i++){
+				let input = telInputs[i];
+				if (input.value) {
+					if (input.value.length !== 17) {
+						this.addError(formRequiredItem);
+						error++;
+					}
+				} else {
+			if (!formRequiredItem.value.trim()) {
 				this.addError(formRequiredItem);
 				error++;
+			} else {
+				this.removeError(formRequiredItem);
+			}
+		}
 			}
 		} else {
 			if (!formRequiredItem.value.trim()) {
