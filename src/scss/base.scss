@@ -6,7 +6,7 @@
 // @import "base/popup";
 
 // Стили спойлеров
-@import "base/spollers";
+// @import "base/spollers";
 
 // Стили табов
 // @import "base/tabs";
@@ -123,5 +123,30 @@
 %hidescroll {
 	&::-webkit-scrollbar {
 		display: none;
+	}
+}
+
+%psevdo {
+	transition: color 0.3s ease 0s;
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		width: 100%;
+		background-color: $HardBlack;
+		transition: width 0.3s ease 0s;
+		&_color-semiblack {
+			color: $SemiBlack;
+		}
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::before {
+				width: 0;
+			}
+		}
 	}
 }

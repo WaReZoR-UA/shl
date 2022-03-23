@@ -97,8 +97,8 @@ function initSliders() {
 			spaceBetween: 70,
 			autoHeight: true,
 			speed: 800,
-			simulateTouch: false,
-
+			// simulateTouch: false,
+			grabCursor: true,
 			//touchRatio: 0,
 			//loop: true,
 			//preloadImages: false,
@@ -197,8 +197,8 @@ function initSliders() {
 			spaceBetween: 70,
 			autoHeight: true,
 			speed: 800,
-			simulateTouch: false,
-
+			// simulateTouch: false,
+			grabCursor: true,
 			//touchRatio: 0,
 			//loop: true,
 			//preloadImages: false,
@@ -283,9 +283,9 @@ function initSliders() {
 			autoHeight: true,
 			speed: 800,
 			// simulateTouch: false,
-
+			grabCursor: true,
 			//touchRatio: 0,
-			loop: true,
+			// loop: true,
 			//preloadImages: false,
 			lazy: {
 				loadPrevNext: true,
