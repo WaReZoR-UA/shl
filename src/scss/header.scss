@@ -818,236 +818,233 @@
 			&:not(.form__name_placeholder) {
 				&::placeholder {
 					transform: scale(0);
-				}
-				&::placeholder {
-					transform: scale(0);
 					transform-origin: left;
 				}
 			}
-			&::placeholder {
-				color: rgba(128, 128, 128, 1);
-				transition: transform 0.3s ease 0s;
-				transform: scale(1);
-			}
-			// .form__name_placeholder
-			&_placeholder {
-				cursor: pointer;
-				text-align: left;
-				color: rgba(128, 128, 128, 1);
-				&.active {
-					color: $HardBlack;
-				}
-			}
 		}
-		&__textarea {
-			resize: vertical;
-			min-height: rem(110);
-			max-height: rem(300);
+		&::placeholder {
+			color: rgba(128, 128, 128, 1);
+			transition: transform 0.3s ease 0s;
+			transform: scale(1);
 		}
-		// .form__char-max
-		&__char-max {
-			pointer-events: none;
-			font-family: $secondFont;
-			font-weight: 500;
-			color: $HardBlack;
-			opacity: 0.2;
-			position: absolute;
-			bottom: rem(15);
-			right: 0;
-		}
-		// .form__checkbox
-		&__checkbox {
-			margin: 40px 0px 52px 0px;
-			&_all {
-				&:not(:last-child) {
-					margin: 0 0 rem(21);
-				}
-				&:last-child {
-					margin: 0;
-				}
-				.form__block_checkbox & {
-					margin: 0;
-				}
-			}
-			&_last {
-				@media (min-width: $tablet) {
-					grid-column-start: 1;
-				}
-			}
-		}
-		// .form__checkbox-input
-		&__checkbox-input {
-			position: absolute;
-			visibility: hidden;
-			opacity: 0;
-			width: 0;
-			height: 0;
-			top: 0;
-			left: 0;
-			&:checked {
-				+ .form__checkbox-label {
-					&::before {
-						transform: scale(1);
-					}
-				}
-			}
-			.contacts & {
-				&:checked {
-					+ .form__checkbox-label {
-						.form__checkbox-text {
-							opacity: 1;
-						}
-						&::after {
-							background-color: $HardBlack;
-							opacity: 1;
-						}
-						&::before {
-							color: #fff;
-							z-index: 1;
-							top: 6px;
-						}
-						&_top {
-							&::before {
-								top: 4px;
-							}
-						}
-					}
-				}
-			}
-		}
-		// .form__checkbox-label
-		&__checkbox-label {
-			position: relative;
-			padding: 0px 0px 0px 24px;
+		// .form__name_placeholder
+		&_placeholder {
 			cursor: pointer;
-			&::after {
-				position: absolute;
-				content: "";
-				top: 2px;
-				left: 0;
-				width: 14px;
-				height: 14px;
-				border: 0.5px solid $HardBlack;
-				transition: background-color 0.3s ease 0s;
-			}
-			&::before {
-				position: absolute;
-				@extend %ic;
-				@extend ._icon-checked;
-				top: 4px;
-				left: 1.5px;
+			text-align: left;
+			color: rgba(128, 128, 128, 1);
+			&.active {
 				color: $HardBlack;
-				font-size: rem(11);
-				transform: scale(0);
-				transition: transform 0.3s ease 0s;
 			}
-			&_all {
-				padding: 0px 0px 0px 35px;
-				display: inline-block;
-				&::before {
-					top: 5px;
-					left: 4px;
-					font-size: rem(12);
-				}
-				&::after {
-					opacity: 0.4;
-					width: 20px;
-					height: 20px;
-					top: -1px;
-				}
+		}
+	}
+	&__textarea {
+		resize: vertical;
+		min-height: rem(110);
+		max-height: rem(300);
+	}
+	// .form__char-max
+	&__char-max {
+		pointer-events: none;
+		font-family: $secondFont;
+		font-weight: 500;
+		color: $HardBlack;
+		opacity: 0.2;
+		position: absolute;
+		bottom: rem(15);
+		right: 0;
+	}
+	// .form__checkbox
+	&__checkbox {
+		margin: 40px 0px 52px 0px;
+		&_all {
+			&:not(:last-child) {
+				margin: 0 0 rem(21);
+			}
+			&:last-child {
+				margin: 0;
 			}
 			.form__block_checkbox & {
-				padding: 0px 0px 0px 30px;
+				margin: 0;
+			}
+		}
+		&_last {
+			@media (min-width: $tablet) {
+				grid-column-start: 1;
+			}
+		}
+	}
+	// .form__checkbox-input
+	&__checkbox-input {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		top: 0;
+		left: 0;
+		&:checked {
+			+ .form__checkbox-label {
 				&::before {
-					top: 6px;
-				}
-				&::after {
-					top: 2px;
+					transform: scale(1);
 				}
 			}
-			#radio-select & {
-				width: 100%;
-				&.active {
+		}
+		.contacts & {
+			&:checked {
+				+ .form__checkbox-label {
 					.form__checkbox-text {
 						opacity: 1;
-					}
-					&::before {
-						transform: scale(1);
-						color: #fff;
-						z-index: 1;
-						top: 4px;
 					}
 					&::after {
 						background-color: $HardBlack;
 						opacity: 1;
 					}
-				}
-			}
-		}
-		// .form__checkbox-text
-		&__checkbox-text {
-			font-family: $secondFont;
-			font-size: rem(12);
-			line-height: math.div(20, 12);
-			color: $HardBlack;
-			transition: color 0.5s ease 0s;
-			&_all {
-				font-size: rem(10);
-				line-height: math.div(12, 10);
-				color: rgba(0, 0, 0, 0.4);
-			}
-			&_font-size {
-				font-size: rem(13);
-				opacity: 0.4;
-				transition: opacity 0.3s ease 0s;
-			}
-			&_pe-none {
-				pointer-events: none;
-			}
-			.form__block_checkbox & {
-				display: inline-block;
-				._form-error & {
-					color: red;
-				}
-			}
-			// .form__link
-			&__link {
-				position: relative;
-				&::before {
-					content: "";
-					position: absolute;
-					bottom: -2px;
-					left: 0;
-					height: 1px;
-					width: 100%;
-					background-color: $HardBlack;
-				}
-				&_all {
-					transition: color 0.3s ease 0s;
-					color: rgba(0, 0, 0, 0.4);
 					&::before {
-						transition: background-color 0.3s ease 0s;
-						background-color: rgba(0, 0, 0, 0.4);
+						color: #fff;
+						z-index: 1;
+						top: 6px;
 					}
-					@media (any-hover: hover) {
-						&:hover {
-							color: rgba(0, 0, 0, 1);
-							&::before {
-								background-color: rgba(0, 0, 0, 1);
-							}
+					&_top {
+						&::before {
+							top: 4px;
 						}
 					}
 				}
 			}
-			// .form__error
-			&__error {
-				position: absolute;
-				bottom: -16px;
-				left: 0;
-				color: #f41e1e;
-				font-size: rem(8);
-				line-height: math.div(8, 8);
+		}
+	}
+	// .form__checkbox-label
+	&__checkbox-label {
+		position: relative;
+		padding: 0px 0px 0px 24px;
+		cursor: pointer;
+		&::after {
+			position: absolute;
+			content: "";
+			top: 2px;
+			left: 0;
+			width: 14px;
+			height: 14px;
+			border: 0.5px solid $HardBlack;
+			transition: background-color 0.3s ease 0s;
+		}
+		&::before {
+			position: absolute;
+			@extend %ic;
+			@extend ._icon-checked;
+			top: 4px;
+			left: 1.5px;
+			color: $HardBlack;
+			font-size: rem(11);
+			transform: scale(0);
+			transition: transform 0.3s ease 0s;
+		}
+		&_all {
+			padding: 0px 0px 0px 35px;
+			display: inline-block;
+			&::before {
+				top: 5px;
+				left: 4px;
+				font-size: rem(12);
+			}
+			&::after {
+				opacity: 0.4;
+				width: 20px;
+				height: 20px;
+				top: -1px;
 			}
 		}
+		.form__block_checkbox & {
+			padding: 0px 0px 0px 30px;
+			&::before {
+				top: 6px;
+			}
+			&::after {
+				top: 2px;
+			}
+		}
+		#radio-select & {
+			width: 100%;
+			&.active {
+				.form__checkbox-text {
+					opacity: 1;
+				}
+				&::before {
+					transform: scale(1);
+					color: #fff;
+					z-index: 1;
+					top: 4px;
+				}
+				&::after {
+					background-color: $HardBlack;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	// .form__checkbox-text
+	&__checkbox-text {
+		font-family: $secondFont;
+		font-size: rem(12);
+		line-height: math.div(20, 12);
+		color: $HardBlack;
+		transition: color 0.5s ease 0s;
+		&_all {
+			font-size: rem(10);
+			line-height: math.div(12, 10);
+			color: rgba(0, 0, 0, 0.4);
+		}
+		&_font-size {
+			font-size: rem(13);
+			opacity: 0.4;
+			transition: opacity 0.3s ease 0s;
+		}
+		&_pe-none {
+			pointer-events: none;
+		}
+		.form__block_checkbox & {
+			display: inline-block;
+			._form-error & {
+				color: red;
+			}
+		}
+	}
+	// .form__link
+	&__link {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background-color: $HardBlack;
+		}
+		&_all {
+			transition: color 0.3s ease 0s;
+			color: rgba(0, 0, 0, 0.4);
+			&::before {
+				transition: background-color 0.3s ease 0s;
+				background-color: rgba(0, 0, 0, 0.4);
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					color: rgba(0, 0, 0, 1);
+					&::before {
+						background-color: rgba(0, 0, 0, 1);
+					}
+				}
+			}
+		}
+	}
+	// .form__error
+	&__error {
+		position: absolute;
+		bottom: -16px;
+		left: 0;
+		color: #f41e1e;
+		font-size: rem(8);
+		line-height: math.div(8, 8);
 	}
 }
