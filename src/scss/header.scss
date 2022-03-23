@@ -738,6 +738,7 @@
 			border-bottom: 2px solid $HardBlack;
 			&::placeholder {
 				transform: scale(0);
+				transform-origin: left;
 			}
 		}
 		&::placeholder {
@@ -752,11 +753,6 @@
 		&_all {
 			&:not(:last-child) {
 				margin: 0 0 rem(21);
-			}
-		}
-		&._form-error {
-			.form__checkbox-text {
-				color: #f41e1e;
 			}
 		}
 	}
@@ -823,10 +819,14 @@
 		font-size: rem(12);
 		line-height: math.div(20, 12);
 		color: $HardBlack;
+		transition: color 0.5s ease 0s;
 		&_all {
 			font-size: rem(10);
 			line-height: math.div(12 , 10);
 			color: rgba(0, 0, 0, 0.4);
+		}
+		._form-error & {
+			color: red;
 		}
 	}
 	// .form__link
