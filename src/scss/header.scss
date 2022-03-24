@@ -775,6 +775,27 @@
 				margin-bottom: rem(30);
 			}
 		}
+		// .form__input_before
+		&_before {
+			&::before{
+				content:'';
+				position: absolute;
+				top: 12px;
+				right: 0;
+				border-right: 1px solid $HardBlack;
+				border-top: 1px solid $HardBlack;
+				padding: rem(4);
+				opacity: 0.4;
+				transform: rotate(135deg);
+				transition: transform 0.3s ease 0s;
+				
+			}
+			&._spoller-active {
+				&::before{
+					transform: rotate(-45deg);
+				}
+			}
+		}
 	}
 	// .form__radio-box
 	&__radio-box {
@@ -1004,9 +1025,9 @@
 		}
 		.form__block_checkbox & {
 			display: inline-block;
-			._form-error & {
-				color: red;
-			}
+		}
+		._form-error & {
+			color: red;
 		}
 	}
 	// .form__link
