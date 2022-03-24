@@ -249,6 +249,7 @@ export function spollers() {
 						hideSpollersBody(spollersBlock);
 					}
 					spollerTitle.classList.toggle('_spoller-active');
+					spollerTitle.parentElement.classList.toggle('_spoller-active');
 					_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
 				}
 				e.preventDefault();
