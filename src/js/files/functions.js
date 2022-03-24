@@ -340,7 +340,6 @@ export function filterCards() {
 			mySortMin('data-sort-filter');
 		});
 	}
-	mySortMin('data-sort-filter');
 
 	// Сортировка
 	function mySortMin(sortType) {
