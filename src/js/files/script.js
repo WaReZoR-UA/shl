@@ -25,14 +25,11 @@ if (player) {
 		}
 	});
 }
-
 //=====================================================margin on last child menu item big on mobile===================================================================================================
 if (document.querySelector('.mobile-menu__item_big')) {
 	const menuBigItems = document.querySelectorAll('.mobile-menu__item_big');
 	menuBigItems[menuBigItems.length - 1].classList.add('mobile-menu__item_last')
 }
-
-
 //===============================================mobile menu actions=========================================================================================================
 const menuBtn = document.querySelector('.header__burger')
 const menuClose = document.querySelector('.mobile-menu__burger')
@@ -99,46 +96,51 @@ window.addEventListener("load", function (e) {
 	//========================================================================================================================================================
 
 	// contacts Click and animation form
-	const startForm = document.querySelector('#start-form');
-	const formClients = document.querySelector('#form-clients');
-	const formVendors = document.querySelector('#form-vendors');
-	_slideUp(formClients, 0);
-	_slideUp(formVendors, 0);
-	window.addEventListener("click", function (e) {
-		const target = e.target;
+	const contsctsPage = document.querySelector('.contacts');
+	if (contsctsPage) {
+		const startForm = document.querySelector('#start-form');
+		const formClients = document.querySelector('#form-clients');
+		const formVendors = document.querySelector('#form-vendors');
 
-		const buttons = document.querySelectorAll('#radio-select .form__checkbox-label_select');
-		if (buttons.length) {
-			buttons.forEach(button => {
-				if (target.closest('.form__checkbox-label_select')) {
-					button.classList.remove('active');
-					target.classList.add('active');
-					const input = target.closest('.form__input').querySelector('input');
-					input.value = target.querySelector('.form__checkbox-text').innerText;
-					input.value !== '' ? input.classList.add('active') : input.classList.remove('active');
-				}
-			});
-		}
-		if (target.closest('.form__close')) {
-			_slideUp(target.closest('.form'));
-			_slideDown(startForm);
-		}
+		_slideUp(formClients, 0);
+		_slideUp(formVendors, 0);
 
-		if (target.closest('.form__select-all')) {
-			const checkboxAll = target.closest('.form').querySelectorAll('.form__checkbox-input_checkbox');
-			checkboxAll.forEach(checkbox => {
-				checkbox.setAttribute('checked', '');
-			});
-		}
-		if (target.closest('#clients')) {
-			_slideUp(startForm);
-			_slideDown(formClients);
-		}
-		if (target.closest('#vendors')) {
-			_slideUp(startForm);
-			_slideDown(formVendors);
-		}
-	});
+		contsctsPage.addEventListener("click", e => {
+			const target = e.target;
+
+			const buttons = document.querySelectorAll('#radio-select .form__checkbox-label_select');
+			if (buttons.length) {
+				buttons.forEach(button => {
+					if (target.closest('.form__checkbox-label_select')) {
+						button.classList.remove('active');
+						target.classList.add('active');
+						const input = target.closest('.form__input').querySelector('input');
+						input.value = target.querySelector('.form__checkbox-text').innerText;
+						input.value !== '' ? input.classList.add('active') : input.classList.remove('active');
+					}
+				});
+			}
+			if (target.closest('.form__close')) {
+				_slideUp(target.closest('.form'));
+				_slideDown(startForm);
+			}
+
+			if (target.closest('.form__select-all')) {
+				const checkboxAll = target.closest('.form').querySelectorAll('.form__checkbox-input_checkbox');
+				checkboxAll.forEach(checkbox => {
+					checkbox.setAttribute('checked', '');
+				});
+			}
+			if (target.closest('#clients')) {
+				_slideUp(startForm);
+				_slideDown(formClients);
+			}
+			if (target.closest('#vendors')) {
+				_slideUp(startForm);
+				_slideDown(formVendors);
+			}
+		});
+	}
 });
 
 if (menuBtn) {
