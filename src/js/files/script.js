@@ -2,12 +2,8 @@
 import { isMobile } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-import { TextPlugin } from "gsap/TextPlugin.js";
 import { _slideUp, _slideDown } from "./functions.js";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
 //======================================================Video Play Pouse Function==================================================================================================
 const player = document.querySelector('.video-service__wrapper');
 if (player) {

@@ -1,0 +1,44 @@
+.preloader {
+	position: fixed;
+	right: 0;
+	transition: right .5s ease 0s;
+	z-index: 99;
+	// .preloader__wrapper
+	&__wrapper {
+		background-color: #0D0D0D;
+		width: 100vw;
+		height: 100vh;
+	}
+	// .preloader__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+	// .preloader__logo
+	&__logo {
+	}
+	// .preloader__subtitle
+	&__subtitle {
+		width: 100vh;
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-43%);
+			path {
+					visibility: hidden;
+				}
+			}
+
+		}
+		// .preloader__load-percent
+		&__load-percent {
+			color: $White;
+			font-size: rem(20);
+			opacity: 0.8;
+			@include adaptiveValue("margin-top", 56, 36);
+		}
+}
