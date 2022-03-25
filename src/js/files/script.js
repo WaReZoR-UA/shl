@@ -5,9 +5,12 @@ import { flsModules } from "./modules.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { TextPlugin } from "gsap/TextPlugin.js";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin.js";
 import { _slideUp, _slideDown } from "./functions.js";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+gsap.registerPlugin(ScrollTrigger, TextPlugin, CSSRulePlugin);
+
+
 //======================================================Video Play Pouse Function==================================================================================================
 const player = document.querySelector('.video-service__wrapper');
 if (player) {
@@ -41,11 +44,36 @@ const mobileMenuCallback = document.querySelector('.mobile-menu__button');
 const mobileFormSummon = document.querySelector('.callback');
 const mobileMenuForm = document.querySelector('.mobile-menu__form');
 const formButton = document.querySelector('.form__button');
+
 //========================================================================================================================================================
-window.addEventListener("load", function (e) {
+window.addEventListener("load", () => {
+	let innerWidth = window.innerWidth;
+
+	const headerContainerBefore = CSSRulePlugin.getRule('.header__container:before');
+	const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
+
+	if (innerWidth >= 767.98) {
+	gsap.timeline()
+	.from('.wrapper', { opacity: 0, duration: 1.5 })
+			.to(headerContainerBefore, {
+				duration: 0.7, cssRule: {
+					width: '96.5%',
+				}
+			})
+			.to(headerButtonsrBefore, {
+				duration: 0.3, delay: -0.3, cssRule: {
+					height: '100%',
+				}
+			})
+			.from('.header__logo', { opacity: 0, stagger: 0.06, x: -20, duration: 0.5 })
+			.from('.burger', { opacity: 0, x: 20, stagger: 0.06, duration: 0.5, delay: -0.5 })
+			.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.06, duration: 0.5, delay: -0.3 })
+			.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.06, duration: 0.5, delay: -0.3 })
+	} else {
+		gsap.from('.wrapper', { opacity: 0, duration: 1.5 })
+	}
 
 	//Copy text media inquiry
-	let innerWidth = window.innerWidth;
 	if (innerWidth <= 767.98) {
 		const projectsCardCity = document.querySelectorAll('.block-main-projects__city');
 		if (projectsCardCity) {
