@@ -8,10 +8,10 @@
 	min-height: 72px;
 	transition: background-color 0.3s ease 0s;
 	@media (max-width: em(991)) {
-		min-height: 105px;
+		// min-height: 105px;
 	}
 	@media (max-width: em(768)) {
-		min-height: 72px;
+		// min-height: 72px;
 	}
 
 	&._header-scroll {
@@ -29,8 +29,9 @@
 		&::before {
 			position: absolute;
 			content: "";
-			width: 96.5%;
-			bottom: -16px;
+			width: 0;
+			left: 20px;
+			bottom: 0;
 			border-bottom: 0.5px solid rgba($color: $Gray, $alpha: 0.5);
 			opacity: 1;
 			@media (max-width: em(768)) {
@@ -57,6 +58,7 @@
 	// .header__menu
 	&__menu {
 		height: 100%;
+		padding: rem(20) 0;
 	}
 
 	// .header__buttons
@@ -66,7 +68,8 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		height: 100%;
+		align-self: normal;
+		padding: rem(20) 0;
 		@media (max-width: em(768)) {
 			flex-grow: 1;
 		}
@@ -75,12 +78,10 @@
 			content: "";
 			position: absolute;
 			left: 0;
+			bottom: 0;
 			border-left: 0.5px solid rgba($color: $Gray, $alpha: 0.5);
-			height: 70px;
+			height: 0;
 			opacity: 1;
-			@media (max-width: em(991)) {
-				height: 105px;
-			}
 			@media (max-width: em(768)) {
 				border: none;
 			}
@@ -134,7 +135,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin: 0px -15px;
+		margin: 0px -10px;
 
 		@media (max-width: $tablet) {
 			flex-wrap: wrap;
@@ -777,8 +778,8 @@
 		}
 		// .form__input_before
 		&_before {
-			&::before{
-				content:'';
+			&::before {
+				content: "";
 				position: absolute;
 				top: 12px;
 				right: 0;
@@ -788,10 +789,9 @@
 				opacity: 0.4;
 				transform: rotate(135deg);
 				transition: transform 0.3s ease 0s;
-				
 			}
 			&._spoller-active {
-				&::before{
+				&::before {
 					transform: rotate(-45deg);
 				}
 			}
