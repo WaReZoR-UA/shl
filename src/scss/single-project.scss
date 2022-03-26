@@ -115,16 +115,7 @@
 //========================================================================================================================================================
 .project-discuss {
 	@media (min-width: $mobile) {
-		position: relative;
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: calc(100% - rem(80));
 			background-color: $LightGray;
-		}
 	}
 	@media (max-width: $mobile) {
 		background-color: $LightGray;
@@ -159,7 +150,7 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: flex-start;
-				padding: rem(50) 0 rem(130);
+				padding: rem(50) 0;
 			}
 		}
 		p {

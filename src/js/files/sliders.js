@@ -275,7 +275,7 @@ function initSliders() {
 		let insuranceSliderAbout = new Swiper('.insurance-safety__slider', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation, Pagination, Lazy],
+			modules: [Navigation, Pagination, Lazy, Autoplay],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -285,7 +285,7 @@ function initSliders() {
 			// simulateTouch: false,
 			grabCursor: true,
 			//touchRatio: 0,
-			// loop: true,
+			loop: true,
 			//preloadImages: false,
 			lazy: {
 				loadPrevNext: true,
@@ -294,11 +294,12 @@ function initSliders() {
 			/*
 			// Эффекты
 			effect: 'fade',
+			*/
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false,
 			},
-			*/
+			
 
 			// Пагинация
 

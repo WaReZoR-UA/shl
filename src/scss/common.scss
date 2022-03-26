@@ -53,6 +53,8 @@
 		&:hover {
 			color: $Orange;
 			background-color: $White;
+			box-shadow: inset 2px 2px 0 $Orange,
+			inset -2px -2px 0 $Orange;
 			.header & {
 				box-shadow: inset 2px 2px 0 $Orange, inset -2px -2px 0 $Orange;
 			}
@@ -299,16 +301,6 @@
 			font-size: rem(34);
 		}
 	}
-}
-.hide-filter {
-	visibility: hidden;
-	width: 0;
-	height: 0;
-	max-width: 0;
-	font-size: 0;
-	margin: 0;
-	padding: 0;
-	position: absolute;
 }
 .h1,
 .h2,

@@ -51,7 +51,6 @@
 		&__picture-box {
 			@include adaptiveValue("width", 450, 321.5);
 			@include adaptiveValue("height", 580, 410);
-			@include adaptiveValue("margin-bottom", -69, 72);
 		}
 		// .general__image
 		&__image {

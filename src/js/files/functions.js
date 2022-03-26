@@ -282,62 +282,64 @@ export function spollers() {
 }
 
 // Модуь работы с фильтром товаров =======================================================================================================================================================================================================================
-/* Инструкция как пользоваться фильтром
+/*
+   Инструкция как пользоваться фильтром
 	data-filter-nav - добавлять к родителю списка с навигацией
-	data-filter-button="" - добавлять ссылкам списка с навигацией со значениями all, one, two, three
+	data-filter-button="" - добавлять ссылкам списка с произвольными значениями (для показать всё сразу у одного из пунктов должно быть значение all)
 	data-filter-body - добавлять к родителю блока с карточками для сортировки
-	data-filter-card="" - добавлять карточкам со значениями one, two, three
+	data-filter-card="" - добавлять карточкам со значениями аналогичными значениям заданными в data-filter-button (кроме значения all)
 */
 export function filterCards() {
 	const cards = document.querySelectorAll('[data-filter-card]');
+	const navFilter = document.querySelector('[data-filter-nav]');
+
 	function filter(category, items) {
 		items.forEach(item => {
 			const isItemFiltered = item.dataset.filterCard;
 			const isShowAll = category.toLowerCase() === 'all';
 
-			isItemFiltered !== category && !isShowAll ? item.classList.add('hide-filter') : item.classList.remove('hide-filter');
+			if (isItemFiltered !== category && !isShowAll) {
+				item.style.visibility = 'hidden';
+				item.style.height = 0;
+				item.style.width = 0;
+				item.style.fontSize = 0;
+				item.style.margin = 0;
+				item.style.padding = 0;
+				item.style.position = 'absolute';
+			} else {
+				item.style.removeProperty('visibility');
+				item.style.removeProperty('height');
+				item.style.removeProperty('width');
+				item.style.removeProperty('font-size');
+				item.style.removeProperty('margin');
+				item.style.removeProperty('padding');
+				item.style.removeProperty('position');
+			}
 		});
 	}
 
-	let navFilter = document.querySelector('[data-filter-nav]');
 	if (navFilter) {
-		navFilter.addEventListener('click', (e) => {
-			if (e.target.tagName !== 'A') return false;
+		navFilter.addEventListener('click', e => {
+			if (!e.target.dataset.filterButton) return false;
 
 			e.preventDefault();
-			const buttons = document.querySelectorAll('[data-filter-nav] a');
+			const buttons = navFilter.querySelectorAll('[data-filter-button]');
 			if (buttons.length) {
 				buttons.forEach(button => {
 					button.classList.remove('active');
 					e.target.classList.add('active');
-					const currentCategory = e.target.dataset.filterButton;
-					filter(currentCategory, cards);
-
+					filter(e.target.dataset.filterButton, cards);
 					if (button.classList.contains(`active`)) {
 						cards.forEach((card, i) => {
-							if (button.dataset.filterButton === 'one') {
-								card.dataset.filterCard == 'one' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-							} else if (button.dataset.filterButton === 'two') {
-								card.dataset.filterCard == 'two' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-							} else if (button.dataset.filterButton === 'three') {
-								card.dataset.filterCard == 'three' ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
-							} else {
-								card.setAttribute('data-sort-filter', i);
-							}
+							button.dataset.filterButton == card.dataset.filterCard ? card.setAttribute('data-sort-filter', 0) : card.setAttribute('data-sort-filter', 1);
+							button.dataset.filterButton == 'all' ? card.setAttribute('data-sort-filter', i) : '';
 						});
 					}
 				});
 			}
-			setClassesFilter();
-		});
-	}
-	function setClassesFilter() {
-		cards.forEach(card => {
-			card.classList.contains('hide-filter') ? card.classList.add('hide-filter') : '';
 			mySortMin('data-sort-filter');
 		});
 	}
-	setClassesFilter();
 
 	// Сортировка
 	function mySortMin(sortType) {

@@ -4,6 +4,11 @@ import { isMobile } from "./functions.js";
 import { flsModules } from "./modules.js";
 import { _slideUp, _slideDown } from "./functions.js";
 
+import { gsap } from "gsap";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin.js";
+
+gsap.registerPlugin(CSSRulePlugin);
+
 //======================================================Video Play Pouse Function==================================================================================================
 const player = document.querySelector('.video-service__wrapper');
 if (player) {
@@ -21,14 +26,11 @@ if (player) {
 		}
 	});
 }
-
 //=====================================================margin on last child menu item big on mobile===================================================================================================
 if (document.querySelector('.mobile-menu__item_big')) {
 	const menuBigItems = document.querySelectorAll('.mobile-menu__item_big');
 	menuBigItems[menuBigItems.length - 1].classList.add('mobile-menu__item_last')
 }
-
-
 //===============================================mobile menu actions=========================================================================================================
 const menuBtn = document.querySelector('.header__burger')
 const menuClose = document.querySelector('.mobile-menu__burger')
@@ -40,11 +42,35 @@ const mobileMenuCallback = document.querySelector('.mobile-menu__button');
 const mobileFormSummon = document.querySelector('.callback');
 const mobileMenuForm = document.querySelector('.mobile-menu__form');
 const formButton = document.querySelector('.form__button');
+
 //========================================================================================================================================================
-window.addEventListener("load", function (e) {
+const headerContainerBefore = CSSRulePlugin.getRule('.header__container:before');
+const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
+
+window.addEventListener("load", () => {
+	let innerWidth = window.innerWidth;
+	if (innerWidth >= 767.98) {
+	gsap.timeline()
+	.to('.wrapper', {duration: .7, opacity: 1})
+			.to(headerContainerBefore, {
+				duration: 0.3, cssRule: {
+					width: '96.5%',
+				}
+			})
+			.to(headerButtonsrBefore, {
+				duration: 0.3, delay: -0.3, cssRule: {
+					height: '100%',
+				}
+			})
+			.from('.header__logo', { opacity: 0, stagger: 0.02, x: -20, duration: 0.5 })
+			.from('.burger', { opacity: 0, x: 20, stagger: 0.02, duration: 0.5, delay: -0.5 })
+			.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
+			.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
+	} else {
+		gsap.from('.wrapper', { opacity: 0, duration: 1.5 })
+	}
 
 	//Copy text media inquiry
-	let innerWidth = window.innerWidth;
 	if (innerWidth <= 767.98) {
 		const projectsCardCity = document.querySelectorAll('.block-main-projects__city');
 		if (projectsCardCity) {
@@ -95,46 +121,54 @@ window.addEventListener("load", function (e) {
 	//========================================================================================================================================================
 
 	// contacts Click and animation form
-	const startForm = document.querySelector('#start-form');
-	const formClients = document.querySelector('#form-clients');
-	const formVendors = document.querySelector('#form-vendors');
-	_slideUp(formClients, 0);
-	_slideUp(formVendors, 0);
-	window.addEventListener("click", function (e) {
-		const target = e.target;
+	const contsctsPage = document.querySelector('.contacts');
+	if (contsctsPage) {
+		const startForm = document.querySelector('#start-form');
+		const formClients = document.querySelector('#form-clients');
+		const formVendors = document.querySelector('#form-vendors');
 
-		const buttons = document.querySelectorAll('#radio-select .form__checkbox-label_select');
-		if (buttons.length) {
-			buttons.forEach(button => {
-				if (target.closest('.form__checkbox-label_select')) {
-					button.classList.remove('active');
-					target.classList.add('active');
-					const input = target.closest('.form__input').querySelector('input');
-					input.value = target.querySelector('.form__checkbox-text').innerText;
-					input.value !== '' ? input.classList.add('active') : input.classList.remove('active');
+		_slideUp(formClients, 0);
+		_slideUp(formVendors, 0);
+
+		contsctsPage.addEventListener("click", e => {
+			const target = e.target;
+
+			if (target.closest('.form__checkbox-label_select')) {
+				const buttons = target.closest('.form__radio-box').querySelectorAll('.form__checkbox-label_select');
+				if (buttons.length) {
+					buttons.forEach(button => {
+						if (target.closest('.form__checkbox-label_select')) {
+							button.classList.remove('active');
+							target.classList.add('active');
+							const input = target.closest('.form__input').querySelector('input');
+							input.value = target.querySelector('.form__checkbox-text').innerText;
+							input.value !== '' ? input.classList.add('active') : input.classList.remove('active');
+						}
+					});
 				}
-			});
-		}
-		if (target.closest('.form__close')) {
-			_slideUp(target.closest('.form'));
-			_slideDown(startForm);
-		}
+			}
 
-		if (target.closest('.form__select-all')) {
-			const checkboxAll = target.closest('.form').querySelectorAll('.form__checkbox-input_checkbox');
-			checkboxAll.forEach(checkbox => {
-				checkbox.setAttribute('checked', '');
-			});
-		}
-		if (target.closest('#clients')) {
-			_slideUp(startForm);
-			_slideDown(formClients);
-		}
-		if (target.closest('#vendors')) {
-			_slideUp(startForm);
-			_slideDown(formVendors);
-		}
-	});
+			if (target.closest('.form__close')) {
+				_slideUp(target.closest('.form'));
+				_slideDown(startForm);
+			}
+
+			if (target.closest('.form__select-all')) {
+				const checkboxAll = target.closest('.form').querySelectorAll('.form__checkbox-input_checkbox');
+				checkboxAll.forEach(checkbox => {
+					checkbox.setAttribute('checked', '');
+				});
+			}
+			if (target.closest('#clients')) {
+				_slideUp(startForm);
+				_slideDown(formClients);
+			}
+			if (target.closest('#vendors')) {
+				_slideUp(startForm);
+				_slideDown(formVendors);
+			}
+		});
+	}
 });
 
 if (menuBtn) {

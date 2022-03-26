@@ -79,16 +79,7 @@
 //========================================================================================================================================================
 .mission {
 	@media (min-width: $mobile) {
-		position: relative;
-		&::before {
-			content: "";
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			background-color: $Gray;
-			height: calc(100% - rem(80));
-		}
+		background-color: $Gray;
 	}
 	@media (max-width: $mobile) {
 		background-color: $Gray;
@@ -112,7 +103,7 @@
 		// .mission__item_padding
 		&_padding {
 			@media (min-width: $mobile) {
-				@include adaptiveValue("padding-top", 168, 120, 1200, 767.98, 1);
+				@include adaptiveValue("padding-top", 168, 50, 1200, 767.98, 1);
 				@include adaptiveValue("padding-bottom", 168, 50, 1200, 767.98, 1);
 			}
 			@media (max-width: $mobile) {
