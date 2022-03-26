@@ -28,22 +28,24 @@ for (let i = 0; i < videosTottalCount; i++) {
 	vidClone.onloadeddata = videoLoaded;
 	vidClone.onerror = videoLoaded;
 	vidClone.src = videos[i].dataset.src;
-	videosLoadedCount++;
 }
 
 function imageLoaded() {
+	++imagesLoadedCount;
 	imagesLoadedCount <= images.length ? mediaLoaded() : '';
-	imagesLoadedCount++;
 }
 function videoLoaded() {
+	++videosLoadedCount;
 	videosLoadedCount <= videos.length ? mediaLoaded() : '';
-	videosLoadedCount++;
 }
 
 function mediaLoaded() {
 	const mediaTotalCount = imagesTotalCount + videosTottalCount;
 	const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
 	showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
+	console.log(Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%');
+	console.log(mediaLoadedCount);
+	console.log(mediaTotalCount);
 	if (mediaLoadedCount >= mediaTotalCount) {
 		document.documentElement.classList.add('loaded');
 	}
