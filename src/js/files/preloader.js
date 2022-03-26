@@ -6,35 +6,46 @@ if (indexes) {
 }
 //===================================================================Preloader persent logic=====================================================================================
 let
-images 				= document.images,
-imagesTotalCount 	= images.length,
-imagesLoadedCount 	= 0,
-showPecentLoad 		= document.querySelector('.preloader__load-percent'),
-videos 				= document.querySelectorAll('video'),
-videosTottalCount 	= videos.length,
-videosLoadedCount 	= 0;
-const mediaTotalCount = imagesTotalCount + videosTottalCount;
-const mediaLoadedCount = imagesLoadedCount + videosLoadedCount
+	images = document.images,
+	imagesTotalCount = images.length,
+	imagesLoadedCount = 0,
+	showPecentLoad = document.querySelector('.preloader__load-percent'),
+	videos = document.querySelectorAll('video'),
+	videosTottalCount = videos.length,
+	videosLoadedCount = 0;
+
+
 
 for (let i = 0; i < imagesTotalCount; i++) {
 	const imgClone = new Image();
-	imgClone.onload 	= mediaLoaded;
-	imgClone.onerror 	= mediaLoaded;
-	imgClone.src 		= images[i].src;
+	imgClone.onload = imageLoaded;
+	imgClone.onerror = imageLoaded;
+	imgClone.src = images[i].dataset.src;
 }
 
 for (let i = 0; i < videosTottalCount; i++) {
-	let vidClone= document.createElement('Video');
-	vidClone.onload = mediaLoaded;
-	vidClone.onerorr= mediaLoaded;
-	vidClone.src = videos[i].src;
+	const vidClone = document.createElement('video');
+	vidClone.onloadeddata = videoLoaded;
+	vidClone.onerror = videoLoaded;
+	vidClone.src = videos[i].dataset.src;
+}
+
+function imageLoaded() {
+	++imagesLoadedCount;
+	imagesLoadedCount <= images.length ? mediaLoaded() : '';
+}
+function videoLoaded() {
+	++videosLoadedCount;
+	videosLoadedCount <= videos.length ? mediaLoaded() : '';
 }
 
 function mediaLoaded() {
-	imagesLoadedCount++;
-	videosLoadedCount++;
+	const mediaTotalCount = imagesTotalCount + videosTottalCount;
+	const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
 	showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
-	
+	console.log(Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%');
+	console.log(mediaLoadedCount);
+	console.log(mediaTotalCount);
 	if (mediaLoadedCount >= mediaTotalCount) {
 		document.documentElement.classList.add('loaded');
 	}
