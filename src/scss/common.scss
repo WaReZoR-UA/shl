@@ -53,6 +53,8 @@
 		&:hover {
 			color: $Orange;
 			background-color: $White;
+			box-shadow: inset 2px 2px 0 $Orange,
+			inset -2px -2px 0 $Orange;
 			.header & {
 				box-shadow: inset 2px 2px 0 $Orange, inset -2px -2px 0 $Orange;
 			}

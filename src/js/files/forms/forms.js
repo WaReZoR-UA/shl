@@ -87,44 +87,31 @@ export let formValidate = {
 	validateInput(formRequiredItem) {
 		let error = 0;
 		if (formRequiredItem.dataset.required === "email") {
-			formRequiredItem.value = formRequiredItem.value.replace(" ", "");
-			if (this.emailTest(formRequiredItem)) {
-				this.addError(formRequiredItem);
-				error++;
-			} else {
-				this.removeError(formRequiredItem);
-			}
-		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
-			this.addError(formRequiredItem);
-			error++;
-		} else if (formRequiredItem.type === "tel") {
-			const telInputs = document.querySelectorAll('[data-tel]');
-			for (let i = 0; i < telInputs.length; i++){
-				let input = telInputs[i];
-				if (input.value) {
-					if (input.value.length !== 17) {
-						this.addError(formRequiredItem);
-						error++;
-					}
-				} else {
-			if (!formRequiredItem.value.trim()) {
-				this.addError(formRequiredItem);
-				error++;
-			} else {
-				this.removeError(formRequiredItem);
-			}
-		}
-			}
-		} else {
-			if (!formRequiredItem.value.trim()) {
-				this.addError(formRequiredItem);
-				error++;
-			} else {
-				this.removeError(formRequiredItem);
-			}
-		}
-		return error;
-	},
+            formRequiredItem.value = formRequiredItem.value.replace(" ", "");
+            if (this.emailTest(formRequiredItem)) {
+                this.addError(formRequiredItem);
+                error++;
+            } else {
+                this.removeError(formRequiredItem);
+            }
+        } else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
+            this.addError(formRequiredItem);
+            error++;
+        } else if (formRequiredItem.type === "tel") {
+            if (formRequiredItem.value.length !== 17) {
+                this.addError(formRequiredItem);
+                error++;
+            }
+        } else {
+            if (!formRequiredItem.value.trim()) {
+                this.addError(formRequiredItem);
+                error++;
+            } else {
+                this.removeError(formRequiredItem);
+            }
+        }
+        return error;
+    },
 	addError(formRequiredItem) {
 		formRequiredItem.classList.add('_form-error');
 		formRequiredItem.parentElement.classList.add('_form-error');

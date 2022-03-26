@@ -2,14 +2,12 @@
 import { isMobile } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-import { TextPlugin } from "gsap/TextPlugin.js";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin.js";
 import { _slideUp, _slideDown } from "./functions.js";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin, CSSRulePlugin);
+import { gsap } from "gsap";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin.js";
 
+gsap.registerPlugin(CSSRulePlugin);
 
 //======================================================Video Play Pouse Function==================================================================================================
 const player = document.querySelector('.video-service__wrapper');
@@ -46,17 +44,16 @@ const mobileMenuForm = document.querySelector('.mobile-menu__form');
 const formButton = document.querySelector('.form__button');
 
 //========================================================================================================================================================
+const headerContainerBefore = CSSRulePlugin.getRule('.header__container:before');
+const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
+
 window.addEventListener("load", () => {
 	let innerWidth = window.innerWidth;
-
-	const headerContainerBefore = CSSRulePlugin.getRule('.header__container:before');
-	const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
-
 	if (innerWidth >= 767.98) {
 	gsap.timeline()
-	.from('.wrapper', { opacity: 0, duration: 1.5 })
+	.to('.wrapper', {duration: .7, opacity: 1})
 			.to(headerContainerBefore, {
-				duration: 0.7, cssRule: {
+				duration: 0.3, cssRule: {
 					width: '96.5%',
 				}
 			})
@@ -65,10 +62,10 @@ window.addEventListener("load", () => {
 					height: '100%',
 				}
 			})
-			.from('.header__logo', { opacity: 0, stagger: 0.06, x: -20, duration: 0.5 })
-			.from('.burger', { opacity: 0, x: 20, stagger: 0.06, duration: 0.5, delay: -0.5 })
-			.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.06, duration: 0.5, delay: -0.3 })
-			.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.06, duration: 0.5, delay: -0.3 })
+			.from('.header__logo', { opacity: 0, stagger: 0.02, x: -20, duration: 0.5 })
+			.from('.burger', { opacity: 0, x: 20, stagger: 0.02, duration: 0.5, delay: -0.5 })
+			.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
+			.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
 	} else {
 		gsap.from('.wrapper', { opacity: 0, duration: 1.5 })
 	}
@@ -136,18 +133,21 @@ window.addEventListener("load", () => {
 		contsctsPage.addEventListener("click", e => {
 			const target = e.target;
 
-			const buttons = document.querySelectorAll('#radio-select .form__checkbox-label_select');
-			if (buttons.length) {
-				buttons.forEach(button => {
-					if (target.closest('.form__checkbox-label_select')) {
-						button.classList.remove('active');
-						target.classList.add('active');
-						const input = target.closest('.form__input').querySelector('input');
-						input.value = target.querySelector('.form__checkbox-text').innerText;
-						input.value !== '' ? input.classList.add('active') : input.classList.remove('active');
-					}
-				});
+			if (target.closest('.form__checkbox-label_select')) {
+				const buttons = target.closest('.form__radio-box').querySelectorAll('.form__checkbox-label_select');
+				if (buttons.length) {
+					buttons.forEach(button => {
+						if (target.closest('.form__checkbox-label_select')) {
+							button.classList.remove('active');
+							target.classList.add('active');
+							const input = target.closest('.form__input').querySelector('input');
+							input.value = target.querySelector('.form__checkbox-text').innerText;
+							input.value !== '' ? input.classList.add('active') : input.classList.remove('active');
+						}
+					});
+				}
 			}
+
 			if (target.closest('.form__close')) {
 				_slideUp(target.closest('.form'));
 				_slideDown(startForm);

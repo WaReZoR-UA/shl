@@ -4,7 +4,7 @@
 	align-items: center;
 	width: 100%;
 	justify-content: center;
-	z-index: 99;
+	z-index: 98;
 	min-height: 72px;
 	transition: background-color 0.3s ease 0s;
 	@media (max-width: em(991)) {
@@ -145,6 +145,9 @@
 	// .menu__item
 	&__item {
 		padding: 10px 10px;
+		&_curent {
+			color: $Orange;
+		}
 	}
 
 	// .menu__link
