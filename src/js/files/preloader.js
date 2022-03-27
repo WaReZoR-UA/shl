@@ -1,4 +1,10 @@
+import { innerWidth } from './script.js';
+
 import gsap from "gsap";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin.js";
+
+gsap.registerPlugin(CSSRulePlugin);
+
 const indexes = document.querySelectorAll('.preloader__subtitle svg > path')
 if (indexes) {
 	const tl = gsap.timeline({ defaults: { opacity: 1, ease: 'linear', autoAlpha: 0, duration: 1 } });
@@ -43,14 +49,36 @@ function mediaLoaded() {
 	const mediaTotalCount = imagesTotalCount + videosTottalCount;
 	const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
 	showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
-	if (mediaLoadedCount >= mediaTotalCount) {
-		addLoadedClass()
-	}
+	mediaLoadedCount == mediaTotalCount ? addLoadedClass() : '';
 }
 function addLoadedClass() {
-	window.addEventListener("load", function () {
-		setTimeout(function () {
-			document.documentElement.classList.add('loaded');
-		}, 1000);
-	});
+	const htmlDucument = document.documentElement;
+	setTimeout(() => {
+		htmlDucument.classList.add('loaded');
+
+		if (htmlDucument.closest('.loaded')) {
+			const headerContainerBefore = CSSRulePlugin.getRule('.header__container:before');
+			const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
+			if (innerWidth >= 767.98) {
+				gsap.timeline()
+					.to('.wrapper', { duration: .7, opacity: 1 })
+					.to(headerContainerBefore, {
+						duration: 0.3, cssRule: {
+							width: '96.5%',
+						}
+					})
+					.to(headerButtonsrBefore, {
+						duration: 0.3, cssRule: {
+							height: '100%',
+						}
+					}, '-=0.3')
+					.from('.header__logo', { opacity: 0, stagger: 0.02, x: -20, duration: 0.3 })
+					.from('.burger', { opacity: 0, x: 20, stagger: 0.02 }, '-=0.2')
+					.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.02 }, '-=0.3')
+					.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.02 }, '-=0.3')
+			} else {
+				gsap.to('.wrapper', { duration: .7, opacity: 1 })
+			}
+		}
+	}, 1500);
 }

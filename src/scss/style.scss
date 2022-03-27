@@ -63,7 +63,7 @@ body {
 	// Сайт загружен
 	.loaded & {
 		.preloader {
-			position: absolute;
+			position: fixed;
 			width: 100%;
 			height: 100%;
 			transform: translateX(-100%);
