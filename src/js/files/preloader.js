@@ -1,7 +1,7 @@
 import gsap from "gsap";
 const indexes = document.querySelectorAll('.preloader__subtitle svg > path')
 if (indexes) {
-	const tl = gsap.timeline({ defaults: { opacity: 1, ease: 'linear', autoAlpha: 0 } });
+	const tl = gsap.timeline({ defaults: { opacity: 1, ease: 'linear', autoAlpha: 0, duration: 1 } });
 	tl.from('.preloader__subtitle svg > path', { stagger: .04 })
 }
 //===================================================================Preloader persent logic=====================================================================================
@@ -43,10 +43,14 @@ function mediaLoaded() {
 	const mediaTotalCount = imagesTotalCount + videosTottalCount;
 	const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
 	showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
-	console.log(Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%');
-	console.log(mediaLoadedCount);
-	console.log(mediaTotalCount);
 	if (mediaLoadedCount >= mediaTotalCount) {
-		document.documentElement.classList.add('loaded');
+		addLoadedClass()
 	}
+}
+function addLoadedClass() {
+	window.addEventListener("load", function () {
+		setTimeout(function () {
+			document.documentElement.classList.add('loaded');
+		}, 1000);
+	});
 }
