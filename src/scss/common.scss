@@ -61,6 +61,7 @@
 		}
 		&_form-black {
 			&:hover {
+				box-shadow:none;
 				background-color: transparent;
 				color: $HardBlack;
 			}

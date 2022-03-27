@@ -49,26 +49,28 @@ const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
 
 window.addEventListener("load", () => {
 	let innerWidth = window.innerWidth;
-	if (innerWidth >= 767.98) {
-	gsap.timeline()
-	.to('.wrapper', {duration: .7, opacity: 1})
-			.to(headerContainerBefore, {
-				duration: 0.3, cssRule: {
-					width: '96.5%',
-				}
-			})
-			.to(headerButtonsrBefore, {
-				duration: 0.3, delay: -0.3, cssRule: {
-					height: '100%',
-				}
-			})
-			.from('.header__logo', { opacity: 0, stagger: 0.02, x: -20, duration: 0.5 })
-			.from('.burger', { opacity: 0, x: 20, stagger: 0.02, duration: 0.5, delay: -0.5 })
-			.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
-			.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
-	} else {
-		gsap.from('.wrapper', { opacity: 0, duration: 1.5 })
-	}
+	setTimeout(function () {
+		if (innerWidth >= 767.98) {
+		gsap.timeline()
+		.to('.wrapper', {duration: .7, opacity: 1})
+				.to(headerContainerBefore, {
+					duration: 0.3, cssRule: {
+						width: '96.5%',
+					}
+				})
+				.to(headerButtonsrBefore, {
+					duration: 0.3, delay: -0.3, cssRule: {
+						height: '100%',
+					}
+				})
+				.from('.header__logo', { opacity: 0, stagger: 0.02, x: -20, duration: 0.3 })
+				.from('.burger', { opacity: 0, x: 20, stagger: 0.02, duration: 0.5, delay: -0.2 })
+				.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
+				.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.02, duration: 0.5, delay: -0.3 })
+		} else {
+			gsap.from('.wrapper', { opacity: 0, duration: 1.5 })
+		}
+	}, 700);
 
 	//Copy text media inquiry
 	if (innerWidth <= 767.98) {

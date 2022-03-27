@@ -100,7 +100,7 @@
 		transition: color 0.3s ease 0s;
 	}
 }
-.pagination {
+.posts .pagination {
 	display: flex;
 	align-items: center;
 	@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
