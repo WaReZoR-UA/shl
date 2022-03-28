@@ -15,43 +15,42 @@ let
 	images = document.images,
 	imagesTotalCount = images.length,
 	imagesLoadedCount = 0,
-	showPecentLoad = document.querySelector('.preloader__load-percent'),
-	videos = document.querySelectorAll('video'),
-	videosTottalCount = videos.length,
-	videosLoadedCount = 0;
+	showPecentLoad = document.querySelector('.preloader__load-percent');
+	// videos = document.querySelectorAll('video'),
+	// videosTottalCount = videos.length,
+	// videosLoadedCount = 0;
 
 
 
 for (let i = 0; i < imagesTotalCount; i++) {
-	const imgClone = new Image();
+	const imgClone = document.createElement('img');
 	imgClone.onload = imageLoaded;
 	imgClone.onerror = imageLoaded;
 	imgClone.src = images[i].dataset.src;
 }
 
-for (let i = 0; i < videosTottalCount; i++) {
-	const vidClone = document.createElement('video');
-	vidClone.onloadeddata = videoLoaded;
-	vidClone.onerror = videoLoaded;
-	vidClone.src = videos[i].dataset.src;
+// for (let i = 0; i < videosTottalCount; i++) {
+// 	const vidClone = document.createElement('video');
+// 	vidClone.onloadeddata = videoLoaded;
+// 	vidClone.onerror=videoLoaded;
+// 	vidClone.src = videos[i].dataset.src;
+// }
+	imagesLoadedCount++;
+	showPecentLoad.innerText = Math.round((100 / imagesTotalCount) * imagesLoadedCount) + '%';
+	imagesLoadedCount == images.length ? addLoadedClass() : '';
 }
-
-function imageLoaded() {
-	++imagesLoadedCount;
-	imagesLoadedCount <= images.length ? mediaLoaded() : '';
-}
-function videoLoaded() {
-	++videosLoadedCount;
-	videosLoadedCount <= videos.length ? mediaLoaded() : '';
-}
-
-function mediaLoaded() {
-	const mediaTotalCount = imagesTotalCount + videosTottalCount;
-	const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
+// function videoLoaded() {
+	// 	++videosLoadedCount;
+	// 	videosLoadedCount <= videos.length ? mediaLoaded() : '';
+	// }
 	
-	showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
-	mediaLoadedCount == mediaTotalCount ? addLoadedClass() : '';
-}
+	// function mediaLoaded() {
+		// const mediaTotalCount = imagesTotalCount + videosTottalCount;
+		// const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
+		// showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
+		// imagesLoadedCount == imagesTotalCount ? addLoadedClass() : '';
+		// imagesLoadedCount == imagesTotalCount ? addLoadedClass() : '';
+// }
 function addLoadedClass() {
 	const htmlDucument = document.documentElement;
 	setTimeout(() => {

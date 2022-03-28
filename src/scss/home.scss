@@ -488,7 +488,10 @@
 	align-items: center;
 	justify-content: flex-end;
 	z-index: 55;
-	height: 100vh;
+	height: 100%;
+	@media (max-width: em(825)){
+		display: none;
+	}
 	// .pagination__container
 	&__container {
 		flex: 1 1 100%;
