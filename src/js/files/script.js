@@ -4,8 +4,6 @@ import { isMobile } from "./functions.js";
 import { flsModules } from "./modules.js";
 import { _slideUp, _slideDown } from "./functions.js";
 
-import { gsap } from "gsap";
-
 
 //======================================================Video Play Pouse Function==================================================================================================
 const player = document.querySelector('.video-service__wrapper');
