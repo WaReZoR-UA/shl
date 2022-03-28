@@ -2,6 +2,7 @@
 import { isMobile, getHash } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "./gotoblock.js";
+// import { tl } from "../script.js";
 // Переменная контроля добавления события window scroll.
 let addWindowScrollEvent = false;
 //====================================================================================================================================================================================================================================================================================================
@@ -26,6 +27,11 @@ export function pageNavigation() {
 				const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
 				const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
 				gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+				console.log();
+				setTimeout(() => {
+					// tl.play(gotoLink.dataset.goto);
+					// tl.pause(gotoLink.dataset.goto);
+				}, gotoSpeed + 30);
 				e.preventDefault();
 			}
 		} else if (e.type === "watcherCallback" && e.detail) {

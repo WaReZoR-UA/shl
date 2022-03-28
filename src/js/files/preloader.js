@@ -48,6 +48,7 @@ function videoLoaded() {
 function mediaLoaded() {
 	const mediaTotalCount = imagesTotalCount + videosTottalCount;
 	const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
+	
 	showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
 	mediaLoadedCount == mediaTotalCount ? addLoadedClass() : '';
 }
@@ -73,7 +74,7 @@ function addLoadedClass() {
 						}
 					}, '-=0.3')
 					.from('.header__logo', { opacity: 0, stagger: 0.02, x: -20, duration: 0.3 })
-					.from('.burger', { opacity: 0, x: 20, stagger: 0.02 }, '-=0.2')
+					.from('.header__buttons', { opacity: 0, x: 20, stagger: 0.02 }, '-=0.2')
 					.from('.menu__list li', { opacity: 0, y: 20, stagger: 0.02 }, '-=0.3')
 					.from('.header__contacts a', { opacity: 0, y: 20, stagger: 0.02 }, '-=0.3')
 			} else {

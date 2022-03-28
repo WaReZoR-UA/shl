@@ -6,6 +6,81 @@ import { _slideUp, _slideDown } from "./functions.js";
 
 import { gsap } from "gsap";
 
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+
+gsap.registerPlugin(ScrollTrigger);
+
+//========================================================================================================================================================
+
+export const tl = gsap.timeline();
+
+tl.fromTo('#sc1', { opacity: 1, zIndex: 1 }, { opacity: 0, zIndex: 0 })
+.to('#sc1', { x: "-100vw", duration: 0 })
+
+.to('#sc2', { y: "-100vh", duration: 0 }, '<')
+// tl.fromTo('#sc2', { opacity: 0 }, { opacity: 1 }, '<')
+.from('.introduction__title', { y: '50vh', opacity: 0 }, '-=0.2')
+.from('.introduction__description', { y: '50vh', opacity: 0 }, '-=0.2')
+.from('.introduction__btn-box', { y: '50vh', opacity: 0 }, '-=0.5')
+.to('.introduction__description', { visibility: 'hidden' })
+.to('.introduction__btn-box', { visibility: 'hidden' }, '<')
+.fromTo('.introduction__title', { scale: 1, transformOrigin: '37.37% 50%' }, { scale: 60, transformOrigin: '37.37% 50%' }, '<')
+.fromTo('#sc2', { opacity: 1 }, { opacity: 0 })
+
+.to('#sc3', { y: "-200vh", duration: 0 }, '<')
+.fromTo('#sc3', { opacity: 0 }, { opacity: 1 }, '<')
+.to('#sc2', { y: "0", duration: 0 },'-=0.1')
+.fromTo('#sc3', { opacity: 1 }, { opacity: 0 })
+.to('#sc3', { y: "0", duration: 0 })
+
+.to('#sc4', { y: "-300vh", duration: 0 }, '<')
+.fromTo('#sc4', { opacity: 0 }, { opacity: 1 }, '<')
+.fromTo('#sc4', { opacity: 1 }, { opacity: 0 })
+.to('#sc4', { y: "0", duration: 0 })
+
+.to('#sc5', { y: "-400vh", duration: 0 }, '<')
+.fromTo('#sc5', { opacity: 0 }, { opacity: 1 }, '<')
+.fromTo('#sc5', { opacity: 1 }, { opacity: 0 })
+.to('#sc5', { y: "0", duration: 0 })
+
+.to('#sc6', { y: "-500vh", duration: 0 }, '<')
+.fromTo('#sc6', { opacity: 0 }, { opacity: 1 }, '<')
+.fromTo('#sc6', { opacity: 1 }, { opacity: 0 })
+.to('#sc6', { y: "0", duration: 0 })
+
+.to('#sc7', { y: "-600vh", duration: 0 }, '<')
+.fromTo('#sc7', { opacity: 0 }, { opacity: 1 }, '<')
+.fromTo('#sc7', { opacity: 1 }, { opacity: 0 })
+.to('#sc7', { y: "0", duration: 0 })
+
+.to('#sc8', { y: "-700vh", duration: 0 }, '<')
+.fromTo('#sc8', { opacity: 0 }, { opacity: 1 }, '<')
+.fromTo('#sc8', { opacity: 1 }, { opacity: 0 })
+.to('#sc8', { y: "0", duration: 0 })
+
+.to('#sc9', { y: "-800vh", duration: 0 }, '<')
+.fromTo('#sc9', { opacity: 0 }, { opacity: 1 }, '<')
+
+ScrollTrigger.create({
+	animation: tl,
+	trigger: '.page',
+	start: 'top top',
+	end: 'bottom bottom',
+	// markers: true,
+	pin: true,
+	scrub: true,
+	// onUpdate: (self) => {
+	// 	const progress = self.progress;
+	// 	document.querySelector('.main-slides__slider').style.opacity = progress
+	// 	console.log(progress)
+	// }
+})
+
+document.querySelector('.sc2').onclick = () => {
+	// tl.play('sc2');
+	// tl.pause('sc2');
+};
+//========================================================================================================================================================
 
 //======================================================Video Play Pouse Function==================================================================================================
 const player = document.querySelector('.video-service__wrapper');
