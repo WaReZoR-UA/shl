@@ -35,6 +35,7 @@ for (let i = 0; i < imagesTotalCount; i++) {
 // 	vidClone.onerror=videoLoaded;
 // 	vidClone.src = videos[i].dataset.src;
 // }
+function imageLoaded() {
 	imagesLoadedCount++;
 	showPecentLoad.innerText = Math.round((100 / imagesTotalCount) * imagesLoadedCount) + '%';
 	imagesLoadedCount == images.length ? addLoadedClass() : '';
