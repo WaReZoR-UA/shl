@@ -30,11 +30,12 @@
 	}
 	// .about-safety__info-text
 	&__info-text {
+		@include adaptiveValue("margin-bottom", 100, 48);
 		@media (min-width: em(899.98)) {
 			max-width: rem(900);
-			margin: 0px auto;
+			margin-left: auto;
+			margin-right: auto;
 		}
-		@include adaptiveValue("margin-bottom", 100, 48);
 	}
 	// .about-safety__row
 	&__row {
@@ -93,11 +94,12 @@
 	}
 	// .insurance-safety__heading
 	&__heading {
+		@include adaptiveValue("margin-bottom", 140, 60);
 		@media (min-width: em(899.98)) {
 			max-width: rem(900);
-			margin: 0px auto;
+			margin-left: auto;
+			margin-right: auto;
 		}
-		@include adaptiveValue("margin-bottom", 140, 60);
 	}
 	// .insurance-safety__block-slider
 	&__block-slider {

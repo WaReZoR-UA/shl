@@ -80,7 +80,11 @@ body {
 	overflow: hidden;
 	// Прижимаем footer
 	> main {
-		flex: 1 1 auto;
+		min-height: 100vh;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 	// Фикс для слайдеров
 	> * {

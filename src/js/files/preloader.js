@@ -12,54 +12,36 @@ if (indexes) {
 }
 //===================================================================Preloader persent logic=====================================================================================
 let
-	images = document.images,
+	images = document.querySelectorAll('.wrapper img'),
 	imagesTotalCount = images.length,
 	imagesLoadedCount = 0,
 	showPecentLoad = document.querySelector('.preloader__load-percent');
-	// videos = document.querySelectorAll('video'),
-	// videosTottalCount = videos.length,
-	// videosLoadedCount = 0;
-
-
 
 for (let i = 0; i < imagesTotalCount; i++) {
-	const imgClone = document.createElement('img');
+	const imgClone = new Image();
 	imgClone.onload = imageLoaded;
 	imgClone.onerror = imageLoaded;
-	imgClone.src = images[i].dataset.src;
+	if (images[i].dataset.src) {
+		imgClone.src = images[i].dataset.src;
+	} else {
+		imgClone.src = images[i].src;
+	}
 }
 
-// for (let i = 0; i < videosTottalCount; i++) {
-// 	const vidClone = document.createElement('video');
-// 	vidClone.onloadeddata = videoLoaded;
-// 	vidClone.onerror=videoLoaded;
-// 	vidClone.src = videos[i].dataset.src;
-// }
 function imageLoaded() {
 	imagesLoadedCount++;
 	showPecentLoad.innerText = Math.round((100 / imagesTotalCount) * imagesLoadedCount) + '%';
 	imagesLoadedCount == images.length ? addLoadedClass() : '';
 }
-// function videoLoaded() {
-	// 	++videosLoadedCount;
-	// 	videosLoadedCount <= videos.length ? mediaLoaded() : '';
-	// }
-	
-	// function mediaLoaded() {
-		// const mediaTotalCount = imagesTotalCount + videosTottalCount;
-		// const mediaLoadedCount = imagesLoadedCount + videosLoadedCount;
-		// showPecentLoad.innerText = Math.round((100 / mediaTotalCount) * mediaLoadedCount) + '%';
-		// imagesLoadedCount == imagesTotalCount ? addLoadedClass() : '';
-		// imagesLoadedCount == imagesTotalCount ? addLoadedClass() : '';
-// }
+const headerContainerBefore = CSSRulePlugin.getRule('.header__container:before');
+const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
+
 function addLoadedClass() {
 	const htmlDucument = document.documentElement;
 	setTimeout(() => {
 		htmlDucument.classList.add('loaded');
 
 		if (htmlDucument.closest('.loaded')) {
-			const headerContainerBefore = CSSRulePlugin.getRule('.header__container:before');
-			const headerButtonsrBefore = CSSRulePlugin.getRule('.header__buttons:before');
 			if (innerWidth >= 767.98) {
 				gsap.timeline()
 					.to('.wrapper', { duration: .7, opacity: 1 })
