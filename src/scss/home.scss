@@ -400,6 +400,7 @@
 		// .advantages__picture
 		&__picture {
 			position: absolute;
+			overflow: hidden;
 			@include adaptiveValue("top", 20, 17, 1200, 768, 1);
 			left: -170px;
 			top: 0px;

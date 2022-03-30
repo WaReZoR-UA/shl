@@ -13,37 +13,37 @@
 				<nav class="pagination-main__container">
 					<ul class="pagination-main__body">
 						<li class="pagination-main__item">
-							<button data-goto="#sc1" type="submit" class="pagination-main__button "></button>
+							<button data-goto="#sc1" type="button" class="pagination-main__button "></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc2" type="submit" class="pagination-main__button sc2"></button>
+							<button data-goto="#sc2" data-goto-top="43" type="button" class="pagination-main__button sc2"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc3" type="submit" class="pagination-main__button"></button>
+							<button data-goto-top="480" data-goto="#sc3" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc4" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc4" data-goto-top="790" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc5" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc5" data-goto-top="810" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc6" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc6" data-goto-top="-40" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc7" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc7" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc8" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc8" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc9" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc9" type="button" class="pagination-main__button"></button>
 						</li>
 					</ul>
 				</nav>
 			</div>
-			<section class="main-slides">
-				<div data-watch="navigator" data-watch-threshold='0.49' id="sc1" data-fullscreen class="main-slides__slider swiper">
+			<section data-fullscreen data-watch="navigator" data-watch-threshold='0.49' id="sc1" class="main-slides">
+				<div class="main-slides__slider swiper">
 					<div class="main-slides__wrapper swiper-wrapper">
 						<div class="main-slides__slide swiper-slide">
 							<div class="main-slides__body">
@@ -221,7 +221,7 @@
 								<picture class="advantages__picture advantages__picture_small">
 									<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_1.svg" type="image/svg+xml">
 									<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_1-2.svg" type="image/svg+xml">
-									<img src="@img/icons/line_1.svg" alt="line">
+									<img data-src="@img/icons/line_1.svg" alt="line">
 								</picture>
 								<p class="advantages__description">Precise attention to details</p>
 							</div>
@@ -229,7 +229,7 @@
 								<picture class="advantages__picture advantages__picture_medium">
 									<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_2.svg" type="image/svg+xml">
 									<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_1-2.svg" type="image/svg+xml">
-									<img src="@img/icons/line_2.svg" alt="line">
+									<img data-src="@img/icons/line_2.svg" alt="line">
 								</picture>
 								<p class="advantages__description">Reliable team of specialists</p>
 							</div>
@@ -237,7 +237,7 @@
 								<picture class="advantages__picture advantages__picture_large">
 									<source class="advantages__picture-desktop" media="(min-width: 768px)" srcset="@img/icons/line_3.svg" type="image/svg+xml">
 									<source class="advantages__picture-mobile" media="(max-width: 767.98px)" srcset="@img/icons/line_3-2.svg" type="image/svg+xml">
-									<img src="@img/icons/line_3.svg" alt="line">
+									<img data-src="@img/icons/line_3.svg" alt="line">
 								</picture>
 								<p class="advantages__description">Reasonable project time frame</p>
 							</div>

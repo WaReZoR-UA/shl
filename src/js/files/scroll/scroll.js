@@ -2,6 +2,7 @@
 import { isMobile, getHash } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "./gotoblock.js";
+import { tl } from "../script.js";
 // import { tl } from "../script.js";
 // Переменная контроля добавления события window scroll.
 let addWindowScrollEvent = false;
@@ -24,14 +25,14 @@ export function pageNavigation() {
 				const gotoLink = targetElement.closest('[data-goto]');
 				const gotoLinkSelector = gotoLink.dataset.goto ? gotoLink.dataset.goto : '';
 				const noHeader = gotoLink.hasAttribute('data-goto-header') ? true : false;
-				const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
+				const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 1500;
 				const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
 				gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
-				console.log();
-				setTimeout(() => {
-					// tl.play(gotoLink.dataset.goto);
-					// tl.pause(gotoLink.dataset.goto);
-				}, gotoSpeed + 30);
+
+				// tl.play("test");
+				// tl.pause();
+				// console.log(gotoSpeed);
+
 				e.preventDefault();
 			}
 		} else if (e.type === "watcherCallback" && e.detail) {

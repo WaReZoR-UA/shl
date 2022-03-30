@@ -12,74 +12,156 @@ gsap.registerPlugin(ScrollTrigger);
 
 //========================================================================================================================================================
 
-export const tl = gsap.timeline();
 
-tl.fromTo('#sc1', { opacity: 1, zIndex: 1 }, { opacity: 0, zIndex: 0 })
-.to('#sc1', { x: "-100vw", duration: 0 })
 
-.to('#sc2', { y: "-100vh", duration: 0 }, '<')
-// tl.fromTo('#sc2', { opacity: 0 }, { opacity: 1 }, '<')
-.from('.introduction__title', { y: '50vh', opacity: 0 }, '-=0.2')
-.from('.introduction__description', { y: '50vh', opacity: 0 }, '-=0.2')
-.from('.introduction__btn-box', { y: '50vh', opacity: 0 }, '-=0.5')
-.to('.introduction__description', { visibility: 'hidden' })
-.to('.introduction__btn-box', { visibility: 'hidden' }, '<')
-.fromTo('.introduction__title', { scale: 1, transformOrigin: '37.37% 50%' }, { scale: 60, transformOrigin: '37.37% 50%' }, '<')
-.fromTo('#sc2', { opacity: 1 }, { opacity: 0 })
+// 	gsap.fromTo(sections[i], {
+// 		// opacity: () => sec.classList.contains('visible') ? 0 : 1
+// 	}, {
+// 		// opacity: () => sec.classList.contains('visible') ? 1 : 0,
+// 		ease: "none",
 
-.to('#sc3', { y: "-200vh", duration: 0 }, '<')
-.fromTo('#sc3', { opacity: 0 }, { opacity: 1 }, '<')
-.to('#sc2', { y: "0", duration: 0 },'-=0.1')
-.fromTo('#sc3', { opacity: 1 }, { opacity: 0 })
-.to('#sc3', { y: "0", duration: 0 })
+// 	});
 
-.to('#sc4', { y: "-300vh", duration: 0 }, '<')
-.fromTo('#sc4', { opacity: 0 }, { opacity: 1 }, '<')
-.fromTo('#sc4', { opacity: 1 }, { opacity: 0 })
-.to('#sc4', { y: "0", duration: 0 })
+// 	window.addEventListener("scroll", e => {
+// 		if (sec.classList.contains('visible')) {
+// 			console.log(sec.id);
+// 			if (sec.id) {
 
-.to('#sc5', { y: "-400vh", duration: 0 }, '<')
-.fromTo('#sc5', { opacity: 0 }, { opacity: 1 }, '<')
-.fromTo('#sc5', { opacity: 1 }, { opacity: 0 })
-.to('#sc5', { y: "0", duration: 0 })
+// 			}
+// 		}
+// 	});
 
-.to('#sc6', { y: "-500vh", duration: 0 }, '<')
-.fromTo('#sc6', { opacity: 0 }, { opacity: 1 }, '<')
-.fromTo('#sc6', { opacity: 1 }, { opacity: 0 })
-.to('#sc6', { y: "0", duration: 0 })
 
-.to('#sc7', { y: "-600vh", duration: 0 }, '<')
-.fromTo('#sc7', { opacity: 0 }, { opacity: 1 }, '<')
-.fromTo('#sc7', { opacity: 1 }, { opacity: 0 })
-.to('#sc7', { y: "0", duration: 0 })
 
-.to('#sc8', { y: "-700vh", duration: 0 }, '<')
-.fromTo('#sc8', { opacity: 0 }, { opacity: 1 }, '<')
-.fromTo('#sc8', { opacity: 1 }, { opacity: 0 })
-.to('#sc8', { y: "0", duration: 0 })
+const sections = gsap.utils.toArray('.page [data-fullscreen]')
+// sections.forEach((sec, i) => {
+// 	sections[sections.length - 1].classList.add('last-section');
+// 	ScrollTrigger.create({
+// 		trigger: sections[i],
+// 		start: "top top",
+// 		end: `bottom 0%`,
+// 		// pin: sections[i],
+// 		// invalidateOnRefresh: true,
+// 		//anticipatePin: 1,
+// 		// toggleClass: 'visible',
+// 		// scrub: true,
+// 		markers: true,
+// 		onUpdate: (self) => {
+// 			const progress = self.progress;
+// 			console.log(progress);
+// 			document.querySelector('.pagination-main').style.opacity = progress
+// 			// if (progress == 1 && !self.trigger.closest('.last-section')) {
+// 			// 	scrollBy(0, sections[i].offsetHeight)
+// 			// 	console.log('scroll-down');
 
-.to('#sc9', { y: "-800vh", duration: 0 }, '<')
-.fromTo('#sc9', { opacity: 0 }, { opacity: 1 }, '<')
+// 			// } else if (progress == 0) {
+// 			// 	scrollBy(0, -sections[i].offsetHeight);
+// 			// 	console.log('scroll-up');
+// 			// }
+// 		}
+// 	}) 
+// 	});
+// gsap.set('.page', {height: () => (window.innerHeight * sections.length - window.innerHeight) * 2 + document.querySelector('footer').offsetHeight})
+
+export const tl = gsap.timeline({ paused: true, defaults: { ease: 'none' } });
+
+// Section 1
+tl.to('#sc1', { autoAlpha: 0 })
+	.to('.pagination-main', { autoAlpha: 0 }, '<')
+	.to('#sc1', { x: "-100vw", duration: 0 })
+
+	// Section 2
+	.to('#sc2', { y: "-100vh", duration: 0 }, '<')
+	.from('.introduction__title', { y: '50vh', autoAlpha: 0, duration: 0.2 }, '<')
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
+	.from('.introduction__description', { y: '50vh', autoAlpha: 0, duration: 0.3 }, '<+=0.2')
+	.from('.introduction__btn-box', { y: '50vh', autoAlpha: 0, duration: 0.3 }, '<+=0.02')
+	.to('.introduction__description', { visibility: 'hidden' })
+	.to('.pagination-main', { autoAlpha: 0, duration: 0.1 }, '<')
+	.to('.introduction__btn-box', { visibility: 'hidden' }, '<')
+	.to('.introduction__title', { scale: 50, transformOrigin: '37.37% 50%', duration: 0.5 }, '<')
+	.to('#sc2', { autoAlpha: 0 }, '<+=0.05')
+
+	// Section 3
+	.to('#sc3', { y: "-200vh", duration: 0 }, '<')
+	.fromTo('#sc3', { autoAlpha: 0 }, { autoAlpha: 1 }, '<')
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
+	.to('#sc2', { y: "0", duration: 0 })
+	// .add("test")
+	.fromTo('#sc3', { webkitFilter: "brightness(1)", filter: "brightness(1)" }, { webkitFilter: "brightness(0)", filter: "brightness(0)", })
+	.to('.pagination-main', { autoAlpha: 0 }, '<')
+	.to('#sc3', { y: "0", duration: 0 })
+
+	// Section 4
+	.to('#sc4', { y: "-300vh", duration: 0 }, '<')
+	.fromTo("#sc4", { webkitFilter: "brightness(0.1)", filter: "brightness(0.1)" }, { webkitFilter: "brightness(1)", filter: "brightness(1)", duration: 0.1 })
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
+	.fromTo("#sc4 > *", { yPercent: '150' }, { yPercent: '-150' }, '<')
+	.fromTo("#sc4 .promise__pragraph", { autoAlpha: 0 }, { autoAlpha: 1, stagger: 0.02, duration: 0.1 }, '<=+0.05')
+	.fromTo("#sc4 .promise__pragraph", { autoAlpha: 1 }, { autoAlpha: 0, stagger: 0.03, duration: 0.1 }, '<+=0.20')
+	.fromTo("#sc4", { webkitFilter: "brightness(1)", filter: "brightness(1)" }, { webkitFilter: "brightness(0)", filter: "brightness(0)" }, '<')
+	.to('.pagination-main', { autoAlpha: 0 }, '<')
+	.to('#sc4', { y: "0", duration: 0 })
+
+	// Section 5
+	.to('#sc5', { y: "-400vh", duration: 0 }, '<')
+	.fromTo('#sc5', { webkitFilter: "brightness(0.1)", filter: "brightness(0.1)" }, { webkitFilter: "brightness(1)", filter: "brightness(1)" }, '<')
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
+	.fromTo('#sc5', { autoAlpha: 1 }, { autoAlpha: 0 })
+	.to('.pagination-main', { autoAlpha: 0 }, '<')
+	.to('#sc5', { y: "0", duration: 0 })
+
+	// Section 6
+	.to('#sc6', { y: "-500vh", duration: 0 }, '<')
+	.fromTo('#sc6', { autoAlpha: 0 }, { autoAlpha: 1 }, '<')
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
+	.from('.advantages__container .advantages__box img', { xPercent: -100, opacity: 0, stagger: 0.15 })
+	.from('.advantages__container .advantages__description', { opacity: 0, stagger: 0.15 }, '<+=0.3')
+	.fromTo('#sc6', { webkitFilter: "brightness(1)", filter: "brightness(1)" }, { webkitFilter: "brightness(0.1)", filter: "brightness(0.1)" })
+	.to('.pagination-main', { autoAlpha: 0 }, '<')
+	.to('#sc6', { y: "0", duration: 0 })
+
+	// Section 7
+	.to('#sc7', { y: "-600vh", duration: 0 }, '<')
+	.fromTo('#sc7', { webkitFilter: "brightness(0.1)", filter: "brightness(0.1)" }, { webkitFilter: "brightness(1)", filter: "brightness(1)" }, '<')
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
+	.fromTo('#sc7', { autoAlpha: 1 }, { autoAlpha: 0 })
+	.to('.pagination-main', { autoAlpha: 0 }, '<')
+	.to('#sc7', { y: "0", duration: 0 })
+
+	// Section 8
+	.to('#sc8', { y: "-700vh", duration: 0 }, '<')
+	.fromTo('#sc8', { autoAlpha: 0 }, { autoAlpha: 1 }, '<')
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
+	.from('.team__content', { y: 60, opacity: 0, duration: 0.1 })
+	.fromTo('#sc8', { autoAlpha: 1 }, { autoAlpha: 0 })
+	.to('.pagination-main', { autoAlpha: 0 }, '<')
+	.to('#sc8', { y: "0", duration: 0 })
+
+	// Section 9
+	.to('#sc9', { y: "-800vh", duration: 0 }, '<')
+	.fromTo('#sc9', { autoAlpha: 0 }, { autoAlpha: 1 }, '<')
+	.to('.pagination-main', { autoAlpha: 1 }, '<')
 
 ScrollTrigger.create({
 	animation: tl,
 	trigger: '.page',
-	start: 'top top',
-	end: 'bottom bottom',
+	start: () => "top top",
+	end: () => "+=" + (window.innerHeight * sections.length - window.innerHeight),
 	// markers: true,
 	pin: true,
-	scrub: true,
-	// onUpdate: (self) => {
-	// 	const progress = self.progress;
-	// 	document.querySelector('.main-slides__slider').style.opacity = progress
-	// 	console.log(progress)
-	// }
+	scrub: 0.5,
+	onUpdate: (self) => {
+		const progress = self.progress;
+		// document.querySelector('.pagination-main').style.opacity = progress
+		// 	console.log(progress)
+	}
 })
 
-document.querySelector('.sc2').onclick = () => {
-	// tl.play('sc2');
-	// tl.pause('sc2');
-};
+// document.querySelector('.sc2').onclick = () => {
+// tl.play('sc2');
+// tl.pause('sc2');
+// };
 //========================================================================================================================================================
 
 //======================================================Video Play Pouse Function==================================================================================================
