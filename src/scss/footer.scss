@@ -1,5 +1,7 @@
 //====================================================================================================
 .footer {
+	position: relative;
+	z-index: 1;
 	font-family: $secondFont;
 	background-color: $HardBlack;
 	@include adaptiveValue("padding-top", 80, 30);
