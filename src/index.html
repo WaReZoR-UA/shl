@@ -5,7 +5,7 @@
 })
 
 <body>
-	@@include(html/_preloader.htm,{})
+	<!-- @@include(html/_preloader.htm,{}) -->
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
 		<main class="page">
@@ -13,36 +13,36 @@
 				<nav class="pagination-main__container">
 					<ul class="pagination-main__body">
 						<li class="pagination-main__item">
-							<button data-goto="#sc1" type="submit" class="pagination-main__button "></button>
+							<button data-goto="#sc1" type="button" class="pagination-main__button "></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc2" type="submit" class="pagination-main__button sc2"></button>
+							<button data-goto="#sc2" data-goto-top="43" type="button" class="pagination-main__button sc2"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc3" type="submit" class="pagination-main__button"></button>
+							<button data-goto-top="480" data-goto="#sc3" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc4" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc4" data-goto-top="790" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc5" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc5" data-goto-top="810" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc6" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc6" data-goto-top="-40" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc7" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc7" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc8" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc8" type="button" class="pagination-main__button"></button>
 						</li>
 						<li class="pagination-main__item">
-							<button data-goto="#sc9" type="submit" class="pagination-main__button"></button>
+							<button data-goto="#sc9" type="button" class="pagination-main__button"></button>
 						</li>
 					</ul>
 				</nav>
 			</div>
-			<section data-watch="navigator" /*data-watch-threshold='0.49'*/ id="sc1" data-fullscreen class="main-slides">
+			<section data-fullscreen data-watch="navigator" data-watch-threshold='0.49' id="sc1" class="main-slides">
 				<div class="main-slides__slider swiper">
 					<div class="main-slides__wrapper swiper-wrapper">
 						<div class="main-slides__slide swiper-slide">
@@ -167,27 +167,72 @@
 					</div>
 				</div>
 			</section>
-			<section id="sc2" data-fullscreen data-watch="navigator" /*data-watch-threshold='0.49'*/ class="introduction">
-				<div class="introduction__container">
-					<div class="introduction__wrapper">
-						<h1 class="introduction__title">
-							enjoy the introduction of our company
-						</h1>
-						<p class="introduction__description">SHL Builders are the people you want to take care of your renovation. We established a reputation for ourselves as a high-end
-							company that collaborates with various architects and interior designers across NYC.</p>
-						<div class="introduction__btn-box">
-							<a href="" class="introduction__button button">view projects</a>
+			<section class="introduction">
+				<div id="sc2" data-fullscreen data-watch="navigator" data-watch-threshold='0.49' class="introduction__wraper">
+					<div class="introduction__body">
+						<div class="introduction__container">
+							<svg xmlns="http://www.w3.org/2000/svg" class="introduction__title" viewBox="1 10 1114 280"
+								style="transform: matrix(1, 0, 0, 1, 0, 0); background-color: rgba(0, 0, 0, 0); margin-left: -50px;">
+								<defs>
+									<style>
+										.introduction__cls-1 {
+											fill: none;
+										}
+									</style>
+								</defs>
+								<rect class="introduction__rect" width="100%" height="100%"></rect>
+								<path class="introduction__cls-1"></path>
+								<g class="introduction__cls-2">
+									<path class="introduction__svg-path"
+										d="M970.1,136.3a5.67,5.67,0,0,0-2.2-1.1,15.86,15.86,0,0,0-3.4-.4h-5.8v11.4h5.9a11.61,11.61,0,0,0,3.5-.4,6.6,6.6,0,0,0,2.2-1.2,4.18,4.18,0,0,0,1.1-1.8,9.75,9.75,0,0,0,0-4.8A3.71,3.71,0,0,0,970.1,136.3Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M899.5,137.6a8.06,8.06,0,0,0-3-2.5,10.25,10.25,0,0,0-8.4,0,8.06,8.06,0,0,0-3,2.5,11.67,11.67,0,0,0-1.8,3.9,20.64,20.64,0,0,0-.6,5.2c0,3.9.8,6.9,2.4,9.2a8.39,8.39,0,0,0,7.2,3.4c3.2,0,5.6-1.1,7.2-3.4s2.5-5.3,2.5-9.2a20.64,20.64,0,0,0-.6-5.2A12.89,12.89,0,0,0,899.5,137.6Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M458.6,135h-6.4v23.4h5.4a15,15,0,0,0,5-.8,9.49,9.49,0,0,0,3.4-2.4,9.3,9.3,0,0,0,1.9-3.7,18.26,18.26,0,0,0,.6-4.9c0-3.6-.8-6.5-2.3-8.5S462.1,135,458.6,135Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M398.3,136.2a5.62,5.62,0,0,0-2.2-1,14.87,14.87,0,0,0-3.3-.4h-5.6v10.6h6.2a9,9,0,0,0,3.1-.4,5.47,5.47,0,0,0,2-1.1,4.25,4.25,0,0,0,1-1.7,8,8,0,0,0,.3-2.3,6.65,6.65,0,0,0-.3-2.1A3.57,3.57,0,0,0,398.3,136.2Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M821.5,136.2a5.62,5.62,0,0,0-2.2-1,14.87,14.87,0,0,0-3.3-.4h-5.6v10.6h6.2a9,9,0,0,0,3.1-.4,5.47,5.47,0,0,0,2-1.1,4.25,4.25,0,0,0,1-1.7,8,8,0,0,0,.3-2.3,6.65,6.65,0,0,0-.3-2.1A4.49,4.49,0,0,0,821.5,136.2Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M432.4,137.6a8.06,8.06,0,0,0-3-2.5,10.25,10.25,0,0,0-8.4,0,8.06,8.06,0,0,0-3,2.5,11.67,11.67,0,0,0-1.8,3.9,20.64,20.64,0,0,0-.6,5.2c0,3.9.8,6.9,2.4,9.2a8.39,8.39,0,0,0,7.2,3.4c3.2,0,5.6-1.1,7.2-3.4s2.5-5.3,2.5-9.2a20.64,20.64,0,0,0-.6-5.2A12.89,12.89,0,0,0,432.4,137.6Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M758.9,137.6a8.06,8.06,0,0,0-3-2.5,10.25,10.25,0,0,0-8.4,0,8.06,8.06,0,0,0-3,2.5,11.67,11.67,0,0,0-1.8,3.9,20.64,20.64,0,0,0-.6,5.2c0,3.9.8,6.9,2.4,9.2a8.39,8.39,0,0,0,7.2,3.4c3.2,0,5.6-1.1,7.2-3.4s2.5-5.3,2.5-9.2a20.64,20.64,0,0,0-.6-5.2A12.89,12.89,0,0,0,758.9,137.6Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M686.2,137.6a8.06,8.06,0,0,0-3-2.5,10.25,10.25,0,0,0-8.4,0,8.06,8.06,0,0,0-3,2.5,11.67,11.67,0,0,0-1.8,3.9,20.64,20.64,0,0,0-.6,5.2c0,3.9.8,6.9,2.4,9.2a8.39,8.39,0,0,0,7.2,3.4c3.2,0,5.6-1.1,7.2-3.4s2.5-5.3,2.5-9.2a20.64,20.64,0,0,0-.6-5.2A10.93,10.93,0,0,0,686.2,137.6Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M0,0V300H1117V0ZM70.7,163.2H48.5v-33h22V135H54.1v8.8H69.6v4.8H54.1v9.8H71.4Zm31.9,0H97.4L82.2,139.4v23.8H76.8v-33H82l15.2,23.9V130.2h5.5v33Zm28.8-11.1c0,4-1.1,6.9-3.2,8.9s-5,3-8.6,3c-3.8,0-6.7-.9-8.8-2.8s-3.2-4.8-3.5-8.7h5.6a12.66,12.66,0,0,0,.6,2.8,5.49,5.49,0,0,0,1.2,2.1,5,5,0,0,0,1.9,1.3,8.36,8.36,0,0,0,2.9.5c2.3,0,3.9-.6,4.8-1.9s1.4-3.1,1.4-5.6V130.1h5.6v22Zm35.5,1.9a14.85,14.85,0,0,1-3.1,5.5,12.73,12.73,0,0,1-4.8,3.4,17.93,17.93,0,0,1-12.9,0,14,14,0,0,1-4.9-3.4,14.43,14.43,0,0,1-3.1-5.4,24.77,24.77,0,0,1,0-14.6,15.48,15.48,0,0,1,3.1-5.5,14,14,0,0,1,4.9-3.4,16.08,16.08,0,0,1,6.3-1.2,16.58,16.58,0,0,1,6.4,1.2,14,14,0,0,1,4.9,3.4,15.92,15.92,0,0,1,3.1,5.4,23.33,23.33,0,0,1,1.1,7.3A20.82,20.82,0,0,1,166.9,154Zm17.9-4.5v13.7h-5.6V149.5l-11.5-19.3h6.2l8,14.3,8.1-14.3h5.9ZM232.5,135H222.1v28.2h-5.6V135H206v-4.8h26.5Zm30.4,28.2h-5.6V148.7H242.4v14.5h-5.6v-33h5.6v13.4h14.9V130.2h5.6Zm29.3,0H270v-33h22V135H275.6v8.8H291v4.8H275.5v9.8h17.3Zm21.4,0H308v-33h5.6Zm32.8,0h-5.2L326,139.5v23.8h-5.4v-33h5.2L341,154.2V130.3h5.5v32.9ZM377.3,135H366.9v28.2h-5.6V135H350.8v-4.8h26.5Zm23.6,28.2L395,150.1c-.3,0-.6.1-.9.1h-6.9v13.1h-5.5v-33H393a18.06,18.06,0,0,1,6.2.9,10.68,10.68,0,0,1,3.8,2.3,8.68,8.68,0,0,1,2,3.1,10.16,10.16,0,0,1,.6,3.4,9.83,9.83,0,0,1-1.3,5.4,8.46,8.46,0,0,1-4.1,3.5l6.8,14.4h-6.1Zm38.7-9.2a14.85,14.85,0,0,1-3.1,5.5,12.73,12.73,0,0,1-4.8,3.4,17.93,17.93,0,0,1-12.9,0,14,14,0,0,1-4.9-3.4,14.43,14.43,0,0,1-3.1-5.4,24.77,24.77,0,0,1,0-14.6,15.48,15.48,0,0,1,3.1-5.5,14,14,0,0,1,4.9-3.4,16.08,16.08,0,0,1,6.3-1.2,16.58,16.58,0,0,1,6.4,1.2,14,14,0,0,1,4.9,3.4,15.92,15.92,0,0,1,3.1,5.4,25.9,25.9,0,0,1,.1,14.6Zm33.5-.2a14.49,14.49,0,0,1-3.3,5.2,14.22,14.22,0,0,1-5.3,3.2,22,22,0,0,1-7.1,1.1H446.6v-33h11.9a19.87,19.87,0,0,1,6.6,1,14.83,14.83,0,0,1,5,3,13.22,13.22,0,0,1,3.1,5.1,23.12,23.12,0,0,1-.1,14.4Zm32.4-3.8a20.39,20.39,0,0,1-.9,6.5,12,12,0,0,1-2.6,4.4,11.31,11.31,0,0,1-4.1,2.5,17.35,17.35,0,0,1-5.3.8c-4.2,0-7.4-1.1-9.6-3.4s-3.3-5.9-3.3-10.8V130.3h5.6V150c0,3.1.6,5.4,1.7,7s3,2.3,5.7,2.3,4.5-.8,5.6-2.3,1.6-3.8,1.6-7V130.2h5.6V150Zm32.9,6.9a10.18,10.18,0,0,1-2.7,3.8,10.93,10.93,0,0,1-4.2,2.5,18,18,0,0,1-12.1-.3,13.54,13.54,0,0,1-4.7-3.4,13.79,13.79,0,0,1-2.9-5.5,22.79,22.79,0,0,1-1-7.2,23.33,23.33,0,0,1,1.1-7.3A15.48,15.48,0,0,1,515,134a12.73,12.73,0,0,1,4.8-3.4,15.44,15.44,0,0,1,6.1-1.2,17.08,17.08,0,0,1,5.4.8,12.36,12.36,0,0,1,3.9,2.2,9.76,9.76,0,0,1,2.5,3.5,21.46,21.46,0,0,1,1.4,4.5l-5.5.8a21.33,21.33,0,0,0-.9-3,7.12,7.12,0,0,0-1.5-2.2,5.55,5.55,0,0,0-2.2-1.4,9.59,9.59,0,0,0-3.1-.5,8,8,0,0,0-3.9.9,8.61,8.61,0,0,0-2.9,2.5,11.33,11.33,0,0,0-1.8,4,22.83,22.83,0,0,0,0,10.4,12.21,12.21,0,0,0,1.8,4,8.61,8.61,0,0,0,2.9,2.5,8,8,0,0,0,3.9.9,10.42,10.42,0,0,0,3.3-.5,5.94,5.94,0,0,0,2.3-1.4,8.55,8.55,0,0,0,1.5-2.2,13.16,13.16,0,0,0,.8-3h5.9A15.68,15.68,0,0,1,538.4,156.9ZM568.8,135H558.4v28.2h-5.6V135H542.3v-4.8h26.5Zm10,28.2h-5.6v-33h5.6Zm35.7-9.2a14.85,14.85,0,0,1-3.1,5.5,13.57,13.57,0,0,1-4.8,3.4,17.93,17.93,0,0,1-12.9,0,14,14,0,0,1-4.9-3.4,14.43,14.43,0,0,1-3.1-5.4,24.77,24.77,0,0,1,0-14.6,15.48,15.48,0,0,1,3.1-5.5,14,14,0,0,1,4.9-3.4,16.08,16.08,0,0,1,6.3-1.2,16.58,16.58,0,0,1,6.4,1.2,14,14,0,0,1,4.9,3.4,15.92,15.92,0,0,1,3.1,5.4,23.33,23.33,0,0,1,1.1,7.3A20.82,20.82,0,0,1,614.5,154Zm32.8,9.2h-5.2l-15.2-23.8v23.8h-5.4v-33h5.2l15.2,23.9V130.2h5.5v33Zm46.1-9.2a14.85,14.85,0,0,1-3.1,5.5,13.57,13.57,0,0,1-4.8,3.4,17.93,17.93,0,0,1-12.9,0,14,14,0,0,1-4.9-3.4,14.43,14.43,0,0,1-3.1-5.4,24.77,24.77,0,0,1,0-14.6,15.48,15.48,0,0,1,3.1-5.5,14,14,0,0,1,4.9-3.4,16.08,16.08,0,0,1,6.3-1.2,16.58,16.58,0,0,1,6.4,1.2,14,14,0,0,1,4.9,3.4,15.92,15.92,0,0,1,3.1,5.4,23.33,23.33,0,0,1,1.1,7.3A20.82,20.82,0,0,1,693.4,154Zm28.1-19H706v9.4h14.6v4.8H706v14h-5.6v-33h21.1ZM766,154a14.85,14.85,0,0,1-3.1,5.5,13.57,13.57,0,0,1-4.8,3.4,17.93,17.93,0,0,1-12.9,0,14,14,0,0,1-4.9-3.4,14.43,14.43,0,0,1-3.1-5.4,24.77,24.77,0,0,1,0-14.6,15.48,15.48,0,0,1,3.1-5.5,14,14,0,0,1,4.9-3.4,16.08,16.08,0,0,1,6.3-1.2,16.58,16.58,0,0,1,6.4,1.2,14,14,0,0,1,4.9,3.4,15.92,15.92,0,0,1,3.1,5.4,23.33,23.33,0,0,1,1.1,7.3A20.82,20.82,0,0,1,766,154Zm32.3-4a20.39,20.39,0,0,1-.9,6.5,12,12,0,0,1-2.6,4.4,11.31,11.31,0,0,1-4.1,2.5,14.76,14.76,0,0,1-5.3.8c-4.2,0-7.4-1.1-9.6-3.4s-3.3-5.9-3.3-10.8V130.3h5.6V150c0,3.1.6,5.4,1.7,7s3,2.3,5.7,2.3,4.5-.8,5.6-2.3,1.6-3.8,1.6-7V130.2h5.6Zm25.8,13.2-5.9-13.1c-.3,0-.6.1-.9.1h-6.9v13.1h-5.5v-33h11.3a18.06,18.06,0,0,1,6.2.9,10.68,10.68,0,0,1,3.8,2.3,8.68,8.68,0,0,1,2,3.1,10.16,10.16,0,0,1,.6,3.4,9.83,9.83,0,0,1-1.3,5.4,8.46,8.46,0,0,1-4.1,3.5l6.8,14.4h-6.1Zm47.3-6.3a10.18,10.18,0,0,1-2.7,3.8,10.93,10.93,0,0,1-4.2,2.5,18,18,0,0,1-12.1-.3,13.54,13.54,0,0,1-4.7-3.4,13.79,13.79,0,0,1-2.9-5.5,22.79,22.79,0,0,1-1-7.2,23.33,23.33,0,0,1,1.1-7.3A15.48,15.48,0,0,1,848,134a12.73,12.73,0,0,1,4.8-3.4,15.44,15.44,0,0,1,6.1-1.2,17.08,17.08,0,0,1,5.4.8,12.36,12.36,0,0,1,3.9,2.2,9.76,9.76,0,0,1,2.5,3.5,21.46,21.46,0,0,1,1.4,4.5l-5.5.8a21.33,21.33,0,0,0-.9-3,7.12,7.12,0,0,0-1.5-2.2,5.55,5.55,0,0,0-2.2-1.4,9.59,9.59,0,0,0-3.1-.5,8,8,0,0,0-3.9.9,8.61,8.61,0,0,0-2.9,2.5,11.33,11.33,0,0,0-1.8,4,22.83,22.83,0,0,0,0,10.4,12.21,12.21,0,0,0,1.8,4,8.61,8.61,0,0,0,2.9,2.5,8,8,0,0,0,3.9.9,10.42,10.42,0,0,0,3.3-.5,5.94,5.94,0,0,0,2.3-1.4,8.55,8.55,0,0,0,1.5-2.2,13.16,13.16,0,0,0,.8-3h5.9A25.16,25.16,0,0,1,871.4,156.9Zm35.2-2.9a14.85,14.85,0,0,1-3.1,5.5,13.57,13.57,0,0,1-4.8,3.4,17.93,17.93,0,0,1-12.9,0,14,14,0,0,1-4.9-3.4,14.43,14.43,0,0,1-3.1-5.4,24.77,24.77,0,0,1,0-14.6,15.48,15.48,0,0,1,3.1-5.5,14,14,0,0,1,4.9-3.4,16.08,16.08,0,0,1,6.3-1.2,16.58,16.58,0,0,1,6.4,1.2,14,14,0,0,1,4.9,3.4,15.92,15.92,0,0,1,3.1,5.4,23.33,23.33,0,0,1,1.1,7.3A20.82,20.82,0,0,1,906.6,154Zm39.5,9.2H941v-24l-9.1,24h-4.4l-8.7-24v24h-5v-33h6.8l9.4,26.3,9.7-26.3h6.6v33Zm24.6-13.1a17.45,17.45,0,0,1-6.1.9h-6v12.3h-5.5v-33h11.4a21.22,21.22,0,0,1,6.2.8,10.58,10.58,0,0,1,3.8,2.2,7,7,0,0,1,1.9,3.2,12.09,12.09,0,0,1,.6,3.8,14,14,0,0,1-.6,4.1,7.87,7.87,0,0,1-2,3.4A9.4,9.4,0,0,1,970.7,150.1Zm29.1,13.1-3.1-8.4H983.9l-3.1,8.4H975l12.6-33h5.6l12.6,33Zm35.9,0h-5.2l-15.2-23.8v23.8h-5.4v-33h5.2l15.2,23.9V130.2h5.5v33Zm21.1-13.7v13.7h-5.6V149.5l-11.5-19.3h6.2l8,14.3,8.1-14.3h5.9Z">
+									</path>
+									<polygon class="introduction__svg-path" points="985.4 150.1 995.2 150.1 990.3 136.5 985.4 150.1"></polygon>
+									<path class="introduction__svg-path"
+										d="M607.3,137.6a8.06,8.06,0,0,0-3-2.5,10.25,10.25,0,0,0-8.4,0,8.06,8.06,0,0,0-3,2.5,11.67,11.67,0,0,0-1.8,3.9,20.64,20.64,0,0,0-.6,5.2c0,3.9.8,6.9,2.4,9.2a8.39,8.39,0,0,0,7.2,3.4c3.2,0,5.6-1.1,7.2-3.4s2.5-5.3,2.5-9.2a20.64,20.64,0,0,0-.6-5.2A10.93,10.93,0,0,0,607.3,137.6Z">
+									</path>
+									<path class="introduction__svg-path"
+										d="M159.7,137.6a8.06,8.06,0,0,0-3-2.5,10.25,10.25,0,0,0-8.4,0,8.06,8.06,0,0,0-3,2.5,11.67,11.67,0,0,0-1.8,3.9,20.64,20.64,0,0,0-.6,5.2c0,3.9.8,6.9,2.4,9.2a8.39,8.39,0,0,0,7.2,3.4c3.2,0,5.6-1.1,7.2-3.4s2.5-5.3,2.5-9.2a20.64,20.64,0,0,0-.6-5.2A12.89,12.89,0,0,0,159.7,137.6Z">
+									</path>
+								</g>
+								<path class="clintroduction__svg-path"></path>
+							</svg>
+							<p class="introduction__description">SHL Builders are the people you want to take care of your renovation. We established a reputation for ourselves as a
+								high-end
+								company that collaborates with various architects and interior designers across NYC.</p>
+							<div class="introduction__btn-box">
+								<a href="" class="introduction__button button">view projects</a>
+							</div>
 						</div>
 					</div>
+					<video id="sc3" data-src="files/video/video_1.mp4" autoplay muted playsinline loop class="introduction__video"></video>
 				</div>
 			</section>
-			<div id="sc3" data-fullscreen data-watch="navigator" data-watch-threshold='0.49' class="introduction__video video">
-				<div class="video__wrapper">
-					<video data-src="files/video/video_1.mp4" autoplay muted playsinline loop class="video__first"></video>
-				</div>
-			</div>
-			<section id="sc4" data-watch="navigator" data-watch-threshold='0.49' data-fullscreen class="promise">
-				<div class="promise__wrapper">
+			<section class="promise">
+				<div id="sc4" data-watch="navigator" data-watch-threshold='0.49' data-fullscreen class="promise__wrapper">
 					<div class="promise__container">
 						<div class="promise__first-box">
 							<h2 class="promise__title">We Promise</h2>
@@ -207,8 +252,8 @@
 					<video data-src="files/video/video_2.mp4" autoplay muted playsinline loop class="video__second"></video>
 				</div>
 			</div>
-			<div id="sc6" data-watch="navigator" data-watch="navigator" data-watch-threshold='0.49' class="advantages">
-				<div data-fullscreen class="advantages__wrapper">
+			<div class="advantages">
+				<div id="sc6" data-watch="navigator" data-watch-threshold='0.49' data-fullscreen class="advantages__wrapper">
 					<img class="advantages__bg" data-src="@img/main_slider/1.jpg" alt="main image">
 					<div class="advantages__body">
 						<div class="advantages__container">
@@ -240,13 +285,13 @@
 					</div>
 				</div>
 			</div>
-			<div id="sc7" data-watch="navigator" data-watch="navigator" data-watch-threshold='0.49' data-fullscreen class="advantages__video video">
+			<div id="sc7" data-watch="navigator" data-watch-threshold='0.49' data-fullscreen class="advantages__video video">
 				<div class="video__wrapper">
 					<video data-src="files/video/video_3.mp4" autoplay muted playsinline loop class="video__third"></video>
 				</div>
 			</div>
-			<section id="sc8" data-watch="navigator" data-watch="navigator" data-watch-threshold='0.49' class="team">
-				<div data-fullscreen class="team__wrapper">
+			<section class="team">
+				<div id="sc8" data-watch="navigator" data-watch-threshold='0.49' data-fullscreen class="team__wrapper">
 					<img class="team__bg" data-src="@img/team_main.jpg" alt="team">
 					<div class="team__container">
 						<div class="team__body">
@@ -262,7 +307,7 @@
 				</div>
 			</div>
 		</main>
-		<!-- @@include('html/_footer.htm',{}) -->
+		@@include('html/_footer.htm',{})
 	</div>
 	@@include('html/_js.htm',{})
 </body>

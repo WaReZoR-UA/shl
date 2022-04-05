@@ -1,52 +1,234 @@
 // Подключение функционала "Чертогов Фрилансера"
-import { isMobile } from "./functions.js";
+import {
+	isMobile
+} from "./functions.js";
 // Подключение списка активных модулей
-import { flsModules } from "./modules.js";
-import { _slideUp, _slideDown } from "./functions.js";
+import {
+	flsModules
+} from "./modules.js";
+import {
+	_slideUp,
+	_slideDown
+} from "./functions.js";
 
-import { gsap } from "gsap";
+import {
+	gsap
+} from "gsap";
 
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import {
+	ScrollTrigger
+} from "gsap/ScrollTrigger.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
 //========================================================================================================================================================
-const sections = gsap.utils.toArray('.page [data-fullscreen]');
-const tl = gsap.timeline({
-	paused: true,
-});
-tl
-	.to('#sc1', { autoAlpha: 0 })
-	
-	.from('#sc2', {autoAlpha: 1})
-	.from('.introduction__title', { y: '100vh'})
-	.to('.introduction__title', { y: '0vh'})
-	.from('.introduction__description', { y: '100vh'})
-	.to('.introduction__description', { y: '0vh'})
-	.from('.introduction__btn-box', { y: '100vh'})
-	.to('.introduction__btn-box', { y: '0vh'})
-	.to('.introduction__btn-box', { y: '100vh'})
-	.to('.introduction__description', { y: '100vh'})
-	.to('.introduction__title', { scale: 60, transformOrigin: '37.37% 50%', duration: .5 })
-	.to('#sc2', {webkitFilter: 0, filter: 0, duration: 0.2})
+function qe(name) {
+	return document.querySelector(`${name}`)
+}
+//========================================================================================================================================================
+// slider section
+const mainSliderSection = gsap.timeline({
+	scrollTrigger: {
+		trigger: '#sc1',
+		scrub: true,
+		pin: true,
+		start: "bottom bottom",
+		end: "bottom -100%",
+		ease: 'none',
+		// markers: true,
+		pinSpacer: false,
+		pinSpacing: false
+	}
+})
+mainSliderSection
+	.to('#sc2', { marginTop: '100vh', autoAlpha: 0, duration: 0 })
+	.to('#sc1', {
+		autoAlpha: 0
+	}, '<+=1')
+	.to('#sc2', { autoAlpha: 1, duration: 0.000001 })
 
+// introduction section
+const introductionSection = gsap.timeline({
+	defaults: { duration: 5 },
+	scrollTrigger: {
+		trigger: "#sc2",
+		scrub: .2,
+		pin: true,
+		ease: 'none',
+		start: "bottom bottom",
+		end: "bottom -250%",
+		markers: true,
+		pinSpacer: false,
+		pinSpacing: false
+	},
+})
+introductionSection
+	.to('#sc4', { marginTop: '350vh', autoAlpha: 0, duration: 0 })
+	.from('.introduction__title', { y: '50vh', opacity: 0 }, '<')
+	.from('.introduction__description', { y: '50vh', opacity: 0 })
+	.from('.introduction__btn-box', { y: '50vh', opacity: 0 })
+	.to('.introduction__btn-box', { y: '50vh', opacity: 0 }, "+=0.4")
+	.to('.introduction__description', { y: '50vh', opacity: 0 }, '<+=0.7')
+	.to('.introduction__title', { scale: 320, transformOrigin: '49.773% 50%', ease: 'power2.in' })
+	.fromTo('.introduction__body', { backgroundColor: 'rgba(255,255,255,1)' }, { backgroundColor: 'rgba(255,255,255,0)', ease: 'power2.in' }, '<+=0.11')
+	.fromTo('.introduction__title rect', { fill: 'rgba(0,0,0,1)' }, { fill: 'rgba(0,0,0,0)', ease: 'power2.in' }, '<')
+	.to('#sc2', {}, '+=1.4')
+	.fromTo('#sc2', { webkitFilter: "brightness(1)", filter: "brightness(1)" }, { webkitFilter: "brightness(0)", filter: "brightness(0)" }, '<')
+	.to('#sc4', { marginTop: 0,autoAlpha: 1, duration: 0 })
 
-ScrollTrigger.create({
-	trigger: '.page',
-	start: () => 'top top',
-	end: () => '+=' + (window.innerHeight * sections.length - window.innerHeight),
-	scrub: 0.5,
-	pin: true,
-	animation: tl,
-	invalidateOnRefresh: true,
-	markers: true
-});
+// promise section
+const promiseSection = gsap.timeline({
+	defaults: { duration: 5 },
+	scrollTrigger: {
+		trigger: "#sc4",
+		scrub: .2,
+		pin: true,
+		ease: 'none',
+		start: "bottom bottom",
+		end: "bottom -150%",
+		markers: true,
+		pinSpacer: false,
+		pinSpacing: false
+	},
+})
+promiseSection
+	.to('#sc5', { marginTop: '150vh', autoAlpha: 0, duration: 0 })
+	.fromTo('#sc4', { webkitFilter: "brightness(0)", filter: "brightness(0)" }, { webkitFilter: "brightness(1)", filter: "brightness(1)", duration: 1 })
+	.fromTo("#sc4 > *", { yPercent: '160' }, { yPercent: '-160' })
+	.fromTo("#sc4 .promise__pragraph", { autoAlpha: 0, }, { autoAlpha: 1, stagger: 0.3, duration: 1.2 }, '<')
+	.fromTo("#sc4 .promise__pragraph", { autoAlpha: 1, }, { autoAlpha: 0, stagger: 0.3, duration: 1.5 }, '-=3.5')
+	.fromTo("#sc4", { webkitFilter: "brightness(1)", filter: "brightness(1)" }, { webkitFilter: "brightness(0)", filter: "brightness(0)", duration: 1 })
+	.to('#sc5', { autoAlpha: 0, duration: 0 })
 
+// sc5 section
+const sc5Section = gsap.timeline({
+	defaults: { duration: 2 },
+	scrollTrigger: {
+		trigger: "#sc5",
+		scrub: .2,
+		pin: true,
+		start: "bottom bottom",
+		end: "bottom -150%",
+		markers: true,
+		pinSpacer: false,
+		pinSpacing: false
+	},
+})
+sc5Section
+	.to('#sc6', { marginTop: '150vh', autoAlpha: 0, duration: 0 })
+	.fromTo("#sc5", { autoAlpha: 0 }, { autoAlpha: 1 }, '<')
+	.to("#sc5", {})
+	.fromTo("#sc5", { autoAlpha: 1 }, { autoAlpha: 0 })
+	.to('#sc6', { marginTop: 0, autoAlpha: 0, duration: 0 })
 
+// sc6 section
+const sc6Section = gsap.timeline({
+	defaults: { duration: 2 },
+	scrollTrigger: {
+		trigger: "#sc6",
+		scrub: .2,
+		pin: true,
+		start: "bottom bottom",
+		end: "bottom -150%",
+		markers: true,
+		pinSpacer: false,
+		pinSpacing: false
+	},
+})
+sc6Section
+	.to('#sc7', { marginTop: '150vh', autoAlpha: 0, duration: 0 })
+	.fromTo("#sc6", { autoAlpha: 0 }, { autoAlpha: 1 }, '<')
+	.from('.advantages__container .advantages__box img', { xPercent: -100, opacity: 0, stagger: 0.15 })
+	.from('.advantages__container .advantages__description', { opacity: 0, stagger: 0.15 }, '<+=0.5')
+	.fromTo("#sc6", { webkitFilter: "brightness(1)", filter: "brightness(1)" }, { webkitFilter: "brightness(0)", filter: "brightness(0)" })
+	.to('#sc7', { marginTop: 0, duration: 0 })
 
+// sc7 section
+const sc7Section = gsap.timeline({
+	defaults: { duration: 2 },
+	scrollTrigger: {
+		trigger: "#sc7",
+		scrub: .2,
+		pin: true,
+		start: "bottom bottom",
+		end: "bottom -150%",
+		markers: true,
+		pinSpacer: false,
+		pinSpacing: false
+	},
+})
+sc7Section
+	.to('#sc8', { marginTop: '150vh', autoAlpha: 0, duration: 0 })
+	.fromTo("#sc7", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 }, '<')
+	.fromTo("#sc7", { webkitFilter: "brightness(0)", filter: "brightness(0)" }, { webkitFilter: "brightness(1)", filter: "brightness(1)" }, '<')
+	.to("#sc7", {})
+	.fromTo("#sc7", { autoAlpha: 1 }, { autoAlpha: 0 })
+	.to('#sc8', { marginTop: 0, autoAlpha: 0, duration: 0 })
+
+// sc8 section
+const sc8Section = gsap.timeline({
+	defaults: { duration: 2 },
+	scrollTrigger: {
+		trigger: "#sc8",
+		scrub: .2,
+		pin: true,
+		start: "bottom bottom",
+		end: "bottom -100%",
+		markers: true,
+		pinSpacer: false,
+		pinSpacing: false
+	},
+})
+sc8Section
+	.to('#sc9', { marginTop: '150vh', autoAlpha: 0, duration: 0 })
+	.fromTo("#sc8", { autoAlpha: 0 }, { autoAlpha: 1 }, '<')
+	.from('.team__content', { y: 60, opacity: 0 })
+	.fromTo("#sc8", { autoAlpha: 1 }, { autoAlpha: 0 })
+	.to('#sc9', { marginTop: 0, autoAlpha: 0, duration: 0 })
+
+// sc9 section
+const sc9Section = gsap.timeline({
+	defaults: { duration: 2 },
+	scrollTrigger: {
+		trigger: "#sc9",
+		scrub: .2,
+		pin: true,
+		start: "bottom bottom",
+		end: "bottom -100%",
+		markers: true,
+		pinSpacer: true,
+		pinSpacing: true
+	},
+})
+sc9Section
+	.fromTo("#sc9", { autoAlpha: 0 }, { autoAlpha: 1 })
+	.to("#sc9", {})
+	.to('.footer', { marginTop: 0, duration: 0 })
 
 //========================================================================================================================================================
 
+window.addEventListener("scroll", animScroll);
+function animScroll(e) {
+	let scroll = window.scrollY;
+	if (qe('#sc4').getBoundingClientRect().top < qe('#sc4').offsetHeight / 2 && qe('#sc4').getBoundingClientRect().top > qe('#sc4').offsetHeight - qe('#sc4').offsetHeight * 2) {
+		qe('body').style.backgroundColor = '#000';
+	} else if (qe('#sc6').getBoundingClientRect().top < qe('#sc6').offsetHeight / 2 - qe('#sc6').offsetHeight && qe('#sc6').getBoundingClientRect().top > qe('#sc6').offsetHeight - qe('#sc6').offsetHeight * 2) {
+		qe('body').style.backgroundColor = '#000';
+	} else {
+		qe('body').style.backgroundColor = '#fff';
+	}
+	console.log(qe('#sc6').getBoundingClientRect().top);
+	console.log(qe('#sc6').offsetHeight / 2 - qe('#sc6').offsetHeight);
+
+	// console.log(qe('#sc4').getBoundingClientRect().top);
+	// console.log(qe('#sc4').offsetHeight - qe('#sc4').offsetHeight * 2);
+}
+// animScroll();
+// else if (qe('#sc5').getBoundingClientRect().top < 0) {
+// 	qe('body').style.backgroundColor = '#000';
+// } else if (qe('#sc6').getBoundingClientRect().top < 0) {
+// 	qe('body').style.backgroundColor = '#fff';
+// }
 //======================================================Video Play Pouse Function==================================================================================================
 const player = document.querySelector('.video-service__wrapper');
 if (player) {
@@ -119,6 +301,7 @@ window.addEventListener("load", () => {
 			date();
 		}, 1000);
 		date();
+
 		function date() {
 			const date = new Date;
 			let currentHourse, currentMinutes, prepand;

@@ -1,0 +1,286 @@
+.posts {
+	// .posts__wrapper
+	&__wrapper {
+		@include adaptiveValue("padding-top", 190, 135);
+		@include adaptiveValue("padding-bottom", 140, 80);
+	}
+	// .posts__container
+	&__container {
+	}
+	// .posts__title
+	&__title {
+		@include adaptiveValue("padding-left", 145, 0, 1200, 992, 1);
+		font-weight: 600;
+		@include adaptiveValue("font-size", 80, 40);
+		letter-spacing: -0.02em;
+		@include adaptiveValue("margin-bottom", 20, 10);
+	}
+	// .posts__subtitle
+	&__subtitle {
+		color: $HardBlack;
+		font-family: $secondFont;
+		@include adaptiveValue("font-size", 19, 15);
+		@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
+	}
+	// .posts__filter
+	&__filter {
+		@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
+		padding-bottom: 0;
+		.builders-about__container {
+			padding: 0;
+		}
+		.nav-block {
+			@include adaptiveValue("margin-bottom", 80, 60);
+		}
+	}
+	// .posts__items
+	&__items {
+	}
+}
+.post {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(320px, 450px));
+	grid-auto-rows: auto;
+	column-gap: 20px;
+	row-gap: 80px;
+	justify-content: space-between;
+	@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
+	@media (max-width: $mobile) {
+		grid-template-columns: minmax(320px, 100%);
+	}
+	// .post__body
+	&__body {
+		font-family: $secondFont;
+		@media (any-hover: hover) {
+			&:hover {
+				.post__image {
+					transform: scale(1.1);
+				}
+				.post__title {
+					color: $Orange;
+				}
+			}
+		}
+	}
+	// .post__picture-box
+	&__picture-box {
+		@include adaptiveValue("width", 450, 320, 2);
+		@include adaptiveValue("height", 390, 220, 2);
+		margin: 0px 0px 20px 0px;
+		overflow: hidden;
+	}
+	// .post__image
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 1s ease 0s;
+	}
+	// .post__info
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		font-size: 12px;
+		letter-spacing: 0.01em;
+		text-transform: uppercase;
+		color: $SemiBlack;
+		opacity: 0.6;
+		@include adaptiveValue("margin-bottom", 18, 10);
+	}
+	// .post__category
+	&__category {
+	}
+	// .post__date
+	&__date {
+	}
+	// .post__title
+	&__title {
+		@include adaptiveValue("font-size", 21, 16);
+		line-height: 1.4;
+		transition: color 0.3s ease 0s;
+	}
+}
+.posts .pagination {
+	display: flex;
+	align-items: center;
+	@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
+	@include adaptiveValue("padding-top", 80, 40);
+
+	// .pagination__body
+	&__body {
+		display: inline-flex;
+	}
+	// .pagination__item
+	&__item {
+		margin: 0px 17px;
+	}
+	// .pagination__link
+	&__link {
+		position: relative;
+		color: $HardBlack;
+		font-weight: 600;
+		font-size: 18px;
+		letter-spacing: -0.01em;
+		opacity: 0.4;
+		&._active {
+			opacity: 1;
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: -5px;
+				left: -55%;
+				width: 24px;
+				height: 2px;
+				background-color: $HardBlack;
+			}
+		}
+	}
+	// .pagination__arrow
+	&__arrow {
+		margin: 0px 10px;
+		cursor: pointer;
+		// ._icon-arrow
+		&._icon-arrow {
+			&::before {
+				font-size: rem(36);
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
+//==================================================================FAQ======================================================================================
+.questions {
+	// .questions__wrapper
+	&__wrapper {
+		&_lightGray {
+			background-color: $LightGray;
+		}
+		@include adaptiveValue("padding-top", 100, 80);
+		@include adaptiveValue("padding-bottom", 115, 80);
+		.safety & {
+			@include adaptiveValue("padding-top", 140, 70);
+			@include adaptiveValue("padding-bottom", 140, 80);
+		}
+	}
+	// .questions__container
+	&__container {
+	}
+	// .questions__body
+	&__body {
+	}
+}
+.faq {
+	@include adaptiveValue("padding-left", 150, 0, 1200, 992, 1);
+	// .faq__title
+	&__title {
+		font-weight: 600;
+		@include adaptiveValue("font-size", 80, 40);
+		letter-spacing: -0.02em;
+		@include adaptiveValue("margin-bottom", 35, 20);
+		text-transform: uppercase;
+	}
+	// .faq__body
+	&__body {
+		margin: 0px 0px 45px 0px;
+	}
+	// .faq__spollers
+	&__spollers {
+	}
+	// .faq__more-questions
+	&__more-questions {
+		color: #3a3a3a;
+		font-family: $secondFont;
+		@include adaptiveValue("font-size", 18, 14);
+		line-height: math.div(27, 18);
+		line-height: 150%;
+	}
+	// .faq__link
+	&__link {
+		color: $HardBlack;
+		position: relative;
+		display: inline-block;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: math.div(18, 12);
+		text-transform: uppercase;
+		@include adaptiveValue("margin-left", 93, 0, 600, 480, 1);
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -5px;
+			width: 100%;
+			height: 1.5px;
+			background-color: $HardBlack;
+			transition: width 0.5s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				&::before {
+					width: 0;
+				}
+			}
+		}
+	}
+	.spollers {
+		// .spollers__item
+		&__item {
+		}
+		// .spollers__title
+		&__title {
+			@include adaptiveValue("font-size", 18, 14);
+			line-height: 1.4;
+			border-bottom: 1px solid $HardBlack;
+			@media (min-width:$mobile){
+				padding: rem(30) rem(45) rem(30) 0; 
+			}
+			width: 100%;
+			text-align: left;
+			color: rgba($color: $HardBlack, $alpha: 0.4);
+			transition: color 0.5s ease 0s;
+			position: relative;
+			cursor: pointer;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				right: rem(20);
+				top: 50%; 
+				background-color: $HardBlack;
+				height: 2px;
+				width: 13px;
+				transition: all 0.5s ease 0s;
+				opacity: 0.4;
+			}
+			&::before {
+				transform: translateY(-50%) rotate(90deg);
+			}
+			&::after {
+				transform: translateY(-50%) rotate(0deg);
+			}
+			&._spoller-active {
+				color: $HardBlack;
+				&::after,
+				&::before {
+					opacity: 1;
+				}
+				&::before {
+					transform: translateY(-50%) rotate(360deg);
+				}
+				&::after {
+					transform: translateY(-50%) rotate(0deg);
+				}
+			}
+			@media (max-width: $mobile) {
+				padding: rem(30) rem(45) rem(17) 0;
+			}
+		}
+		// .spollers__body
+		&__body {
+			font-size: rem(14);
+			line-height: 1.5;
+			color: $HardBlack;
+			padding: rem(30) rem(20) rem(15);
+			border-radius: rem(5);
+		}
+	}
+}

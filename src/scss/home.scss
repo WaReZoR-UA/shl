@@ -1,9 +1,8 @@
 //=======================================================================Main Slider===========================================================
 
 .main-slides {
-	width: 100vw;
-	position: fixed;
-	top: 0;
+	position: relative;
+	height: 100vh;
 	// .main-slides__slider
 	&__slider {
 			width: 100%;
@@ -152,79 +151,90 @@
 
 //=======================================================================Introduction section=================================================================================
 .introduction {
+	position: relative;
+	overflow: hidden;
 	width: 100vw;
-	position: fixed;
-	top: 0;
-	visibility: hidden;
-		// .introduction__container
-		&__container {
-		}
-		// .introduction__wrapper
-		&__wrapper {
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-			width: 100%;
-			height: 100vh;
-		}
-		// .introduction__title
-		&__title {
-			font-family: $secondFont;
-			font-weight: 700;
-			@include adaptiveValue("font-size", 38, 29);
-			line-height: math.div(38 , 38);
-			letter-spacing: em(.3);
-			text-transform: uppercase;
-			@include adaptiveValue("margin-bottom", 40, 30);
-		}
-		// .introduction__description
-		&__description {
-			color: $SemiBlack;
-			font-family: $secondFont;
-			line-height: math.div(21 , 14);
-			max-width: 450px;
-			@include adaptiveValue("margin-bottom", 60, 50);
-		}
-		// .introduction__btn-box
-		&__btn-box {
-		}
-		// .introduction__button
-		&__button {
-		}
-		// .introduction__video
-		&__video {}
-	}
+	height: 100vh;
 
-	//===================================================================Promo Video=====================================================================================
-	.video {
-		width: 100vw;
-		position: fixed;
-		top: 0;
-		visibility: hidden;
+	&__body{
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		height: 100vh;
+		justify-content: center;
+		background-color: #fff;
+	}
+	&__title {
 		
+	}
+	svg {
+		background-color: rgba(0, 0, 0, 0);
+		max-width: rem(1200);
+	}
+	svg .introduction__svg-path {
+		fill: #fff;
+	}
+	svg g {
+		fill: transparent;
+	}
+	svg rect {
+		fill: rgba(0, 0, 0, 1);
+	}
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100vh;
+		background-color: transparent;
+	}
+	// .introduction__description
+	&__description {
+		position: relative;
+		color: $SemiBlack;
+		font-family: $secondFont;
+		line-height: math.div(21 , 14);
+		max-width: 450px;
+		// @include adaptiveValue("margin-top", 200, 100);
+		@include adaptiveValue("margin-bottom", 60, 50);
+		z-index: 10;
+	}
+	// .introduction__btn-box
+	&__btn-box {
+		position: relative;
+	}
+	// .introduction__video
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		object-fit: cover;
+		z-index: -1;
+	}
+}
+	//===================================================================Promo Video=====================================================================================
+.video {
+
 		// .video__wrapper
 		&__wrapper {
 			width: 100%;
-			height: 100%;
+			height: 100vh;
 		}
-		
+
 		// .video__first
 		&__first,
 		&__second,
 		&__third,
 		&__fourth {
-			width: 100vw;
+			display: block;
+			width: 100%;
 			height: 100%;
 			object-fit: cover;
 		}
 	}
 //========================================================================Promice Section================================================================================
 .promise {
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	visibility: hidden;
-	display: flex;
 		// .promise__wrapper
 		&__wrapper {
 			background-color: #0D0D0D;
@@ -347,10 +357,6 @@
 }
 //========================================================================Advantages================================================================================
 .advantages {
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	visibility: hidden;
 		// .advantages__wrapper
 		&__wrapper {
 			position: relative;
@@ -455,10 +461,6 @@
 }
 //========================================================================Team Section================================================================================
 .team {
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	visibility: hidden;
 		// .team_bg
 		&__bg {
 			position: absolute;
@@ -505,8 +507,7 @@
 .pagination-main { 
 	position: fixed;
 	right: calc(percent(360,1920) - 20px);
-	// display: flex;
-	display: none;
+	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	z-index: 55;
